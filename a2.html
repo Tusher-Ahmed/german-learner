@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A2 জার্মান — বাংলায় সম্পূর্ণ কোর্স | Deutsch für Bangla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
+  <nav>
+    <a href="index.html">হোম</a>
+    <a href="a1.html">A1</a>
+    <a href="a2.html" class="active">A2</a>
+    <a href="b1.html">B1</a>
+    <a href="trainer.html">Wortschatz</a>
+    <a href="pruefung.html">Prüfung</a>
+    <a href="schreiben.html">Schreiben</a>
+    <a href="dialoge.html">Dialoge</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <aside class="sidebar">
+    <h4>A2 — সূচিপত্র</h4>
+    <a href="#intro">শুরুর কথা</a>
+    <a href="#l1">১. Dativ (৩য় কারক)</a>
+    <a href="#l2">২. Wechselpräpositionen</a>
+    <a href="#l3">৩. Präteritum (অতীত)</a>
+    <a href="#l4">৪. weil / dass / wenn</a>
+    <a href="#l5">৫. তুলনা (Komparativ)</a>
+    <a href="#l6">৬. Reflexive Verben</a>
+    <a href="#l7">৭. Futur (ভবিষ্যৎ)</a>
+    <a href="#l8">৮. Adjektiv-ending শুরু</a>
+    <a href="#l9">৯. Konnektoren</a>
+    <a href="#l10">১০. শব্দভাণ্ডার</a>
+    <a href="#l11">১১. পরীক্ষা প্রস্তুতি</a>
+    <div class="progress-wrap">
+      <div class="progress-bar"><span id="progressFill"></span></div>
+      <div id="progressLabel" style="font-size:13px;color:var(--muted);margin-top:6px"></div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero" style="margin-bottom:22px">
+      <span class="pill">Niveau A2</span><span class="pill">Grundlegend</span>
+      <h1>A2 — সম্পূর্ণ জার্মান কোর্স</h1>
+      <p class="lead">A1-এর ভিত্তির উপর এবার Dativ, অতীত কাল, আর জটিল বাক্য (subordinate clause) শিখব। প্রতিটা 🔊 চেপে উচ্চারণ শোনো।</p>
+    </section>
+
+    <section class="lesson" id="intro">
+      <h2>📘 শুরুর কথা — A2 তে নতুন কী?</h2>
+      <p>A1-এ তুমি Nominativ ও Akkusativ শিখেছ। A2-তে যোগ হবে:</p>
+      <ul>
+        <li><b>Dativ</b> — তৃতীয় কারক (কাকে/কার জন্য)।</li>
+        <li><b>Präteritum</b> — লিখিত/আনুষ্ঠানিক অতীত কাল।</li>
+        <li><b>Nebensatz</b> — <span class="de">weil, dass, wenn</span> দিয়ে বাক্য জোড়া লাগানো (এখানে verb শেষে যায়!)।</li>
+        <li>তুলনা, reflexive verb, ভবিষ্যৎ কাল, adjective ending।</li>
+      </ul>
+      <div class="warn">A1 ভালোভাবে না বুঝলে আগে সেখানে ফিরে যাও — A2 সম্পূর্ণ A1-এর উপর দাঁড়িয়ে।</div>
+    </section>
+
+    <!-- L1 DATIV -->
+    <section class="lesson" id="l1">
+      <h2><span class="num">1</span> Dativ — তৃতীয় কারক (কাকে / কার জন্য)</h2>
+      <p class="lead">Dativ বোঝায় "কাকে" বা "কার জন্য" কিছু করা হচ্ছে (indirect object)। যেমন: "আমি <b>বন্ধুকে</b> বইটা দিই" — বন্ধুকে = Dativ।</p>
+
+      <h3>Article-এর পরিবর্তন</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>লিঙ্গ</th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th></tr>
+        <tr><td>der (m)</td><td class="de">der / ein</td><td class="de">den / einen</td><td class="de gender-b">dem / einem</td></tr>
+        <tr><td>die (f)</td><td class="de">die / eine</td><td class="de">die / eine</td><td class="de gender-r">der / einer</td></tr>
+        <tr><td>das (n)</td><td class="de">das / ein</td><td class="de">das / ein</td><td class="de gender-g">dem / einem</td></tr>
+        <tr><td>Plural</td><td class="de">die</td><td class="de">die</td><td class="de">den + n</td></tr>
+      </table>
+      </div>
+      <div class="note"><b>মনে রাখার ছড়া:</b> Dativ-এ m/n → <b>dem</b>, f → <b>der</b>, Plural → <b>den</b> এবং noun-এর শেষে একটা <b>-n</b> যোগ হয় (<span class="de">den Kindern</span>)।</div>
+
+      <h3>Personalpronomen — Dativ রূপ</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>Nom.</th><td class="de">ich</td><td class="de">du</td><td class="de">er</td><td class="de">sie</td><td class="de">es</td><td class="de">wir</td><td class="de">ihr</td><td class="de">sie/Sie</td></tr>
+        <tr><th>Dativ</th><td class="de">mir</td><td class="de">dir</td><td class="de">ihm</td><td class="de">ihr</td><td class="de">ihm</td><td class="de">uns</td><td class="de">euch</td><td class="de">ihnen/Ihnen</td></tr>
+      </table>
+      </div>
+
+      <h3>যেসব verb-এ সবসময় Dativ লাগে</h3>
+      <div class="vocab">
+        <div class="w"><span class="de">helfen</span><span class="bn">সাহায্য করা</span></div>
+        <div class="w"><span class="de">danken</span><span class="bn">ধন্যবাদ দেওয়া</span></div>
+        <div class="w"><span class="de">geben</span><span class="bn">দেওয়া</span></div>
+        <div class="w"><span class="de">gehören</span><span class="bn">অধিকারভুক্ত হওয়া</span></div>
+        <div class="w"><span class="de">gefallen</span><span class="bn">পছন্দ হওয়া</span></div>
+        <div class="w"><span class="de">schmecken</span><span class="bn">স্বাদ লাগা</span></div>
+      </div>
+      <div class="ex"><span class="de">Ich helfe meiner Mutter.</span><span class="bn">আমি আমার মাকে সাহায্য করি। (die Mutter → meiner)</span></div>
+      <div class="ex"><span class="de">Das Buch gehört dem Lehrer.</span><span class="bn">বইটা শিক্ষকের। (der Lehrer → dem)</span></div>
+      <div class="ex"><span class="de">Wie geht es dir?</span><span class="bn">তুমি কেমন আছ? (dir = তোমাকে, Dativ)</span></div>
+      <div class="ex"><span class="de">Das Essen schmeckt mir gut.</span><span class="bn">খাবারটা আমার কাছে সুস্বাদু লাগছে।</span></div>
+
+      <h3>সবসময় Dativ চায় এমন preposition</h3>
+      <p><span class="hl">aus, bei, mit, nach, seit, von, zu</span> — এদের পরে সবসময় Dativ।</p>
+      <div class="ex"><span class="de">Ich fahre mit dem Bus.</span><span class="bn">আমি বাসে করে যাই।</span></div>
+      <div class="ex"><span class="de">Ich komme aus der Türkei.</span><span class="bn">আমি তুরস্ক থেকে এসেছি।</span></div>
+      <div class="ex"><span class="de">Nach der Arbeit gehe ich nach Hause.</span><span class="bn">কাজের পর আমি বাসায় যাই।</span></div>
+
+      <div class="quiz">
+        <h4>✍️ অনুশীলনী ১</h4>
+        <ol>
+          <li>বসাও: Ich gebe ___ (der Mann, Dativ) das Buch. Wir helfen ___ (die Frau, Dativ).
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">dem Mann / der Frau</div></div>
+          </li>
+          <li>Pronoun বসাও: Kannst du ___ (আমাকে) helfen? Das Buch gehört ___ (তাকে, স্ত্রী)।
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">mir / ihr</div></div>
+          </li>
+        </ol>
+      </div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L2 WECHSEL -->
+    <section class="lesson" id="l2">
+      <h2><span class="num">2</span> Wechselpräpositionen — দুই-মুখী preposition</h2>
+      <p class="lead">৯টি preposition আছে যারা কখনো Akkusativ কখনো Dativ চায়। নিয়মটা যুক্তিসঙ্গত ও সহজ।</p>
+
+      <p>এই ৯টি: <span class="hl">in, an, auf, über, unter, vor, hinter, neben, zwischen</span>।</p>
+
+      <div class="tblwrap">
+      <table>
+        <tr><th>প্রশ্ন</th><th>মানে</th><th>Case</th><th>উদাহরণ</th></tr>
+        <tr><td><b class="de">Wohin?</b> (কোথায় যাচ্ছে?)</td><td>নড়াচড়া/গন্তব্য</td><td><b class="hl">Akkusativ</b></td><td class="de">Ich gehe in die Schule.</td></tr>
+        <tr><td><b class="de">Wo?</b> (কোথায় আছে?)</td><td>স্থির অবস্থান</td><td><b class="hl">Dativ</b></td><td class="de">Ich bin in der Schule.</td></tr>
+      </table>
+      </div>
+      <div class="note"><b>সূত্র:</b> গতি/গন্তব্য থাকলে → Akkusativ; স্থির/অবস্থান থাকলে → Dativ। "কোথায় যাচ্ছি = Akkusativ, কোথায় আছি = Dativ"।</div>
+
+      <div class="ex"><span class="de">Das Buch liegt auf dem Tisch.</span><span class="bn">বইটা টেবিলের উপর আছে (Wo? → Dativ)।</span></div>
+      <div class="ex"><span class="de">Ich lege das Buch auf den Tisch.</span><span class="bn">আমি বইটা টেবিলের উপর রাখছি (Wohin? → Akkusativ)।</span></div>
+      <div class="ex"><span class="de">Die Katze sitzt unter dem Stuhl.</span><span class="bn">বিড়ালটা চেয়ারের নিচে বসে আছে (Dativ)।</span></div>
+
+      <details>
+        <summary>সংক্ষিপ্ত রূপ (Kontraktionen)</summary>
+        <p><span class="de">in + dem = im</span>, <span class="de">in + das = ins</span>, <span class="de">an + dem = am</span>, <span class="de">an + das = ans</span>, <span class="de">zu + dem = zum</span>, <span class="de">zu + der = zur</span>, <span class="de">von + dem = vom</span>।</p>
+      </details>
+
+      <div class="quiz">
+        <h4>✍️ অনুশীলনী ২</h4>
+        <ol>
+          <li>Akkusativ না Dativ? — Ich hänge das Bild an ___ (die Wand)। / Das Bild hängt an ___ (die Wand)।
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">an die Wand (Wohin?/Akk.) / an der Wand (Wo?/Dativ)</div></div>
+          </li>
+        </ol>
+      </div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L3 PRÄTERITUM -->
+    <section class="lesson" id="l3">
+      <h2><span class="num">3</span> Präteritum — লিখিত অতীত কাল</h2>
+      <p class="lead">গল্প, খবর, বই — লিখিত অতীতে Präteritum ব্যবহার হয়। তবে কথ্য ভাষায় <span class="de">sein, haben</span> ও modal verb-এর Präteritum-ই বেশি চলে, তাই এগুলো অবশ্যই মুখস্থ করো।</p>
+
+      <h3>sein ও haben (সবচেয়ে দরকারি)</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>সর্বনাম</th><th>sein → war</th><th>haben → hatte</th></tr>
+        <tr><td>ich</td><td class="de">war</td><td class="de">hatte</td></tr>
+        <tr><td>du</td><td class="de">warst</td><td class="de">hattest</td></tr>
+        <tr><td>er/sie/es</td><td class="de">war</td><td class="de">hatte</td></tr>
+        <tr><td>wir/sie/Sie</td><td class="de">waren</td><td class="de">hatten</td></tr>
+        <tr><td>ihr</td><td class="de">wart</td><td class="de">hattet</td></tr>
+      </table>
+      </div>
+      <div class="ex"><span class="de">Gestern war ich krank.</span><span class="bn">গতকাল আমি অসুস্থ ছিলাম।</span></div>
+      <div class="ex"><span class="de">Wir hatten keine Zeit.</span><span class="bn">আমাদের সময় ছিল না।</span></div>
+
+      <h3>Modalverben — Präteritum (Umlaut চলে যায়!)</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>ich/er</th><th>können→<b class="de">konnte</b></th><th>müssen→<b class="de">musste</b></th><th>wollen→<b class="de">wollte</b></th><th>dürfen→<b class="de">durfte</b></th><th>sollen→<b class="de">sollte</b></th></tr>
+      </table>
+      </div>
+      <div class="ex"><span class="de">Ich konnte gestern nicht kommen.</span><span class="bn">আমি গতকাল আসতে পারিনি।</span></div>
+
+      <h3>নিয়মিত verb: stem + te + ending</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>সর্বনাম</th><th>machen → machte</th></tr>
+        <tr><td>ich / er/sie/es</td><td class="de">machte</td></tr>
+        <tr><td>du</td><td class="de">machtest</td></tr>
+        <tr><td>wir/sie/Sie</td><td class="de">machten</td></tr>
+        <tr><td>ihr</td><td class="de">machtet</td></tr>
+      </table>
+      </div>
+
+      <h3>অনিয়মিত verb (মুখস্থ) — কিছু নমুনা</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>Infinitiv</th><th>Präteritum (er)</th><th>অর্থ</th></tr>
+        <tr><td class="de">gehen</td><td class="de">ging</td><td>যাওয়া</td></tr>
+        <tr><td class="de">kommen</td><td class="de">kam</td><td>আসা</td></tr>
+        <tr><td class="de">sehen</td><td class="de">sah</td><td>দেখা</td></tr>
+        <tr><td class="de">essen</td><td class="de">aß</td><td>খাওয়া</td></tr>
+        <tr><td class="de">fahren</td><td class="de">fuhr</td><td>যাওয়া (বাহনে)</td></tr>
+        <tr><td class="de">geben</td><td class="de">gab</td><td>দেওয়া</td></tr>
+        <tr><td class="de">finden</td><td class="de">fand</td><td>খুঁজে পাওয়া</td></tr>
+      </table>
+      </div>
+
+      <div class="quiz">
+        <h4>✍️ অনুশীলনী ৩</h4>
+        <ol>
+          <li>Präteritum করো: "আমি অসুস্থ ছিলাম আর আমার সময় ছিল না।"
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">Ich war krank und ich hatte keine Zeit.</div></div>
+          </li>
+          <li>"সে গতকাল বার্লিন গিয়েছিল।" (Präteritum, fahren)
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">Er fuhr gestern nach Berlin.</div></div>
+          </li>
+        </ol>
+      </div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L4 NEBENSATZ -->
+    <section class="lesson" id="l4">
+      <h2><span class="num">4</span> Nebensatz — weil / dass / wenn (verb শেষে!)</h2>
+      <p class="lead">দুটো বাক্য জোড়া লাগাতে conjunction লাগে। কিন্তু <span class="de">weil, dass, wenn</span>-এর মতো subordinating conjunction-এর পরে <b>verb বাক্যের একেবারে শেষে</b> চলে যায়। এটা জার্মানের অন্যতম গুরুত্বপূর্ণ নিয়ম।</p>
+
+      <div class="tblwrap">
+      <table>
+        <tr><th>শব্দ</th><th>অর্থ</th><th>ব্যবহার</th></tr>
+        <tr><td><b class="de">weil</b></td><td>কারণ</td><td>কারণ বোঝাতে</td></tr>
+        <tr><td><b class="de">dass</b></td><td>যে (that)</td><td>মতামত/তথ্যের পর</td></tr>
+        <tr><td><b class="de">wenn</b></td><td>যদি / যখন</td><td>শর্ত/সময়</td></tr>
+        <tr><td><b class="de">obwohl</b></td><td>যদিও</td><td>বৈপরীত্য</td></tr>
+      </table>
+      </div>
+
+      <div class="ex"><span class="de">Ich lerne Deutsch, weil ich in Deutschland studieren möchte.</span><span class="bn">আমি জার্মান শিখি, কারণ আমি জার্মানিতে পড়তে চাই। (verb "möchte" শেষে)</span></div>
+      <div class="ex"><span class="de">Ich glaube, dass Deutsch nicht so schwer ist.</span><span class="bn">আমি মনে করি যে জার্মান তেমন কঠিন নয়। (verb "ist" শেষে)</span></div>
+      <div class="ex"><span class="de">Wenn es regnet, bleibe ich zu Hause.</span><span class="bn">যদি বৃষ্টি হয়, আমি বাসায় থাকি। (Nebensatz আগে বসলে মূল বাক্য verb দিয়ে শুরু)</span></div>
+
+      <div class="warn"><b>মূল কাঠামো:</b> Hauptsatz + <b>,</b> + [weil/dass/wenn] + … + <b>VERB (শেষে)</b>। কমা দিতে ভুলো না।</div>
+      <div class="note">Nebensatz আগে থাকলে পুরো Nebensatz-কে একটা অংশ ধরে মূল বাক্যের verb দ্বিতীয় অবস্থানে বসে: <span class="de">Weil ich müde bin, gehe ich schlafen.</span></div>
+
+      <div class="quiz">
+        <h4>✍️ অনুশীলনী ৪</h4>
+        <ol>
+          <li>জোড়া লাগাও: "Ich bleibe zu Hause. Ich bin krank." (weil দিয়ে)
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">Ich bleibe zu Hause, weil ich krank bin.</div></div>
+          </li>
+          <li>"সে বলে যে সে আসবে।" (dass, kommen)
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">Er sagt, dass er kommt.</div></div>
+          </li>
+        </ol>
+      </div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L5 COMPARATIVE -->
+    <section class="lesson" id="l5">
+      <h2><span class="num">5</span> Komparativ &amp; Superlativ — তুলনা</h2>
+      <p class="lead">"বড়, বড়তর, সবচেয়ে বড়" — তুলনা করার নিয়ম।</p>
+
+      <div class="tblwrap">
+      <table>
+        <tr><th>মূল</th><th>Komparativ (-er)</th><th>Superlativ (am …-sten)</th></tr>
+        <tr><td class="de">klein (ছোট)</td><td class="de">kleiner</td><td class="de">am kleinsten</td></tr>
+        <tr><td class="de">schnell (দ্রুত)</td><td class="de">schneller</td><td class="de">am schnellsten</td></tr>
+        <tr><td class="de">alt (পুরনো)*</td><td class="de">älter</td><td class="de">am ältesten</td></tr>
+        <tr><td class="de">groß (বড়)*</td><td class="de">größer</td><td class="de">am größten</td></tr>
+      </table>
+      </div>
+      <div class="note">* ছোট এক-অক্ষরের অনেক বিশেষণে Umlaut যোগ হয় (a→ä, o→ö, u→ü)।</div>
+
+      <h3>অনিয়মিত (মুখস্থ)</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><td class="de">gut (ভালো)</td><td class="de">besser</td><td class="de">am besten</td></tr>
+        <tr><td class="de">viel (অনেক)</td><td class="de">mehr</td><td class="de">am meisten</td></tr>
+        <tr><td class="de">gern (পছন্দ)</td><td class="de">lieber</td><td class="de">am liebsten</td></tr>
+        <tr><td class="de">hoch (উঁচু)</td><td class="de">höher</td><td class="de">am höchsten</td></tr>
+      </table>
+      </div>
+
+      <div class="ex"><span class="de">Berlin ist größer als Hamburg.</span><span class="bn">বার্লিন হামবুর্গের চেয়ে বড়। (তুলনায় "als" = চেয়ে)</span></div>
+      <div class="ex"><span class="de">Deutsch ist so schwer wie Englisch.</span><span class="bn">জার্মান ইংরেজির মতোই কঠিন। (সমান তুলনায় "so … wie")</span></div>
+      <div class="ex"><span class="de">Ich trinke am liebsten Tee.</span><span class="bn">আমি সবচেয়ে বেশি পছন্দ করি চা।</span></div>
+
+      <div class="quiz">
+        <h4>✍️ অনুশীলনী ৫</h4>
+        <ol>
+          <li>"এই বইটা ওই বইটার চেয়ে ভালো।" (gut)
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">Dieses Buch ist besser als das Buch dort.</div></div>
+          </li>
+        </ol>
+      </div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L6 REFLEXIVE -->
+    <section class="lesson" id="l6">
+      <h2><span class="num">6</span> Reflexive Verben — নিজের প্রতি করা কাজ</h2>
+      <p class="lead">কিছু verb-এর সাথে "নিজেকে" বোঝাতে reflexive pronoun (<span class="de">mich, dich, sich…</span>) লাগে।</p>
+
+      <div class="tblwrap">
+      <table>
+        <tr><th>সর্বনাম</th><td class="de">ich</td><td class="de">du</td><td class="de">er/sie/es</td><td class="de">wir</td><td class="de">ihr</td><td class="de">sie/Sie</td></tr>
+        <tr><th>reflexiv (Akk.)</th><td class="de">mich</td><td class="de">dich</td><td class="de">sich</td><td class="de">uns</td><td class="de">euch</td><td class="de">sich</td></tr>
+      </table>
+      </div>
+
+      <div class="vocab">
+        <div class="w"><span class="de">sich freuen</span><span class="bn">আনন্দিত হওয়া</span></div>
+        <div class="w"><span class="de">sich waschen</span><span class="bn">নিজেকে ধোয়া</span></div>
+        <div class="w"><span class="de">sich interessieren für</span><span class="bn">আগ্রহী হওয়া</span></div>
+        <div class="w"><span class="de">sich treffen</span><span class="bn">দেখা করা</span></div>
+        <div class="w"><span class="de">sich fühlen</span><span class="bn">অনুভব করা</span></div>
+        <div class="w"><span class="de">sich erinnern an</span><span class="bn">মনে রাখা</span></div>
+      </div>
+      <div class="ex"><span class="de">Ich freue mich auf das Wochenende.</span><span class="bn">আমি সপ্তাহান্তের জন্য অপেক্ষায় (আনন্দিত)।</span></div>
+      <div class="ex"><span class="de">Wie fühlst du dich?</span><span class="bn">তুমি কেমন অনুভব করছ?</span></div>
+      <div class="ex"><span class="de">Ich interessiere mich für Musik.</span><span class="bn">আমি সংগীতে আগ্রহী।</span></div>
+
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L7 FUTUR -->
+    <section class="lesson" id="l7">
+      <h2><span class="num">7</span> Futur I — ভবিষ্যৎ কাল</h2>
+      <p class="lead">গঠন: <span class="hl">werden</span> (২য় অবস্থানে) + Infinitiv (শেষে)। যদিও দৈনন্দিন কথায় ভবিষ্যৎ বোঝাতে present tense + সময়-শব্দও চলে।</p>
+
+      <div class="tblwrap">
+      <table>
+        <tr><th>সর্বনাম</th><th>werden</th></tr>
+        <tr><td>ich</td><td class="de">werde</td></tr>
+        <tr><td>du</td><td class="de">wirst</td></tr>
+        <tr><td>er/sie/es</td><td class="de">wird</td></tr>
+        <tr><td>wir/sie/Sie</td><td class="de">werden</td></tr>
+        <tr><td>ihr</td><td class="de">werdet</td></tr>
+      </table>
+      </div>
+      <div class="ex"><span class="de">Ich werde nächstes Jahr nach Deutschland gehen.</span><span class="bn">আমি সামনের বছর জার্মানি যাব।</span></div>
+      <div class="ex"><span class="de">Morgen fahre ich nach Berlin.</span><span class="bn">কাল আমি বার্লিন যাব। (present দিয়েও ভবিষ্যৎ)</span></div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L8 ADJECTIVE -->
+    <section class="lesson" id="l8">
+      <h2><span class="num">8</span> Adjektivdeklination — বিশেষণের লেজ (শুরু)</h2>
+      <p class="lead">Noun-এর আগে বিশেষণ বসলে তার শেষে একটা ending যোগ হয়। A2-তে সবচেয়ে দরকারি: নির্দিষ্ট article-এর পর।</p>
+
+      <h3>নির্দিষ্ট article (der/die/das)-এর পর</h3>
+      <div class="tblwrap">
+      <table>
+        <tr><th>Case</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+        <tr><td>Nom.</td><td class="de">der gut<b>e</b> Mann</td><td class="de">die gut<b>e</b> Frau</td><td class="de">das gut<b>e</b> Kind</td><td class="de">die gut<b>en</b> Leute</td></tr>
+        <tr><td>Akk.</td><td class="de">den gut<b>en</b> Mann</td><td class="de">die gut<b>e</b> Frau</td><td class="de">das gut<b>e</b> Kind</td><td class="de">die gut<b>en</b> Leute</td></tr>
+        <tr><td>Dativ</td><td class="de">dem gut<b>en</b></td><td class="de">der gut<b>en</b></td><td class="de">dem gut<b>en</b></td><td class="de">den gut<b>en</b></td></tr>
+      </table>
+      </div>
+      <div class="note"><b>সহজ সূত্র:</b> নির্দিষ্ট article-এর পর ending হয় <b>-e</b> নয়তো <b>-en</b>। Nominativ ও (die/das)-Akkusativ ছাড়া প্রায় সব জায়গায় <b>-en</b>। বিস্তারিত সম্পূর্ণ টেবিল B1-এ।</div>
+      <div class="ex"><span class="de">Der neue Student kommt aus Indien.</span><span class="bn">নতুন ছাত্রটি ভারত থেকে।</span></div>
+      <div class="ex"><span class="de">Ich kaufe den roten Apfel.</span><span class="bn">আমি লাল আপেলটা কিনি।</span></div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L9 KONNEKTOREN -->
+    <section class="lesson" id="l9">
+      <h2><span class="num">9</span> Konnektoren — বাক্য যুক্তকারী</h2>
+      <p class="lead">এদের word-order আলাদা। মনে রাখো কোনটা verb-second, কোনটা verb-শেষে।</p>
+      <div class="tblwrap">
+      <table>
+        <tr><th>শব্দ</th><th>অর্থ</th><th>Word order</th></tr>
+        <tr><td class="de">und, aber, oder, denn, sondern</td><td>এবং, কিন্তু, অথবা, কারণ, বরং</td><td>স্বাভাবিক (verb ২য়)</td></tr>
+        <tr><td class="de">deshalb, deswegen, trotzdem, dann</td><td>তাই, তাই, তবুও, তারপর</td><td>Inversion (verb ২য়, কর্তা পরে)</td></tr>
+        <tr><td class="de">weil, dass, wenn, obwohl, dass</td><td>কারণ, যে, যদি, যদিও</td><td>verb শেষে</td></tr>
+      </table>
+      </div>
+      <div class="ex"><span class="de">Es regnet, deshalb bleibe ich zu Hause.</span><span class="bn">বৃষ্টি হচ্ছে, তাই আমি বাসায় থাকি। (deshalb-এর পর verb, তারপর কর্তা)</span></div>
+      <div class="ex"><span class="de">Ich lerne viel, aber ich vergesse schnell.</span><span class="bn">আমি অনেক পড়ি, কিন্তু দ্রুত ভুলে যাই।</span></div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L10 VOCAB -->
+    <section class="lesson" id="l10">
+      <h2><span class="num">10</span> Wortschatz — A2 বিষয়ভিত্তিক শব্দ</h2>
+      <h3>স্বাস্থ্য (Gesundheit)</h3>
+      <div class="vocab">
+        <div class="w"><span class="de">der Arzt / die Ärztin</span><span class="bn">ডাক্তার</span></div>
+        <div class="w"><span class="de">die Schmerzen</span><span class="bn">ব্যথা</span></div>
+        <div class="w"><span class="de">krank / gesund</span><span class="bn">অসুস্থ / সুস্থ</span></div>
+        <div class="w"><span class="de">das Medikament</span><span class="bn">ওষুধ</span></div>
+        <div class="w"><span class="de">der Termin</span><span class="bn">অ্যাপয়েন্টমেন্ট</span></div>
+      </div>
+      <h3>কাজ ও ভ্রমণ (Arbeit &amp; Reise)</h3>
+      <div class="vocab">
+        <div class="w"><span class="de">der Beruf</span><span class="bn">পেশা</span></div>
+        <div class="w"><span class="de">die Arbeit</span><span class="bn">কাজ</span></div>
+        <div class="w"><span class="de">der Urlaub</span><span class="bn">ছুটি</span></div>
+        <div class="w"><span class="de">der Bahnhof</span><span class="bn">স্টেশন</span></div>
+        <div class="w"><span class="de">das Flugzeug</span><span class="bn">উড়োজাহাজ</span></div>
+        <div class="w"><span class="de">die Fahrkarte</span><span class="bn">টিকিট</span></div>
+      </div>
+      <div class="ex"><span class="de">Ich möchte einen Termin machen.</span><span class="bn">আমি একটা অ্যাপয়েন্টমেন্ট নিতে চাই।</span></div>
+      <div class="ex"><span class="de">Ich habe Kopfschmerzen.</span><span class="bn">আমার মাথাব্যথা।</span></div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <!-- L11 EXAM -->
+    <section class="lesson" id="l11">
+      <h2><span class="num">11</span> Prüfung A2 — মডেল অনুশীলন</h2>
+      <div class="quiz">
+        <h4>Grammatik</h4>
+        <ol>
+          <li>Dativ বসাও: Ich gebe ___ (das Kind) einen Apfel.
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">dem Kind</div></div>
+          </li>
+          <li>weil দিয়ে জোড়া দাও: "Ich lerne Deutsch. Ich will nach Deutschland."
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">Ich lerne Deutsch, weil ich nach Deutschland will.</div></div>
+          </li>
+          <li>Präteritum: "Gestern ___ (sein) ich zu Hause und ___ (haben) viel Zeit."
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">war / hatte</div></div>
+          </li>
+          <li>Wechselpräposition: "Das Bild hängt an ___ (die Wand)."
+            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">an der Wand (Wo? → Dativ)</div></div>
+          </li>
+        </ol>
+      </div>
+      <div class="quiz">
+        <h4>Schreiben — একটা ছোট ইমেইল</h4>
+        <p>বন্ধুকে লেখো: তুমি সপ্তাহান্তে কী করবে (৩–৪ বাক্য, Futur/present)।</p>
+        <div><span class="reveal">নমুনা ▸</span><div class="ans"><span class="de">Hallo Ali, am Wochenende werde ich meine Familie besuchen. Am Samstag spielen wir Fußball. Am Sonntag lerne ich Deutsch, weil ich bald eine Prüfung habe. Was machst du? Liebe Grüße, Tusher.</span></div></div>
+      </div>
+      <div class="note"><b>A2 শেষ! 🎉</b> এবার শেষ ধাপ — <a class="inline" href="b1.html">B1 লেভেল</a>: Konjunktiv, Passiv, relative clause, Genitiv আর সম্পূর্ণ adjective declension।</div>
+      <button class="mark-done">এই লেসন শেষ — চিহ্নিত করো</button>
+    </section>
+
+  </main>
+</div>
+
+<footer>A2 · Deutsch für Bangla · Immer weiter! (চালিয়ে যাও!)</footer>
+<script src="app.js"></script>
+</body>
+</html>

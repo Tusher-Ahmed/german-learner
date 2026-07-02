@@ -1,0 +1,12 @@
+# temp/build artifacts
+_shot_*.png
+_edgetmp/
+_et*/
+
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
