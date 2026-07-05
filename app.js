@@ -152,9 +152,38 @@
     Object.keys(map).forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
   }
 
+  /* ---------- Mobile hamburger nav ---------- */
+  function mobileNav() {
+    const bar = document.querySelector(".topbar");
+    const nav = bar && bar.querySelector("nav");
+    if (!bar || !nav || bar.querySelector(".nav-toggle")) return;
+    const btn = document.createElement("button");
+    btn.className = "nav-toggle";
+    btn.type = "button";
+    btn.setAttribute("aria-label", "মেনু খোলো/বন্ধ করো");
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = "<span></span><span></span><span></span>";
+    bar.insertBefore(btn, nav);
+    function setOpen(open) {
+      bar.classList.toggle("nav-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setOpen(!bar.classList.contains("nav-open"));
+    });
+    // close when a link is tapped
+    nav.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+    // close when tapping outside the bar
+    document.addEventListener("click", function (e) { if (!bar.contains(e.target)) setOpen(false); });
+    // close on Escape
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     autoSpeakButtons();
     alphabetAudio();
+    mobileNav();
     applyDoneState();
     updateBar();
     scrollSpy();
