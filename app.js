@@ -52,6 +52,16 @@
     }
   });
 
+  /* ---------- helper: build a 🔊 button ---------- */
+  function makeSayBtn(text) {
+    const b = document.createElement("button");
+    b.className = "say";
+    b.type = "button";
+    b.setAttribute("data-say", text);
+    b.textContent = "🔊";
+    return b;
+  }
+
   /* ---------- Auto-add 🔊 buttons to .de spans inside .ex and vocab ---------- */
   function autoSpeakButtons() {
     document.querySelectorAll(".ex .de, .vocab .de, .dialog .de, td .de.speakable").forEach(el => {
@@ -59,13 +69,28 @@
       if (el.querySelector(".say")) return;
       const txt = el.getAttribute("data-text") || el.textContent.trim();
       if (!txt) return;
-      const b = document.createElement("button");
-      b.className = "say";
-      b.type = "button";
-      b.setAttribute("data-say", txt);
-      b.textContent = "🔊";
       el.appendChild(document.createTextNode(" "));
-      el.appendChild(b);
+      el.appendChild(makeSayBtn(txt));
+    });
+  }
+
+  /* ---------- Alphabet table: 🔊 on each LETTER and each EXAMPLE word ---------- */
+  function alphabetAudio() {
+    document.querySelectorAll("table.alphabet tr").forEach(tr => {
+      const cells = tr.querySelectorAll("td");
+      if (cells.length < 3) return; // skip header (uses <th>)
+      const letterEl = cells[0].querySelector(".de");
+      const exEl = cells[2].querySelector(".de");
+      if (letterEl && !letterEl.querySelector(".say")) {
+        // say just the letter itself (German voice reads the letter name)
+        const letter = (letterEl.textContent.trim().split(/\s+/)[0] || letterEl.textContent.trim());
+        letterEl.appendChild(document.createTextNode(" "));
+        letterEl.appendChild(makeSayBtn(letter));
+      }
+      if (exEl && !exEl.querySelector(".say")) {
+        exEl.appendChild(document.createTextNode(" "));
+        exEl.appendChild(makeSayBtn(exEl.textContent.trim()));
+      }
     });
   }
 
@@ -129,6 +154,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     autoSpeakButtons();
+    alphabetAudio();
     applyDoneState();
     updateBar();
     scrollSpy();
