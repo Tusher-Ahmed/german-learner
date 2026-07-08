@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spickzettel — গ্রামার রেফারেন্স (প্রিন্টযোগ্য) | Deutsch für Bangla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .printbtn{background:linear-gradient(135deg,var(--brand),var(--violet));color:#fff;border:none;border-radius:12px;
+    padding:11px 20px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:var(--shadow-brand)}
+  .ref h2{font-size:22px}
+  .ref table{font-size:14px}
+  .ref th,.ref td{padding:7px 10px}
+  .ref .lesson{padding:22px 24px}
+  @media print{
+    .topbar,footer,.no-print{display:none !important}
+    body{background:#fff !important;color:#000}
+    body::before,body::after{display:none !important}
+    .wrap{padding:0;max-width:100%;display:block}
+    section.lesson{box-shadow:none;border:1px solid #bbb;background:#fff;color:#000;break-inside:avoid;margin:0 0 10px;border-radius:8px;padding:12px 14px}
+    .lesson h2{color:#000;font-size:16px}.lesson h3{color:#000}.lesson h3::before{display:none}
+    .num{background:#eee;color:#000;box-shadow:none}
+    table{font-size:11px}th,td{padding:4px 6px;border:1px solid #999;color:#000}
+    thead th,tr:first-child th{background:#eee !important;color:#000}
+    td .de,.de{color:#000}.hl{background:#ffe9a8}
+    .hero,.tip,.note,.warn{display:none}
+    h1{color:#000 !important;-webkit-text-fill-color:#000 !important}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
+  <nav>
+    <a href="index.html">হোম</a>
+    <a href="a1.html">A1</a>
+    <a href="a2.html">A2</a>
+    <a href="b1.html">B1</a>
+    <a href="b2.html">B2</a>
+    <a href="trainer.html">Wortschatz</a>
+    <a href="pruefung.html">Prüfung</a>
+    <a href="schreiben.html">Schreiben</a>
+    <a href="sprechen.html">Sprechen</a>
+    <a href="hoeren.html">Hören</a>
+    <a href="dialoge.html">Dialoge</a>
+    <a href="alltag.html">Alltag</a>
+    <a href="beruf.html">Beruf</a>
+    <a href="uebungen.html">Übungen</a>
+    <a href="spickzettel.html" class="active">Referenz</a>
+  </nav>
+</header>
+
+<div class="wrap single ref">
+  <main>
+    <section class="hero" style="margin-bottom:18px">
+      <span class="pill">📄 Spickzettel</span><span class="pill">সব নিয়ম এক পেজে</span><span class="pill">🖨️ প্রিন্ট/PDF</span>
+      <h1>Spickzettel — গ্রামার রেফারেন্স</h1>
+      <p class="lead">A1–B1-এর সব জরুরি টেবিল এক জায়গায় — দ্রুত রিভিশনের জন্য। নিচের বাটনে চেপে প্রিন্ট করো বা PDF বানিয়ে দেয়ালে টাঙাও।</p>
+      <p class="no-print"><button class="printbtn" onclick="window.print()">🖨️ প্রিন্ট / PDF সেভ করো</button></p>
+    </section>
+
+    <section class="lesson" id="artikel">
+      <h2>১· Artikel &amp; Kasus (কারক)</h2>
+      <div class="tblwrap"><table>
+        <tr><th>নির্দিষ্ট</th><th>m</th><th>f</th><th>n</th><th>Plural</th></tr>
+        <tr><td>Nominativ</td><td class="de">der</td><td class="de">die</td><td class="de">das</td><td class="de">die</td></tr>
+        <tr><td>Akkusativ</td><td class="de">den</td><td class="de">die</td><td class="de">das</td><td class="de">die</td></tr>
+        <tr><td>Dativ</td><td class="de">dem</td><td class="de">der</td><td class="de">dem</td><td class="de">den +n</td></tr>
+        <tr><td>Genitiv</td><td class="de">des +s</td><td class="de">der</td><td class="de">des +s</td><td class="de">der</td></tr>
+      </table></div>
+      <div class="tblwrap"><table>
+        <tr><th>ein/kein/mein</th><th>m</th><th>f</th><th>n</th><th>Plural</th></tr>
+        <tr><td>Nominativ</td><td class="de">ein</td><td class="de">eine</td><td class="de">ein</td><td class="de">keine/meine</td></tr>
+        <tr><td>Akkusativ</td><td class="de">einen</td><td class="de">eine</td><td class="de">ein</td><td class="de">keine/meine</td></tr>
+        <tr><td>Dativ</td><td class="de">einem</td><td class="de">einer</td><td class="de">einem</td><td class="de">keinen/meinen +n</td></tr>
+        <tr><td>Genitiv</td><td class="de">eines +s</td><td class="de">einer</td><td class="de">eines +s</td><td class="de">keiner/meiner</td></tr>
+      </table></div>
+    </section>
+
+    <section class="lesson" id="pronomen">
+      <h2>২· Pronomen (সর্বনাম)</h2>
+      <div class="tblwrap"><table>
+        <tr><th>Nominativ</th><td class="de">ich</td><td class="de">du</td><td class="de">er</td><td class="de">sie</td><td class="de">es</td><td class="de">wir</td><td class="de">ihr</td><td class="de">sie/Sie</td></tr>
+        <tr><th>Akkusativ</th><td class="de">mich</td><td class="de">dich</td><td class="de">ihn</td><td class="de">sie</td><td class="de">es</td><td class="de">uns</td><td class="de">euch</td><td class="de">sie/Sie</td></tr>
+        <tr><th>Dativ</th><td class="de">mir</td><td class="de">dir</td><td class="de">ihm</td><td class="de">ihr</td><td class="de">ihm</td><td class="de">uns</td><td class="de">euch</td><td class="de">ihnen/Ihnen</td></tr>
+        <tr><th>Possessiv</th><td class="de">mein</td><td class="de">dein</td><td class="de">sein</td><td class="de">ihr</td><td class="de">sein</td><td class="de">unser</td><td class="de">euer</td><td class="de">ihr/Ihr</td></tr>
+      </table></div>
+    </section>
+
+    <section class="lesson" id="praep">
+      <h2>৩· Präpositionen</h2>
+      <div class="tblwrap"><table>
+        <tr><th>শুধু Akkusativ</th><td class="de">durch, für, gegen, ohne, um, bis</td></tr>
+        <tr><th>শুধু Dativ</th><td class="de">aus, bei, mit, nach, seit, von, zu, gegenüber</td></tr>
+        <tr><th>Wechsel (Wo?=Dat / Wohin?=Akk)</th><td class="de">in, an, auf, über, unter, vor, hinter, neben, zwischen</td></tr>
+        <tr><th>Genitiv</th><td class="de">wegen, während, trotz, (an)statt</td></tr>
+      </table></div>
+      <div class="note">সংক্ষিপ্ত: in+dem=im, in+das=ins, an+dem=am, an+das=ans, zu+dem=zum, zu+der=zur, von+dem=vom।</div>
+    </section>
+
+    <section class="lesson" id="verben">
+      <h2>৪· Verben — Präsens</h2>
+      <div class="tblwrap"><table>
+        <tr><th></th><th>-en ending</th><th class="de">sein</th><th class="de">haben</th><th class="de">werden</th></tr>
+        <tr><td class="de">ich</td><td>-e</td><td class="de">bin</td><td class="de">habe</td><td class="de">werde</td></tr>
+        <tr><td class="de">du</td><td>-st</td><td class="de">bist</td><td class="de">hast</td><td class="de">wirst</td></tr>
+        <tr><td class="de">er/sie/es</td><td>-t</td><td class="de">ist</td><td class="de">hat</td><td class="de">wird</td></tr>
+        <tr><td class="de">wir</td><td>-en</td><td class="de">sind</td><td class="de">haben</td><td class="de">werden</td></tr>
+        <tr><td class="de">ihr</td><td>-t</td><td class="de">seid</td><td class="de">habt</td><td class="de">werdet</td></tr>
+        <tr><td class="de">sie/Sie</td><td>-en</td><td class="de">sind</td><td class="de">haben</td><td class="de">werden</td></tr>
+      </table></div>
+    </section>
+
+    <section class="lesson" id="modal">
+      <h2>৫· Modalverben (Präsens)</h2>
+      <div class="tblwrap"><table>
+        <tr><th></th><th class="de">können</th><th class="de">müssen</th><th class="de">wollen</th><th class="de">dürfen</th><th class="de">sollen</th><th class="de">möchten</th></tr>
+        <tr><td class="de">ich/er</td><td class="de">kann</td><td class="de">muss</td><td class="de">will</td><td class="de">darf</td><td class="de">soll</td><td class="de">möchte</td></tr>
+        <tr><td class="de">du</td><td class="de">kannst</td><td class="de">musst</td><td class="de">willst</td><td class="de">darfst</td><td class="de">sollst</td><td class="de">möchtest</td></tr>
+        <tr><td class="de">wir/sie</td><td class="de">können</td><td class="de">müssen</td><td class="de">wollen</td><td class="de">dürfen</td><td class="de">sollen</td><td class="de">möchten</td></tr>
+      </table></div>
+      <div class="note">গঠন: Modal (২য়) + … + Infinitiv (শেষে)। <span class="de">Ich muss heute arbeiten.</span></div>
+    </section>
+
+    <section class="lesson" id="perfekt">
+      <h2>৬· Perfekt (অতীত)</h2>
+      <p><b>haben/sein</b> (২য়) + <b>Partizip II</b> (শেষে)। sein লাগে: চলাচল/পরিবর্তন (gehen, fahren, kommen, aufstehen, werden, bleiben, sein)।</p>
+      <div class="tblwrap"><table>
+        <tr><th>নিয়মিত</th><th>ge-…-t</th><td class="de">machen→gemacht, spielen→gespielt</td></tr>
+        <tr><th>অনিয়মিত</th><th>ge-…-en</th><td class="de">trinken→getrunken, sehen→gesehen, essen→gegessen</td></tr>
+        <tr><th>-ieren</th><th>…-t (ge নেই)</th><td class="de">studieren→studiert</td></tr>
+      </table></div>
+      <div class="tblwrap"><table>
+        <tr><th>Infinitiv</th><th>Partizip II</th><th>helper</th><th>Infinitiv</th><th>Partizip II</th><th>helper</th></tr>
+        <tr><td class="de">sein</td><td class="de">gewesen</td><td class="de">ist</td><td class="de">gehen</td><td class="de">gegangen</td><td class="de">ist</td></tr>
+        <tr><td class="de">haben</td><td class="de">gehabt</td><td class="de">hat</td><td class="de">fahren</td><td class="de">gefahren</td><td class="de">ist</td></tr>
+        <tr><td class="de">essen</td><td class="de">gegessen</td><td class="de">hat</td><td class="de">kommen</td><td class="de">gekommen</td><td class="de">ist</td></tr>
+        <tr><td class="de">sprechen</td><td class="de">gesprochen</td><td class="de">hat</td><td class="de">nehmen</td><td class="de">genommen</td><td class="de">hat</td></tr>
+      </table></div>
+    </section>
+
+    <section class="lesson" id="praet">
+      <h2>৭· Präteritum</h2>
+      <div class="tblwrap"><table>
+        <tr><th></th><th class="de">sein</th><th class="de">haben</th><th class="de">können</th><th class="de">müssen</th><th class="de">wollen</th></tr>
+        <tr><td class="de">ich/er</td><td class="de">war</td><td class="de">hatte</td><td class="de">konnte</td><td class="de">musste</td><td class="de">wollte</td></tr>
+        <tr><td class="de">du</td><td class="de">warst</td><td class="de">hattest</td><td class="de">konntest</td><td class="de">musstest</td><td class="de">wolltest</td></tr>
+        <tr><td class="de">wir/sie</td><td class="de">waren</td><td class="de">hatten</td><td class="de">konnten</td><td class="de">mussten</td><td class="de">wollten</td></tr>
+      </table></div>
+      <div class="note">Strong (er-form): gehen→ging, kommen→kam, sehen→sah, essen→aß, fahren→fuhr, geben→gab, finden→fand, nehmen→nahm।</div>
+    </section>
+
+    <section class="lesson" id="adj">
+      <h2>৮· Adjektivdeklination (endings)</h2>
+      <div class="tblwrap"><table>
+        <tr><th>der/die/das পর</th><th>m</th><th>f</th><th>n</th><th>Pl</th><th>ein/kein পর</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+        <tr><td>Nom</td><td>-e</td><td>-e</td><td>-e</td><td>-en</td><td>Nom</td><td>-er</td><td>-e</td><td>-es</td><td>-en</td></tr>
+        <tr><td>Akk</td><td>-en</td><td>-e</td><td>-e</td><td>-en</td><td>Akk</td><td>-en</td><td>-e</td><td>-es</td><td>-en</td></tr>
+        <tr><td>Dat</td><td>-en</td><td>-en</td><td>-en</td><td>-en</td><td>Dat</td><td>-en</td><td>-en</td><td>-en</td><td>-en</td></tr>
+      </table></div>
+      <div class="tblwrap"><table>
+        <tr><th>article ছাড়া</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+        <tr><td>Nom</td><td>-er</td><td>-e</td><td>-es</td><td>-e</td></tr>
+        <tr><td>Akk</td><td>-en</td><td>-e</td><td>-es</td><td>-e</td></tr>
+        <tr><td>Dat</td><td>-em</td><td>-er</td><td>-em</td><td>-en</td></tr>
+      </table></div>
+    </section>
+
+    <section class="lesson" id="konj">
+      <h2>৯· Konjunktiv II &amp; Relativpronomen</h2>
+      <div class="tblwrap"><table>
+        <tr><th>Konjunktiv II</th><td class="de">sein→wäre, haben→hätte, werden→würde, können→könnte, müssen→müsste, mögen→möchte</td></tr>
+      </table></div>
+      <div class="tblwrap"><table>
+        <tr><th>Relativ</th><th>m</th><th>f</th><th>n</th><th>Pl</th></tr>
+        <tr><td>Nom</td><td class="de">der</td><td class="de">die</td><td class="de">das</td><td class="de">die</td></tr>
+        <tr><td>Akk</td><td class="de">den</td><td class="de">die</td><td class="de">das</td><td class="de">die</td></tr>
+        <tr><td>Dat</td><td class="de">dem</td><td class="de">der</td><td class="de">dem</td><td class="de">denen</td></tr>
+      </table></div>
+    </section>
+
+    <section class="lesson" id="satzbau">
+      <h2>১০· Satzbau (বাক্যগঠন) &amp; Konnektoren</h2>
+      <ul>
+        <li><b>মূল বাক্য:</b> Verb সবসময় <b>দ্বিতীয় অবস্থানে</b>। <span class="de">Ich lerne heute Deutsch.</span></li>
+        <li><b>Inversion পর</b> (deshalb, dann, trotzdem): Verb ২য়, কর্তা পরে। <span class="de">Heute lerne ich Deutsch.</span></li>
+        <li><b>Nebensatz</b> (weil, dass, wenn, obwohl, als): Verb <b>একেবারে শেষে</b>। <span class="de">…, weil ich Deutsch lerne.</span></li>
+        <li><b>স্বাভাবিক (verb ২য়):</b> und, aber, oder, denn, sondern।</li>
+        <li><b>Modal/Perfekt:</b> Modal ২য় + Infinitiv শেষে; haben/sein ২য় + Partizip II শেষে।</li>
+      </ul>
+      <div class="tblwrap"><table>
+        <tr><th>W-Fragen</th><td class="de">wer, was, wo, woher, wohin, wann, wie, warum, wie viel, welche</td></tr>
+      </table></div>
+    </section>
+
+  </main>
+</div>
+
+<footer>Spickzettel · Deutsch für Bangla · প্রিন্ট করে দেয়ালে টাঙিয়ে রাখো!</footer>
+<script src="app.js"></script>
+</body>
+</html>
