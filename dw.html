@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DW Videos — Nicos Weg ও DW দিয়ে জার্মান শেখা | Deutsch für Bangla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
+    border:1px solid var(--line);box-shadow:var(--shadow);margin:14px 0;background:#000}
+  .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .dwlink{display:inline-flex;align-items:center;gap:8px;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.3);
+    color:var(--brand);text-decoration:none;font-weight:700;font-size:14.5px;border-radius:11px;padding:9px 16px;margin:6px 8px 6px 0;transition:.16s}
+  .dwlink:hover{background:var(--brand);color:#fff}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
+  <nav>
+    <a href="index.html">হোম</a>
+    <a href="a1.html">A1</a>
+    <a href="a2.html">A2</a>
+    <a href="b1.html">B1</a>
+    <a href="b2.html">B2</a>
+    <a href="trainer.html">Wortschatz</a>
+    <a href="pruefung.html">Prüfung</a>
+    <a href="schreiben.html">Schreiben</a>
+    <a href="sprechen.html">Sprechen</a>
+    <a href="hoeren.html">Hören</a>
+    <a href="dw.html" class="active">DW Videos</a>
+    <a href="dialoge.html">Dialoge</a>
+    <a href="alltag.html">Alltag</a>
+    <a href="beruf.html">Beruf</a>
+    <a href="uebungen.html">Übungen</a>
+    <a href="spickzettel.html">Referenz</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <aside class="sidebar">
+    <h4>DW Videos — সূচি</h4>
+    <a href="#howto">কীভাবে ব্যবহার করবে</a>
+    <a href="#nicos-a1">Nicos Weg · A1 ফিল্ম</a>
+    <a href="#nicos-a2">Nicos Weg · A2 ফিল্ম</a>
+    <a href="#nicos-b1">Nicos Weg · B1 ফিল্ম</a>
+    <a href="#folgen">পর্ব ধরে ধরে (Folgen)</a>
+    <a href="#labor">Das Deutschlandlabor</a>
+    <a href="#more">DW-এর আরও রিসোর্স</a>
+    <div class="progress-wrap">
+      <div class="progress-bar"><span id="progressFill"></span></div>
+      <div id="progressLabel" style="font-size:13px;color:var(--muted);margin-top:6px"></div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero" style="margin-bottom:22px">
+      <span class="pill">📺 DW — Deutsche Welle</span><span class="pill">Nicos Weg A1→B1</span><span class="pill">বিনামূল্যে, সাবটাইটেলসহ</span>
+      <h1>DW Videos — ভিডিও দিয়ে জার্মান</h1>
+      <p class="lead">Deutsche Welle (জার্মানির আন্তর্জাতিক ব্রডকাস্টার)-এর <b>Nicos Weg</b> পৃথিবীর সবচেয়ে জনপ্রিয় ফ্রি জার্মান ভিডিও কোর্স — একটা গল্পের মধ্য দিয়ে A1 থেকে B1। এই পেজে ভিডিওগুলো সরাসরি দেখো, আর আমাদের কোর্সের লেসনের সাথে মিলিয়ে পড়ো।</p>
+    </section>
+
+    <section class="lesson" id="howto">
+      <h2>🎯 কীভাবে ব্যবহার করবে (আমাদের কোর্সের সাথে)</h2>
+      <ol>
+        <li>প্রতিটা লেভেলের <b>grammar লেসন</b> (যেমন <a class="inline" href="a1.html">A1</a>) আগে পড়ো — তারপর সেই লেভেলের Nicos Weg দেখো। তখন সংলাপগুলো "চেনা চেনা" লাগবে, আর শেখাটা গেঁথে যাবে।</li>
+        <li>ভিডিওতে <b>জার্মান সাবটাইটেল (CC)</b> চালু করো — শোনা + পড়া একসাথে।</li>
+        <li>ভালো লাগা বাক্য থামিয়ে <b>জোরে নকল করো (shadowing)</b> — <a class="inline" href="sprechen.html">Sprechen</a> পেজের কৌশল এখানেই কাজে লাগাও।</li>
+        <li>নতুন শব্দ খাতায় লেখো (der/die/das সহ), পরে <a class="inline" href="trainer.html">Wortschatz ট্রেইনারে</a> রিভিশন।</li>
+        <li>প্রতিটা লেভেলের ভিডিওর সাথে DW-এর সাইটে <b>ইন্টারঅ্যাকটিভ অনুশীলনী</b> আছে — নিচের লিংক থেকে করো।</li>
+      </ol>
+      <div class="tip">প্রতিদিন ১০–১৫ মিনিট ভিডিও-ই যথেষ্ট। একবারে পুরো ফিল্ম দেখার দরকার নেই — যেখানে থেমেছ, YouTube মনে রাখবে।</div>
+    </section>
+
+    <section class="lesson" id="nicos-a1">
+      <h2><span class="num">1</span> Nicos Weg — A1 (সম্পূর্ণ ফিল্ম)</h2>
+      <p class="lead">নিকো স্পেন থেকে জার্মানিতে এসে ব্যাগ-পাসপোর্ট সব হারিয়ে ফেলে — জার্মান না জেনে কীভাবে সে সব সামলায়, সেই গল্পেই A1-এর সব ভাষা। একদম শুরু থেকে, ধীরে, সাবটাইটেলসহ।</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/4-eDoThe6qo" title="Nicos Weg A1 — Ganzer Film (DW Deutsch lernen)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p>
+        <a class="dwlink" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">📝 DW সাইটে A1 ইন্টারঅ্যাকটিভ কোর্স + অনুশীলনী →</a>
+        <a class="dwlink" href="a1.html">📘 আমাদের A1 লেসনগুলো</a>
+      </p>
+      <div class="note">আমাদের <a class="inline" href="a1.html">A1 কোর্সের</a> লেসন ১–৮ শেষ করে ফিল্মের প্রথম অর্ধেক দেখো — সব সংলাপ বুঝতে পারবে!</div>
+      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <section class="lesson" id="nicos-a2">
+      <h2><span class="num">2</span> Nicos Weg — A2 (সম্পূর্ণ ফিল্ম)</h2>
+      <p class="lead">নিকোর গল্প এগিয়ে চলে — কাজ, বন্ধুত্ব, দৈনন্দিন জীবনের আরও জটিল পরিস্থিতি। Dativ, Perfekt, Nebensatz — <a class="inline" href="a2.html">A2 কোর্সে</a> যা শিখছ, সব এখানে শুনবে।</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/Lg5P2w_Ro1c" title="Nicos Weg A2 — Ganzer Film (DW Deutsch lernen)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p>
+        <a class="dwlink" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">📝 DW সাইটে A2 অনুশীলনী →</a>
+        <a class="dwlink" href="a2.html">📘 আমাদের A2 লেসনগুলো</a>
+      </p>
+      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <section class="lesson" id="nicos-b1">
+      <h2><span class="num">3</span> Nicos Weg — B1 (সম্পূর্ণ ফিল্ম)</h2>
+      <p class="lead">শেষ ধাপ — মতামত, যুক্তি, ভবিষ্যৎ পরিকল্পনা। B1 পরীক্ষার Hören-এর জন্য এটা সেরা প্রস্তুতি: বাস্তব গতির কথোপকথন, কিন্তু পরিষ্কার উচ্চারণ।</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/LkufozluseI" title="Nicos Weg B1 — Ganzer Film (DW Deutsch lernen)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p>
+        <a class="dwlink" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">📝 DW সাইটে B1 অনুশীলনী →</a>
+        <a class="dwlink" href="b1.html">📘 আমাদের B1 লেসনগুলো</a>
+      </p>
+      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <section class="lesson" id="folgen">
+      <h2><span class="num">4</span> পর্ব ধরে ধরে — Nicos Weg Folgen (প্লেলিস্ট)</h2>
+      <p class="lead">পুরো ফিল্ম বড় লাগলে ছোট ছোট পর্বে (প্রতিটা ২–৩ মিনিট) দেখো — প্রতিদিন ১–২টা পর্বই যথেষ্ট। নিচের প্লেলিস্টে A1 থেকে শুরু করে সব পর্ব একে একে আসবে।</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg" title="Nicos Weg — সব পর্ব (DW Deutsch lernen playlist)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="tip">প্রতিটা পর্ব দুবার দেখো: প্রথমবার সাবটাইটেল ছাড়া (কতটা বুঝলে?), দ্বিতীয়বার জার্মান সাবটাইটেলসহ। এটা <a class="inline" href="hoeren.html">Hören</a>-এর "আগে শোনো, পরে পড়ো" পদ্ধতিরই ভিডিও সংস্করণ।</div>
+      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <section class="lesson" id="labor">
+      <h2><span class="num">5</span> Das Deutschlandlabor — জার্মানি কেমন দেশ? (A2)</h2>
+      <p class="lead">নিনা আর ডাভিড জার্মানি ঘুরে ঘুরে প্রশ্নের উত্তর খোঁজে: জার্মানরা কি সত্যিই এত সময়ানুবর্তী? স্কুল, কাজ, ফুটবল, Mülltrennung — <a class="inline" href="alltag.html">Alltag</a> পেজে যা পড়েছ, এখানে চোখে দেখবে। জার্মানিতে যাওয়ার আগে সংস্কৃতি বোঝার সেরা সিরিজ।</p>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLs7zUO7VPyJ50sTVsDgfJV6_B3rFYtbFu" title="Das Deutschlandlabor (DW Deutsch lernen playlist)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+    </section>
+
+    <section class="lesson" id="more">
+      <h2><span class="num">6</span> DW-এর আরও ফ্রি রিসোর্স</h2>
+      <p class="lead">DW-এর নিজের সাইটের পেজগুলো এখানে embed করা যায় না (তাদের নিরাপত্তা নীতি), তাই সরাসরি লিংক — সবগুলোই সম্পূর্ণ ফ্রি:</p>
+      <div class="tblwrap">
+      <table>
+        <tr><th>রিসোর্স</th><th>কী পাবে</th><th>লেভেল</th></tr>
+        <tr><td><a class="inline" href="https://learngerman.dw.com/en/placementDashboard" target="_blank" rel="noopener">Placement Test (Einstufungstest)</a></td><td>নিজের আসল লেভেল যাচাই করো — কোর্স শুরুর আগে একবার দাও</td><td>সব</td></tr>
+        <tr><td><a class="inline" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">Nicos Weg (ইন্টারঅ্যাকটিভ)</a></td><td>প্রতিটা পর্বের সাথে অনুশীলনী, শব্দতালিকা ও grammar</td><td>A1–B1</td></tr>
+        <tr><td><a class="inline" href="https://learngerman.dw.com/en/deutschtrainer/c-59519368" target="_blank" rel="noopener">Deutschtrainer</a></td><td>দৈনন্দিন জীবনের জরুরি শব্দভাণ্ডার — ছোট ভিডিও</td><td>A1–A2</td></tr>
+        <tr><td><a class="inline" href="https://learngerman.dw.com/en/deutsch-im-job/c-59900940" target="_blank" rel="noopener">Deutsch im Job — Profis gesucht</a></td><td>পেশার জার্মান — <a class="inline" href="beruf.html">Beruf</a> পেজের সাথে মিলিয়ে দেখো</td><td>A2–B1</td></tr>
+        <tr><td><a class="inline" href="https://www.dw.com/de/deutsch-lernen/nachrichten/s-8030" target="_blank" rel="noopener">Langsam gesprochene Nachrichten</a></td><td>প্রতিদিনের খবর <b>ধীরে পড়া</b> অডিও + টেক্সট — B1-এর daily শোনার অভ্যাসের জন্য সেরা</td><td>B1+</td></tr>
+      </table>
+      </div>
+      <div class="note">এই ভিডিও ও কোর্সগুলো Deutsche Welle-র তৈরি ও তাদেরই কনটেন্ট — এখানে শুধু অফিসিয়াল YouTube embed ও লিংক দেওয়া হয়েছে, যেন তোমার পুরো প্রস্তুতি এক জায়গা থেকে চালাতে পারো।</div>
+      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+    </section>
+
+  </main>
+</div>
+
+<footer>DW Videos · Deutsch für Bangla · ভিডিও কনটেন্ট © Deutsche Welle (dw.com) · Viel Spaß beim Lernen!</footer>
+<script src="app.js"></script>
+</body>
+</html>
