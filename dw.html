@@ -3,284 +3,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DW Videos — Nicos Weg ও DW দিয়ে জার্মান শেখা | Deutsch für Bangla</title>
+<title>DW ভিডিও — Nicos Weg A1 ও A2, বাংলায় গাইড | Deutsch für Bangla</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  .video-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
-    border:1px solid var(--line);box-shadow:var(--shadow);margin:14px 0;background:#000}
-  .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .dwlink{display:inline-flex;align-items:center;gap:8px;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.3);
-    color:var(--brand);text-decoration:none;font-weight:700;font-size:14.5px;border-radius:11px;padding:9px 16px;margin:6px 8px 6px 0;transition:.16s}
+  .stage{border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:12px;
+    padding:13px 15px;margin:10px 0;background:var(--card)}
+  .stage .sh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .stage .snum{width:28px;height:28px;flex:0 0 auto;border-radius:8px;display:grid;place-items:center;
+    background:rgba(79,70,229,.1);color:var(--brand);font-weight:800;font-size:13px}
+  .stage .stt{font-weight:800;font-size:15px;color:var(--brand)}
+  .stage .sbody{font-size:14px;margin-top:8px;line-height:1.7}
+  .stage .listen{margin-top:9px;padding:9px 12px;border-radius:9px;
+    background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);font-size:13.5px;line-height:1.7}
+  .stage .listen b{color:#b45309}
+  .phr{display:inline-block;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);
+    border-radius:7px;padding:2px 8px;margin:2px 3px 2px 0;font-size:13.5px;font-weight:600;color:var(--brand)}
+  .dwlink{display:inline-flex;align-items:center;gap:8px;background:rgba(79,70,229,.08);
+    border:1px solid rgba(79,70,229,.3);color:var(--brand);text-decoration:none;font-weight:700;
+    font-size:14.5px;border-radius:11px;padding:9px 16px;margin:6px 8px 6px 0;transition:.16s}
   .dwlink:hover{background:var(--brand);color:#fff}
 </style>
 </head>
-<body>
+<body data-no-auto-progress>
 <header class="topbar">
   <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
   <nav>
     <a href="index.html">হোম</a>
-    <a href="a1.html">A1</a>
-    <a href="a2.html">A2</a>
-    <a href="b1.html">B1</a>
-    <a href="b2.html">B2</a>
-    <a href="trainer.html">Wortschatz</a>
-    <a href="pruefung.html">Prüfung</a>
-    <a href="schreiben.html">Schreiben</a>
-    <a href="sprechen.html">Sprechen</a>
-    <a href="hoeren.html">Hören</a>
-    <a href="dw.html" class="active">DW Videos</a>
-    <a href="dialoge.html">Dialoge</a>
-    <a href="alltag.html">Alltag</a>
-    <a href="beruf.html">Beruf</a>
-    <a href="uebungen.html">Übungen</a>
-    <a href="spickzettel.html">Referenz</a>
+    <a href="kurs.html">কোর্স</a>
+    <a href="kks.html">ভিডিও ক্লাস</a>
+    <a href="dw.html" class="active">DW ভিডিও</a>
+    <a href="trainer.html">শব্দ</a>
+    <a href="uebungen.html">অনুশীলন</a>
+    <a href="pruefung.html">পরীক্ষা</a>
   </nav>
 </header>
 
 <div class="wrap">
   <aside class="sidebar">
-    <h4>DW Videos — সূচি</h4>
-    <a href="#howto">কীভাবে ব্যবহার করবে</a>
-    <a href="#strategie">🎓 বিশেষজ্ঞ পরামর্শ</a>
-    <a href="#nicos-a1">Nicos Weg · A1 ফিল্ম</a>
-    <a href="#nicos-a2">Nicos Weg · A2 ফিল্ম</a>
-    <a href="#nicos-b1">Nicos Weg · B1 ফিল্ম</a>
-    <a href="#folgen">পর্ব ধরে ধরে (Folgen)</a>
+    <h4>DW ভিডিও — সূচি</h4>
+    <a href="#howto">কীভাবে দেখবে</a>
+    <a href="#story">গল্পটা কী</a>
+    <a href="#a1">Nicos Weg — A1 ফিল্ম</a>
+    <a href="#a1steps">A1 — ধাপে ধাপে গাইড</a>
+    <a href="#a2">Nicos Weg — A2 ফিল্ম</a>
+    <a href="#a2steps">A2 — ধাপে ধাপে গাইড</a>
+    <a href="#folgen">ছোট পর্ব ধরে ধরে</a>
     <a href="#labor">Das Deutschlandlabor</a>
     <a href="#more">DW-এর আরও রিসোর্স</a>
-    <div class="progress-wrap">
-      <div class="progress-bar"><span id="progressFill"></span></div>
-      <div id="progressLabel" style="font-size:13px;color:var(--muted);margin-top:6px"></div>
-    </div>
   </aside>
 
   <main>
-    <section class="hero" style="margin-bottom:22px">
-      <span class="pill">📺 DW — Deutsche Welle</span><span class="pill">Nicos Weg A1→B1</span><span class="pill">বিনামূল্যে, সাবটাইটেলসহ</span>
-      <h1>DW Videos — ভিডিও দিয়ে জার্মান</h1>
-      <p class="lead">Deutsche Welle (জার্মানির আন্তর্জাতিক ব্রডকাস্টার)-এর <b>Nicos Weg</b> পৃথিবীর সবচেয়ে জনপ্রিয় ফ্রি জার্মান ভিডিও কোর্স — একটা গল্পের মধ্য দিয়ে A1 থেকে B1। এই পেজে ভিডিওগুলো সরাসরি দেখো, আর আমাদের কোর্সের লেসনের সাথে মিলিয়ে পড়ো।</p>
+    <section class="hero">
+      <div>
+        <span class="pill">🎬 গল্পের মধ্য দিয়ে শেখা</span>
+        <span class="pill">🆓 DW — সম্পূর্ণ ফ্রি</span>
+        <span class="pill">📘 A1 + A2</span>
+      </div>
+      <h1>DW ভিডিও — <span class="hl">Nicos Weg</span> দিয়ে কান তৈরি করো</h1>
+      <p><b>Deutsche Welle (DW)</b> জার্মানির রাষ্ট্রীয় আন্তর্জাতিক সম্প্রচার সংস্থা, আর <b>Nicos Weg</b> তাদের বিনামূল্যের জার্মান কোর্স — একটা <b>গল্পের আকারে</b> বানানো। এটা ক্লাসের মতো নয়: এখানে তুমি আসল জার্মানরা আসল পরিস্থিতিতে কীভাবে কথা বলে সেটা <b>শুনবে</b>।</p>
     </section>
 
     <section class="lesson" id="howto">
-      <h2>🎯 কীভাবে ব্যবহার করবে (আমাদের কোর্সের সাথে)</h2>
-      <ol>
-        <li>প্রতিটা লেভেলের <b>grammar লেসন</b> (যেমন <a class="inline" href="a1.html">A1</a>) আগে পড়ো — তারপর সেই লেভেলের Nicos Weg দেখো। তখন সংলাপগুলো "চেনা চেনা" লাগবে, আর শেখাটা গেঁথে যাবে।</li>
-        <li>ভিডিওতে <b>জার্মান সাবটাইটেল (CC)</b> চালু করো — শোনা + পড়া একসাথে।</li>
-        <li>ভালো লাগা বাক্য থামিয়ে <b>জোরে নকল করো (shadowing)</b> — <a class="inline" href="sprechen.html">Sprechen</a> পেজের কৌশল এখানেই কাজে লাগাও।</li>
-        <li>নতুন শব্দ খাতায় লেখো (der/die/das সহ), পরে <a class="inline" href="trainer.html">Wortschatz ট্রেইনারে</a> রিভিশন।</li>
-        <li>প্রতিটা লেভেলের ভিডিওর সাথে DW-এর সাইটে <b>ইন্টারঅ্যাকটিভ অনুশীলনী</b> আছে — নিচের লিংক থেকে করো।</li>
-      </ol>
-      <div class="tip">প্রতিদিন ১০–১৫ মিনিট ভিডিও-ই যথেষ্ট। একবারে পুরো ফিল্ম দেখার দরকার নেই — যেখানে থেমেছ, YouTube মনে রাখবে।</div>
-    </section>
-
-    <section class="lesson" id="strategie">
-      <h2>🎓 বিশেষজ্ঞ পরামর্শ — শুধু নিকোর গল্পই কি যথেষ্ট?</h2>
-      <p class="lead"><b>মূল কোর্স হিসেবে: হ্যাঁ।</b> Nicos Weg-ই A1→B1-এর পুরো পাঠ্যক্রম গল্পের মধ্যে শেখায় — এটাই তোমার মেরুদণ্ড। <b>কিন্তু পরীক্ষা ও সত্যিকারের সাবলীলতার জন্য: না, একা যথেষ্ট নয়।</b> কারণ তিনটা:</p>
-      <ol>
-        <li><b>এক দল কণ্ঠ</b> — পরীক্ষার Hören-এ থাকে ঘোষণা, রেডিও, ফোন-মেসেজ, নানা মানুষের গলা। শুধু নিকোর চরিত্রদের শুনে সেই কান তৈরি হয় না।</li>
-        <li><b>শেখানোর জন্য লেখা সংলাপ</b> — বাস্তবের জার্মানরা আরও দ্রুত, আঞ্চলিক টানে, ফিলার শব্দসহ কথা বলে।</li>
-        <li><b>B1-এ শেষ</b> — চাকরির জন্য B2 লাগলে নিকো আর সাহায্য করতে পারবে না।</li>
-      </ol>
-
-      <h3>তাহলে কোনটা কীসের জন্য (সুষম খাদ্যতালিকা 🍱)</h3>
+      <h2>🎯 KKS ক্লাস আর DW ফিল্ম — দুটোর কাজ আলাদা</h2>
+      <p class="lead">এই দুটোকে প্রতিদ্বন্দ্বী ভেবো না — এরা একসাথে কাজ করে। একটা <b>নিয়ম শেখায়</b>, আরেকটা <b>কান তৈরি করে</b>।</p>
       <div class="tblwrap">
       <table>
-        <tr><th>প্রয়োজন</th><th>DW রিসোর্স</th><th>কখন ব্যবহার করবে</th></tr>
-        <tr><td>মূল কোর্স (গল্পে শেখা)</td><td><a class="inline" href="#nicos-a1">Nicos Weg</a></td><td>প্রথম দিন থেকে — এটাই মেরুদণ্ড</td></tr>
-        <tr><td>সত্যিকারের মানুষ, নানা উচ্চারণ, সংস্কৃতি</td><td><a class="inline" href="#labor">Das Deutschlandlabor</a></td><td><b>A2 থেকে প্রতিদিন ৫ মিনিট</b></td></tr>
-        <tr><td>প্রতিদিনের শোনার অভ্যাস (আসল জার্মানের সেতু)</td><td><a class="inline" href="https://www.dw.com/de/deutsch-lernen/nachrichten/s-8030" target="_blank" rel="noopener">Langsam gesprochene Nachrichten</a></td><td><b>B1-এ পৌঁছেই প্রতিদিনের অভ্যাস বানাও</b> — "কোর্সের জার্মান" থেকে "আসল জার্মানে" যাওয়ার সেরা সেতু</td></tr>
-        <tr><td>স্বাভাবিক গতির জার্মান (B2)</td><td><a class="inline" href="b2.html#dwvideo">Ticket nach Berlin</a></td><td>B1 শেষে, B2-র প্রস্তুতিতে</td></tr>
-        <tr><td>দ্রুত শব্দ শেখা</td><td><a class="inline" href="https://learngerman.dw.com/en/deutschtrainer/c-59519368" target="_blank" rel="noopener">Deutschtrainer</a></td><td>A1–A2-তে, <a class="inline" href="trainer.html">Wortschatz ট্রেইনারের</a> পাশাপাশি</td></tr>
-        <tr><td>চাকরির জার্মান</td><td><a class="inline" href="https://learngerman.dw.com/en/deutsch-im-job/c-59900940" target="_blank" rel="noopener">Deutsch im Job</a></td><td>A2+ — <a class="inline" href="beruf.html">Beruf</a> পেজের সাথে</td></tr>
+        <tr><th></th><th>📘 কোর্স + KKS ক্লাস</th><th>🎬 DW Nicos Weg</th></tr>
+        <tr><td><b>কী দেয়</b></td><td>নিয়ম, শব্দের অর্থ, ব্যাকরণ — বাংলায় বুঝিয়ে</td><td>আসল গতিতে আসল জার্মান কথা শোনা</td></tr>
+        <tr><td><b>ভাষা</b></td><td>বাংলা ব্যাখ্যা</td><td>পুরোটাই জার্মান (সাবটাইটেল আছে)</td></tr>
+        <tr><td><b>কখন</b></td><td>নতুন বিষয় শেখার সময়</td><td>শেখা বিষয় কানে বসানোর সময়</td></tr>
+        <tr><td><b>কীভাবে</b></td><td>নোট নিয়ে, অনুশীলন করে</td><td>আরাম করে, বারবার শুনে</td></tr>
       </table>
       </div>
-      <div class="note"><b>সারকথা:</b> Nicos Weg = শেখার মেরুদণ্ড; Deutschlandlabor = আসল কানের ট্রেনিং; Langsam gesprochene Nachrichten = B1-এর daily অভ্যাস; Ticket nach Berlin = B2। এই চারটে মিলেই পূর্ণ প্রস্তুতি — সাথে আমাদের <a class="inline" href="hoeren.html">Hören</a> পেজে পরীক্ষার ফরম্যাটের অনুশীলন তো আছেই।</div>
+      <div class="tip"><b>সঠিক ক্রম:</b> আগে <a class="inline" href="kurs.html">কোর্সের ইউনিট</a> পড়ো (বাংলায় বোঝো) → তারপর <a class="inline" href="kks.html">KKS ক্লাস</a> দেখো (বিস্তারিত ব্যাখ্যা) → <b>তারপর</b> DW ফিল্মের সেই অংশ দেখো (কানে বসাও)। উল্টো করলে কিছুই বুঝবে না আর হতাশ হবে।</div>
+      <div class="warn"><b>একদম শুরুতে ৮০% না বুঝলে ভয় পেয়ো না — এটাই স্বাভাবিক।</b> লক্ষ্য পুরোটা বোঝা নয়; লক্ষ্য হলো <b>চেনা শব্দ ধরতে পারা</b>। প্রথমবারে ১০টা শব্দ চিনলেই সেটা সফলতা। একই অংশ এক সপ্তাহ পরে আবার দেখো — তখন অনেক বেশি বুঝবে। এটাই কান তৈরি হওয়ার প্রক্রিয়া।</div>
+      <div class="note"><b>সাবটাইটেল কীভাবে ব্যবহার করবে:</b> প্রথমবার <b>সাবটাইটেল ছাড়া</b> দেখো (শুধু শোনো)। দ্বিতীয়বার <b>জার্মান সাবটাইটেল</b> দিয়ে (ইউটিউবের ⚙ সেটিংসে)। তৃতীয়বার আবার ছাড়া। এভাবে করলে কান তৈরি হয় — সবসময় সাবটাইটেল পড়লে তুমি আসলে <b>পড়ছ</b>, শুনছ না।</div>
     </section>
 
-    <section class="lesson" id="nicos-a1">
+    <section class="lesson" id="story">
+      <h2>📖 গল্পটা কী — নিকো কে?</h2>
+      <p class="lead">ভিডিও দেখার আগে গল্পের শুরুটা জেনে নাও। গল্প জানা থাকলে ভাষা না বুঝলেও তুমি দৃশ্য দেখে অনুমান করতে পারবে — আর সেভাবেই শেখা হয়।</p>
+      <p><b>নিকো</b> (Nico) স্পেনের সেভিয়া শহরের একজন তরুণ। সে জার্মানিতে আসে তার <b>খালার</b> কাছে যাওয়ার উদ্দেশ্যে। কিন্তু জার্মানিতে প্রথম দিনেই বিপদ — তার <b>ব্যাগটা হারিয়ে যায়</b>, আর সেই ব্যাগে ছিল তার <b>পাসপোর্ট, মোবাইল ফোন</b> আর <b>খালার বাসার ঠিকানা</b>। নিকো তখন জার্মান ভাষা প্রায় কিছুই জানে না।</p>
+      <p>এই অবস্থায় <b>লিসা</b> (Lisa) নামের একজন তার সাহায্যে এগিয়ে আসে। এরপর গল্প এগোয় — নিকোকে ঠিকানা খুঁজতে হয়, মানুষের সাথে কথা বলতে হয়, দোকানে যেতে হয়, থাকার জায়গা জোগাড় করতে হয়। <b>অর্থাৎ — একজন নতুন বিদেশি জার্মানিতে এসে যা যা পরিস্থিতিতে পড়ে, ঠিক সেগুলোই।</b></p>
+      <div class="tip"><b>এই গল্পটা তোমার জন্য কেন বিশেষ:</b> নিকোর অবস্থা <b>ঠিক তোমার মতো</b> — সে বিদেশি, জার্মান জানে না, আর তাকে ভাঙা ভাষায় কাজ চালাতে হচ্ছে। তাই সে যেভাবে সহজ বাক্যে কাজ সারে, তুমিও ঠিক সেভাবেই পারবে। খেয়াল করো সে কত <b>ছোট ছোট বাক্যে</b> কাজ চালায় — নিখুঁত ব্যাকরণ ছাড়াই।</div>
+    </section>
+
+    <!-- ======================= A1 ফিল্ম ======================= -->
+    <section class="lesson" id="a1">
       <h2><span class="num">1</span> Nicos Weg — A1 (সম্পূর্ণ ফিল্ম)</h2>
-      <p class="lead">নিকো স্পেন থেকে জার্মানিতে এসে ব্যাগ-পাসপোর্ট সব হারিয়ে ফেলে — জার্মান না জেনে কীভাবে সে সব সামলায়, সেই গল্পেই A1-এর সব ভাষা। একদম শুরু থেকে, ধীরে, সাবটাইটেলসহ।</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/4-eDoThe6qo" title="Nicos Weg A1 — Ganzer Film (DW Deutsch lernen)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <p>
-        <a class="dwlink" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">📝 DW সাইটে A1 ইন্টারঅ্যাকটিভ কোর্স + অনুশীলনী →</a>
-        <a class="dwlink" href="a1.html">📘 আমাদের A1 লেসনগুলো</a>
-      </p>
-      <div class="note">আমাদের <a class="inline" href="a1.html">A1 কোর্সের</a> লেসন ১–৮ শেষ করে ফিল্মের প্রথম অর্ধেক দেখো — সব সংলাপ বুঝতে পারবে!</div>
-
-      <h3>📖 দেখার গাইড — গল্পটা কী (বাংলায়)</h3>
-      <p><b>গল্প:</b> নিকো স্পেন থেকে জার্মানিতে নামে — জার্মান প্রায় জানেই না। এয়ারপোর্টেই তার ব্যাগ হারিয়ে যায়, আর ব্যাগের ভেতরে ছিল পাসপোর্ট আর তার আন্টির (Tante Yara) ঠিকানা! লিসা (Lisa) আর এমা (Emma) নামের দুই নতুন বন্ধু তাকে সাহায্য করে। নিকো একটু একটু করে জার্মান শিখে দৈনন্দিন সব পরিস্থিতি সামলাতে শেখে — পরিচয় দেওয়া, রাস্তা জিজ্ঞেস করা, কেনাকাটা, পরিবার নিয়ে কথা বলা। ঠিক যে জিনিসগুলো তুমি A1 কোর্সে শিখছ!</p>
-      <h4>🔑 এই ফিল্মে বারবার শুনবে (কান পেতে রাখো)</h4>
-      <div class="vocab">
-        <div class="w"><span class="de">Wie heißt du?</span><span class="bn">তোমার নাম কী?</span></div>
-        <div class="w"><span class="de">Woher kommst du?</span><span class="bn">কোথা থেকে এসেছ?</span></div>
-        <div class="w"><span class="de">Ich verstehe nicht.</span><span class="bn">আমি বুঝছি না।</span></div>
-        <div class="w"><span class="de">Kannst du mir helfen?</span><span class="bn">আমাকে সাহায্য করতে পারবে?</span></div>
-        <div class="w"><span class="de">Wo ist …?</span><span class="bn">… কোথায়?</span></div>
-        <div class="w"><span class="de">Was ist das?</span><span class="bn">এটা কী?</span></div>
-      </div>
-      <div class="quiz">
-        <h4>✍️ দেখা শেষে নিজেকে যাচাই করো</h4>
-        <ol>
-          <li>নিকো কোন দেশ থেকে এসেছে?
-            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">স্পেন (Spanien) থেকে — তাই শুরুতে সে জার্মান প্রায় বলতেই পারে না।</div></div>
-          </li>
-          <li>নিকো কী হারিয়ে ফেলে, আর সেটা এত বড় সমস্যা কেন?
-            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">তার ব্যাগ — ভেতরে পাসপোর্ট আর আন্টির ঠিকানা ছিল, তাই সে না পারে পরিচয় প্রমাণ করতে, না পারে আন্টিকে খুঁজে পেতে।</div></div>
-          </li>
-          <li>কারা নিকোকে সাহায্য করে?
-            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">লিসা আর এমা — তার নতুন বন্ধুরা।</div></div>
-          </li>
-        </ol>
-      </div>
-      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+      <p class="lead">পুরো A1 কোর্সটা একটা লম্বা ফিল্মের আকারে। এটা <b>একবারে দেখার জিনিস নয়</b> — নিচের ধাপে ধাপে গাইড অনুসরণ করে ভাগ ভাগ করে দেখো।</p>
+      <div class="vplayer" data-vid="4-eDoThe6qo"
+           data-title="Nicos Weg — A1 (সম্পূর্ণ ফিল্ম)"
+           data-sub="DW Deutsch lernen · A1 স্তর"></div>
+      <div class="note">প্লেয়ারের <b>1x</b> বাটনে চেপে <b>0.75x</b> করে দাও — শুরুতে অনেক সহজ লাগবে। কোনো অংশ না বুঝলে <b>⟲10</b> বাটনে চেপে আবার শোনো।</div>
     </section>
 
-    <section class="lesson" id="nicos-a2">
+    <section class="lesson" id="a1steps">
+      <h2>🪜 A1 ফিল্ম — ধাপে ধাপে দেখার গাইড</h2>
+      <p class="lead">A1 কোর্সটা <b>৮টি পর্যায়ে</b> এগোয় — সহজ থেকে কঠিনের দিকে। প্রতিটা পর্যায়ে নিকো নতুন ধরনের পরিস্থিতিতে পড়ে, আর সেই পরিস্থিতির ভাষা শেখানো হয়। নিচে প্রতিটা পর্যায়ে <b>কী ধরনের দৃশ্য আসে</b>, <b>কোন ভাষা শেখানো হয়</b>, আর <b>কী শুনতে চেষ্টা করবে</b> — সব দেওয়া আছে।</p>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">১</span><span class="stt">প্রথম পরিচয় ও সাহায্য চাওয়া</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> নিকো সদ্য জার্মানিতে নেমেছে। অপরিচিত মানুষের সাথে প্রথম কথা, নিজের নাম বলা, সাহায্য চাওয়া। রাস্তা, স্টেশন, পাবলিক জায়গার দৃশ্য।<br>
+        <b>ভাষা:</b> সম্ভাষণ, নিজের পরিচয়, দেশ ও নাম বলা, <b>du</b> বনাম <b>Sie</b>, বর্ণমালা ও বানান বলা।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Hallo</span> <span class="phr">Guten Tag</span> <span class="phr">Wie heißen Sie?</span>
+          <span class="phr">Ich heiße …</span> <span class="phr">Woher kommst du?</span>
+          <span class="phr">Ich komme aus …</span> <span class="phr">Entschuldigung</span>
+          <span class="phr">Ich verstehe nicht</span>
+          <br>এই পর্যায়ে সব বুঝতে হবে না — শুধু <b>নামের অংশ</b> আর <b>সম্ভাষণ</b> ধরতে পারলেই যথেষ্ট।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u1">কোর্স ইউনিট ১</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">২</span><span class="stt">মানুষ, সংখ্যা ও তথ্য দেওয়া</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> নিকো নতুন মানুষের সাথে পরিচিত হয়। কেউ তার তথ্য জিজ্ঞেস করে — বয়স, ফোন নম্বর, ঠিকানা। ফর্ম পূরণ বা তথ্য লেখার দৃশ্য আসতে পারে।<br>
+        <b>ভাষা:</b> সংখ্যা ০–১০০, বয়স, ফোন নম্বর, পেশা, verb <b>haben</b>, সর্বনাম er/sie।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Wie alt bist du?</span> <span class="phr">Was sind Sie von Beruf?</span>
+          <span class="phr">Wie ist Ihre Telefonnummer?</span> <span class="phr">Ich habe …</span>
+          <br><b>সংখ্যাগুলোতে বিশেষ মন দাও</b> — জার্মানরা ২১-কে \"একুশ\" নয়, \"এক-ও-বিশ\" (einundzwanzig) বলে। ফোন নম্বরে অঙ্কগুলো একটা একটা করে বলা হয়।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u2">কোর্স ইউনিট ২</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৩</span><span class="stt">শহরে পথ খোঁজা</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> নিকোকে ঠিকানা খুঁজতে হচ্ছে। রাস্তায় মানুষকে পথ জিজ্ঞেস করা, শহরের জায়গা চেনা, দিকনির্দেশ বোঝার দৃশ্য।<br>
+        <b>ভাষা:</b> শহরের জায়গার নাম, <b>es gibt</b>, <b>Akkusativ</b> (der → den), <b>kein</b>, দিকনির্দেশ।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Wo ist …?</span> <span class="phr">Ich suche …</span>
+          <span class="phr">geradeaus</span> <span class="phr">links</span> <span class="phr">rechts</span>
+          <span class="phr">Es gibt …</span> <span class="phr">Ist das weit?</span>
+          <br>দিকনির্দেশের অংশে <b>হাতের ইশারা</b> দেখো — ভাষা না বুঝলেও দৃশ্য দেখে অর্থ বুঝে যাবে। এটাই ভিডিওতে শেখার সুবিধা।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u3">কোর্স ইউনিট ৩</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৪</span><span class="stt">খাওয়া-দাওয়া ও অর্ডার</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> ক্যাফে, রেস্টুরেন্ট বা দোকানের দৃশ্য। খাবার অর্ডার করা, দাম জিজ্ঞেস করা, বিল দেওয়া।<br>
+        <b>ভাষা:</b> খাবার ও পানীয়ের নাম, <b>ich möchte</b>, <b>gern / lieber</b>, দাম বলা।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Ich möchte …, bitte</span> <span class="phr">Was kostet das?</span>
+          <span class="phr">Die Rechnung, bitte</span> <span class="phr">Ich nehme …</span>
+          <span class="phr">Guten Appetit!</span>
+          <br><b>এই পর্যায়টা সবচেয়ে বেশি কাজে লাগবে</b> — জার্মানিতে গিয়ে প্রথম দিনেই তোমাকে অর্ডার করতে হবে। এই অংশ ৩ বার দেখো, আর প্রতিবার অভিনেতার সাথে সাথে জোরে বলো।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u4">কোর্স ইউনিট ৪</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৫</span><span class="stt">দৈনন্দিন রুটিন ও সময়</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> ঘড়ি, সময়, দেখা করার পরিকল্পনা। কেউ কখন আসবে, কখন কাজ শুরু — এই ধরনের কথাবার্তা।<br>
+        <b>ভাষা:</b> ঘড়ির সময় (বিশেষ করে <b>halb</b>), দিন ও সপ্তাহ, বিচ্ছিন্নযোগ্য verb (aufstehen, einkaufen)।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Wie viel Uhr ist es?</span> <span class="phr">um acht Uhr</span>
+          <span class="phr">halb sieben</span> <span class="phr">am Montag</span>
+          <br><b>সবচেয়ে জরুরি ফাঁদ:</b> <b>halb acht</b> মানে ৭:৩০, ৮:৩০ নয়! যেখানে সময় বলা হচ্ছে সেখানে থামিয়ে ভালো করে শোনো — বাস্তবে এই ভুলে দেরি হয়ে যায়।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u5">কোর্স ইউনিট ৫</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৬</span><span class="stt">পরিকল্পনা ও প্রস্তাব (Modalverben)</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> বন্ধুদের সাথে কোথাও যাওয়ার পরিকল্পনা, প্রস্তাব দেওয়া, রাজি হওয়া বা এড়িয়ে যাওয়া।<br>
+        <b>ভাষা:</b> <b>können, wollen, müssen, dürfen</b>; Imperativ (আদেশ/অনুরোধ)।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Wollen wir …?</span> <span class="phr">Ich kann nicht</span>
+          <span class="phr">Ich muss arbeiten</span> <span class="phr">Komm mit!</span>
+          <span class="phr">Leider …</span>
+          <br><b>বাক্যের শেষ শব্দটা খেয়াল করো।</b> Modal verb থাকলে আসল verb-টা বাক্যের একদম শেষে যায় — কানে এই ছাঁদটা বসানোই এই পর্যায়ের আসল লাভ।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u6">কোর্স ইউনিট ৬</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৭</span><span class="stt">বাসা, শরীর ও দৈনন্দিন সমস্যা</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> থাকার জায়গা খোঁজা, ঘর দেখা, অথবা শরীর খারাপ হলে সাহায্য চাওয়া / ডাক্তারের কাছে যাওয়া।<br>
+        <b>ভাষা:</b> ঘর ও আসবাব, অবস্থানের preposition (<b>Dativ</b>), শরীরের অংশ, ব্যথা বলা, <b>mir/dir</b>।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">in der Küche</span> <span class="phr">Wie hoch ist die Miete?</span>
+          <span class="phr">Mein Kopf tut weh</span> <span class="phr">Mir ist schlecht</span>
+          <span class="phr">Gute Besserung!</span>
+          <br>খেয়াল করো <b>mir / dir</b> কত ঘন ঘন আসে — জার্মানরা অনুভূতি ও অবস্থা বোঝাতে এই Dativ ছাঁদ সারাক্ষণ ব্যবহার করে।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u8">ইউনিট ৮</a> ও <a class="inline" href="kurs.html#u9">ইউনিট ৯</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৮</span><span class="stt">অতীতের কথা বলা (Perfekt)</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> নিকো বা অন্য চরিত্ররা <b>যা ঘটে গেছে</b> সেটা বলছে — কী হয়েছিল, কোথায় গিয়েছিল, কী হারিয়েছিল।<br>
+        <b>ভাষা:</b> <b>Perfekt</b> (haben/sein + Partizip II), <b>war / hatte</b>, কারণ বলা (weil / denn)।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Ich habe … gemacht</span> <span class="phr">Ich bin … gekommen</span>
+          <span class="phr">Das war …</span> <span class="phr">Ich hatte …</span>
+          <span class="phr">weil …</span>
+          <br><b>বাক্যের শেষ শব্দে মন দাও</b> — Perfekt-এ Partizip II (gemacht, gekommen, gesehen) সবসময় শেষে বসে। এই ছাঁদটা কানে বসে গেলে তুমি অতীতের কথা বুঝতে পারবে।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u10">ইউনিট ১০</a> ও <a class="inline" href="kurs.html#u12">ইউনিট ১২</a></div>
+      </div>
+
+      <div class="warn"><b>উপরের গাইডটা কী আর কী নয়:</b> এটা ফিল্মের সংলাপের বাংলা অনুবাদ বা দৃশ্য-বর্ণনা <b>নয়</b>। এটা একটা <b>শোনার গাইড</b> — A1 কোর্স যে ক্রমে এগোয় সেই ক্রম ধরে বলা হয়েছে কোন পর্যায়ে কী ধরনের পরিস্থিতি ও কোন ভাষা আসে, আর তুমি কী শুনতে চেষ্টা করবে। আসল গল্প ও সংলাপ ভিডিওতেই দেখো ও শোনো।</div>
+    </section>
+
+    <!-- ======================= A2 ফিল্ম ======================= -->
+    <section class="lesson" id="a2">
       <h2><span class="num">2</span> Nicos Weg — A2 (সম্পূর্ণ ফিল্ম)</h2>
-      <p class="lead">নিকোর গল্প এগিয়ে চলে — কাজ, বন্ধুত্ব, দৈনন্দিন জীবনের আরও জটিল পরিস্থিতি। Dativ, Perfekt, Nebensatz — <a class="inline" href="a2.html">A2 কোর্সে</a> যা শিখছ, সব এখানে শুনবে।</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/Lg5P2w_Ro1c" title="Nicos Weg A2 — Ganzer Film (DW Deutsch lernen)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <p>
-        <a class="dwlink" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">📝 DW সাইটে A2 অনুশীলনী →</a>
-        <a class="dwlink" href="a2.html">📘 আমাদের A2 লেসনগুলো</a>
-      </p>
-
-      <h3>📖 দেখার গাইড — গল্পটা কী (বাংলায়)</h3>
-      <p><b>গল্প:</b> নিকো এবার জার্মানিতে থেকে যাওয়ার সিদ্ধান্ত নেয়। নতুন শহরে নতুন জীবন — বন্ধুদের সাথে বাসা ভাগ করে থাকা (WG), কাজ ও ইন্টার্নশিপ খোঁজা (এক পর্যায়ে ফিল্ম স্টুডিওতে Praktikum!), আর প্রতিদিনের বড়দের জীবনের ঝামেলা সামলানো। ভাষার দিক থেকে এবার শুনবে অতীতের গল্প (Perfekt/Präteritum), কারণ ব্যাখ্যা (weil), আর ইচ্ছা-পরিকল্পনার কথা — ঠিক যা A2 কোর্সে শিখছ।</p>
-      <h4>🔑 এই ফিল্মে বারবার শুনবে</h4>
-      <div class="vocab">
-        <div class="w"><span class="de">Ich habe … gemacht.</span><span class="bn">আমি … করেছি। (Perfekt)</span></div>
-        <div class="w"><span class="de">Wo warst du gestern?</span><span class="bn">গতকাল কোথায় ছিলে?</span></div>
-        <div class="w"><span class="de">…, weil …</span><span class="bn">…, কারণ … (verb শেষে!)</span></div>
-        <div class="w"><span class="de">Ich interessiere mich für …</span><span class="bn">আমি …-এ আগ্রহী।</span></div>
-        <div class="w"><span class="de">die WG (Wohngemeinschaft)</span><span class="bn">শেয়ার করা বাসা</span></div>
-        <div class="w"><span class="de">das Praktikum</span><span class="bn">ইন্টার্নশিপ</span></div>
-      </div>
-      <div class="quiz">
-        <h4>✍️ দেখার সময় এই কাজগুলো করো (active watching)</h4>
-        <ol>
-          <li>ফিল্ম থেকে <b>৫টি Perfekt বাক্য</b> (habe/bin + ge-…) শুনে খাতায় লেখো।
-            <div><span class="reveal">কেন এই কাজ? ▸</span><div class="ans">A2-এর সবচেয়ে জরুরি grammar হলো Perfekt — কানে শুনে চিনতে পারাটাই পরীক্ষার Hören-এ অর্ধেক জেতা।</div></div>
-          </li>
-          <li><b>৩টি weil-বাক্য</b> খুঁজে লেখো এবং খেয়াল করো verb কোথায় বসেছে।
-            <div><span class="reveal">উত্তর-সংকেত ▸</span><div class="ans">weil-এর পরে verb বাক্যের একেবারে <b>শেষে</b> যায়: "…, weil ich keine Zeit <b>habe</b>."</div></div>
-          </li>
-          <li>নিকো কোথায় ইন্টার্নশিপ (Praktikum) করে?
-            <div><span class="reveal">উত্তর দেখাও ▸</span><div class="ans">ফিল্ম/মিডিয়ার জগতে — একটা ফিল্ম স্টুডিওতে (Praktikum beim Film)।</div></div>
-          </li>
-        </ol>
-      </div>
-      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+      <p class="lead">A1 শেষ করার <b>পরেই</b> এটা ধরো। এখানে কথার গতি বাড়ে, বাক্য লম্বা হয়, আর বিষয়গুলো গভীর হয়।</p>
+      <div class="vplayer" data-vid="Lg5P2w_Ro1c"
+           data-title="Nicos Weg — A2 (সম্পূর্ণ ফিল্ম)"
+           data-sub="DW Deutsch lernen · A2 স্তর"></div>
     </section>
 
-    <section class="lesson" id="nicos-b1">
-      <h2><span class="num">3</span> Nicos Weg — B1 (সম্পূর্ণ ফিল্ম)</h2>
-      <p class="lead">শেষ ধাপ — মতামত, যুক্তি, ভবিষ্যৎ পরিকল্পনা। B1 পরীক্ষার Hören-এর জন্য এটা সেরা প্রস্তুতি: বাস্তব গতির কথোপকথন, কিন্তু পরিষ্কার উচ্চারণ।</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/LkufozluseI" title="Nicos Weg B1 — Ganzer Film (DW Deutsch lernen)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <p>
-        <a class="dwlink" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">📝 DW সাইটে B1 অনুশীলনী →</a>
-        <a class="dwlink" href="b1.html">📘 আমাদের B1 লেসনগুলো</a>
-      </p>
+    <section class="lesson" id="a2steps">
+      <h2>🪜 A2 ফিল্ম — ধাপে ধাপে দেখার গাইড</h2>
+      <p class="lead">A2-তে পরিস্থিতিগুলো আর শুধু \"টিকে থাকা\" নয় — এখন <b>মতামত দেওয়া, যুক্তি দেখানো, অতীতের গল্প বলা</b>। ৫টি পর্যায়ে ভাগ করে দেখো।</p>
 
-      <h3>📖 দেখার গাইড — গল্পটা কী (বাংলায়)</h3>
-      <p><b>গল্প:</b> নিকোর জীবন এখন জার্মানিতে পুরোপুরি গুছিয়ে ওঠার পথে — ভবিষ্যৎ নিয়ে বড় সিদ্ধান্ত, কাজ ও ক্যারিয়ার, সম্পর্ক আর মতভেদ। চরিত্ররা এবার <b>মতামত দেয়, তর্ক করে, পরিকল্পনা ব্যাখ্যা করে</b> — আর এখানেই B1-এর ভাষা: Konjunktiv II (würde/könnte), dass/obwohl-বাক্য, যুক্তি সাজানো। কথার গতি এবার প্রায় স্বাভাবিক — তাই এটা B1 পরীক্ষার Hören-এর সেরা ট্রেনিং।</p>
-      <h4>🔑 এই ফিল্মে বারবার শুনবে</h4>
-      <div class="vocab">
-        <div class="w"><span class="de">Ich finde, dass …</span><span class="bn">আমি মনে করি যে …</span></div>
-        <div class="w"><span class="de">Ich würde gern …</span><span class="bn">আমি … করতে চাইতাম।</span></div>
-        <div class="w"><span class="de">Was hältst du davon?</span><span class="bn">তুমি এ ব্যাপারে কী মনে করো?</span></div>
-        <div class="w"><span class="de">Ich habe vor, … zu …</span><span class="bn">আমার পরিকল্পনা … করার।</span></div>
-        <div class="w"><span class="de">die Entscheidung</span><span class="bn">সিদ্ধান্ত</span></div>
-        <div class="w"><span class="de">die Zukunft</span><span class="bn">ভবিষ্যৎ</span></div>
+      <div class="stage">
+        <div class="sh"><span class="snum">১</span><span class="stt">কাজ, আবেদন ও অতীতের অভিজ্ঞতা</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> চাকরি বা কোর্সের খোঁজ, নিজের অভিজ্ঞতা বলা, আনুষ্ঠানিক পরিবেশে কথা বলা।<br>
+        <b>ভাষা:</b> Perfekt আরও গভীরভাবে, modal-এর অতীত (<b>konnte, musste, wollte</b>), <b>deshalb / trotzdem</b>।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Früher habe ich …</span> <span class="phr">Ich konnte nicht …</span>
+          <span class="phr">Ich musste …</span> <span class="phr">deshalb</span> <span class="phr">trotzdem</span>
+          <br><b>deshalb</b> শোনার পরেই verb আসে — এই ছাঁদটা ধরার চেষ্টা করো।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u13">A2 ইউনিট ১</a></div>
       </div>
-      <div class="quiz">
-        <h4>✍️ দেখার সময় এই কাজগুলো করো (B1 exam-style)</h4>
-        <ol>
-          <li>যেকোনো একটা দৃশ্য বেছে নাও — চরিত্রটা <b>কী মত দিলো আর কী যুক্তি দিলো</b>, ২টি বাক্যে বাংলায় লেখো, তারপর জার্মানে বলার চেষ্টা করো।
-            <div><span class="reveal">কেন? ▸</span><div class="ans">B1 Sprechen-এর Teil 3-এ ঠিক এটাই করতে হয় — অন্যের মত শুনে নিজের প্রতিক্রিয়া দেওয়া।</div></div>
-          </li>
-          <li><b>৩টি Konjunktiv II</b> রূপ (würde/hätte/wäre/könnte) শুনে টুকে নাও।
-            <div><span class="reveal">উত্তর-সংকেত ▸</span><div class="ans">ভদ্র অনুরোধ বা কল্পনার মুহূর্তে কান পাতো — "Ich würde…", "Das wäre…", "Könntest du…?"</div></div>
-          </li>
-          <li>১০ মিনিট সাবটাইটেল <b>ছাড়া</b> দেখো, তারপর একই অংশ সাবটাইটেলসহ — কত % বুঝেছিলে?
-            <div><span class="reveal">লক্ষ্য ▸</span><div class="ans">প্রথমবারে ৬০–৭০% বুঝলেই তুমি B1 Hören-এর জন্য ঠিক পথে আছ।</div></div>
-          </li>
-        </ol>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">২</span><span class="stt">থাকা, প্রতিবেশী ও একসাথে জীবন</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> বাসা ভাড়া, রুমমেট, প্রতিবেশীর সাথে সমস্যা বা সহযোগিতা।<br>
+        <b>ভাষা:</b> <b>Dativ</b> পুরোপুরি, Dativ preposition (mit, bei, zu, von, aus, seit, nach), Dativ verb (helfen, gehören)।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Kannst du mir helfen?</span> <span class="phr">mit dem Bus</span>
+          <span class="phr">bei meinem Freund</span> <span class="phr">seit einem Jahr</span>
+          <br>Dativ preposition-গুলো কত ঘন ঘন আসে গুনে দেখো — এগুলোই জার্মান কথার কাঠামো ধরে রাখে।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u14">A2 ইউনিট ২</a></div>
       </div>
-      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৩</span><span class="stt">বর্ণনা ও তুলনা</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> মানুষ, জায়গা বা জিনিসের বিস্তারিত বর্ণনা; দুটো বিকল্পের মধ্যে তুলনা করে বেছে নেওয়া।<br>
+        <b>ভাষা:</b> বিশেষণের লেজ (Adjektivdeklination), <b>Komparativ</b> ও <b>Superlativ</b>।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">ein neuer Kollege</span> <span class="phr">größer als</span>
+          <span class="phr">am besten</span> <span class="phr">die beste Lösung</span>
+          <br>বিশেষণের শেষে ছোট ছোট লেজ (<b>-e, -en, -er, -es</b>) শোনার চেষ্টা করো। এখনই নিখুঁতভাবে না ধরলেও সমস্যা নেই — কান আগে অভ্যস্ত হোক।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u15">A2 ইউনিট ৩</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৪</span><span class="stt">মতামত, যুক্তি ও আলোচনা</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> চরিত্ররা কোনো বিষয়ে একমত বা দ্বিমত হচ্ছে, যুক্তি দিচ্ছে, সিদ্ধান্ত নিচ্ছে।<br>
+        <b>ভাষা:</b> <b>dass, weil, wenn, ob</b> — জটিল বাক্য; মতামত প্রকাশের ছাঁদ।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Ich finde, dass …</span> <span class="phr">Ich glaube, …</span>
+          <span class="phr">weil …</span> <span class="phr">Weißt du, ob …?</span>
+          <span class="phr">Das sehe ich anders</span>
+          <br><b>এখানে একটা বড় ব্যাপার ধরার চেষ্টা করো:</b> <b>dass / weil / wenn</b> শোনার পরে verb-টা বাক্যের <b>একদম শেষে</b> চলে যায়। এই ছাঁদ কানে বসে গেলে তুমি জটিল বাক্যও বুঝতে পারবে।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u16">A2 ইউনিট ৪</a></div>
+      </div>
+
+      <div class="stage">
+        <div class="sh"><span class="snum">৫</span><span class="stt">ইচ্ছা, পরিকল্পনা ও ভদ্র অনুরোধ</span></div>
+        <div class="sbody"><b>দৃশ্যের ধরন:</b> ভবিষ্যতের পরিকল্পনা, স্বপ্ন, \"যদি এমন হতো\" ধরনের কথা; আনুষ্ঠানিক ভদ্র অনুরোধ।<br>
+        <b>ভাষা:</b> <b>Konjunktiv II</b> (hätte, wäre, könnte, würde), Relativsatz, Genitiv।</div>
+        <div class="listen"><b>👂 যা শুনতে চেষ্টা করবে:</b>
+          <span class="phr">Könnten Sie …?</span> <span class="phr">Ich hätte gern …</span>
+          <span class="phr">Wenn ich … hätte</span> <span class="phr">Ich würde …</span>
+          <br><b>Ich hätte gern …</b> — এই একটা ছাঁদ জার্মানিতে তোমার প্রতিদিন লাগবে (দোকানে, অফিসে, রেস্টুরেন্টে)। যেখানেই শুনবে, থামিয়ে নকল করো।</div>
+        <div class="sbody">📘 সাথে পড়ো: <a class="inline" href="kurs.html#u19">A2 ইউনিট ৭</a></div>
+      </div>
     </section>
 
+    <!-- ======================= পর্ব ধরে ======================= -->
     <section class="lesson" id="folgen">
-      <h2><span class="num">4</span> পর্ব ধরে ধরে — Nicos Weg Folgen (প্লেলিস্ট)</h2>
-      <p class="lead">পুরো ফিল্ম বড় লাগলে ছোট ছোট পর্বে (প্রতিটা ২–৩ মিনিট) দেখো — প্রতিদিন ১–২টা পর্বই যথেষ্ট। নিচের প্লেলিস্টে A1 থেকে শুরু করে সব পর্ব একে একে আসবে।</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg" title="Nicos Weg — সব পর্ব (DW Deutsch lernen playlist)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <div class="tip">প্রতিটা পর্ব দুবার দেখো: প্রথমবার সাবটাইটেল ছাড়া (কতটা বুঝলে?), দ্বিতীয়বার জার্মান সাবটাইটেলসহ। এটা <a class="inline" href="hoeren.html">Hören</a>-এর "আগে শোনো, পরে পড়ো" পদ্ধতিরই ভিডিও সংস্করণ।</div>
-
-      <h3>📖 কীভাবে পর্বগুলো কোর্সের সাথে মেলাবে</h3>
-      <p>প্রতিটা পর্ব একটা নির্দিষ্ট পরিস্থিতি ঘিরে (পরিচয়, ক্যাফে, রাস্তা জিজ্ঞেস করা…)। সহজ নিয়ম: <b>আজ যে লেসন পড়লে, সেই বিষয়ের পর্বটা আজই দেখো।</b> যেমন:</p>
-      <div class="tblwrap">
-      <table>
-        <tr><th>আমাদের লেসন</th><th>দেখো এই ধরনের পর্ব</th></tr>
-        <tr><td><a class="inline" href="a1.html#l2">A1 · পরিচয় ও সম্ভাষণ</a></td><td>শুরুর পর্বগুলো — "Hallo!", নাম-দেশ-পরিচয়</td></tr>
-        <tr><td><a class="inline" href="a1.html#l4">A1 · সংখ্যা ও দাম</a></td><td>কেনাকাটা/ক্যাফের পর্ব</td></tr>
-        <tr><td><a class="inline" href="a1.html#l13">A1 · Perfekt</a></td><td>A1-এর শেষ দিকের পর্ব — অতীতের গল্প</td></tr>
-        <tr><td><a class="inline" href="a2.html">A2 কোর্স</a></td><td>A2 প্লেলিস্টের পর্ব (WG, কাজ, Praktikum)</td></tr>
-      </table>
-      </div>
-      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+      <h2><span class="num">3</span> ছোট পর্ব ধরে ধরে (Folgen)</h2>
+      <p class="lead">লম্বা ফিল্ম কঠিন লাগছে? DW একই গল্প <b>১–২ মিনিটের ছোট পর্বে</b>ও ভাগ করে রেখেছে। <b>একদম শুরুর জন্য এটাই সবচেয়ে ভালো উপায়</b> — একটা পর্ব ৩ বার দেখা অনেক সহজ।</p>
+      <div class="vplayer" data-vid="videoseries?list=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg"
+           data-title="Nicos Weg — সব ছোট পর্ব (প্লেলিস্ট)"
+           data-sub="DW Deutsch lernen · A1 → B1 প্লেলিস্ট"></div>
+      <div class="tip"><b>ছোট পর্বের সেরা পদ্ধতি (দিনে ১০ মিনিট):</b><br>
+        ১. একটা পর্ব <b>সাবটাইটেল ছাড়া</b> দেখো — শুধু বোঝার চেষ্টা করো।<br>
+        ২. আবার দেখো, এবার <b>জার্মান সাবটাইটেল</b> দিয়ে।<br>
+        ৩. তৃতীয়বার দেখো আর <b>চরিত্রের সাথে সাথে জোরে বলো</b> (shadowing)।<br>
+        ৪. যে ২–৩টা নতুন শব্দ পেলে, সেগুলো খাতায় লিখে রাখো।<br>
+        এভাবে দিনে একটা পর্ব — এক মাসে তোমার কান পুরো বদলে যাবে।</div>
     </section>
 
+    <!-- ======================= Deutschlandlabor ======================= -->
     <section class="lesson" id="labor">
-      <h2><span class="num">5</span> Das Deutschlandlabor — জার্মানি কেমন দেশ? (A2)</h2>
-      <p class="lead">নিনা আর ডাভিড জার্মানি ঘুরে ঘুরে প্রশ্নের উত্তর খোঁজে: জার্মানরা কি সত্যিই এত সময়ানুবর্তী? স্কুল, কাজ, ফুটবল, Mülltrennung — <a class="inline" href="alltag.html">Alltag</a> পেজে যা পড়েছ, এখানে চোখে দেখবে। জার্মানিতে যাওয়ার আগে সংস্কৃতি বোঝার সেরা সিরিজ।</p>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLs7zUO7VPyJ50sTVsDgfJV6_B3rFYtbFu" title="Das Deutschlandlabor (DW Deutsch lernen playlist)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-
-      <h3>📖 দেখার গাইড (বাংলায়)</h3>
-      <p><b>ফরম্যাট:</b> প্রতিটা পর্ব ~৫ মিনিট, একেকটা প্রশ্ন নিয়ে — "জার্মানরা কি সত্যিই নিয়ম মানে?", "স্কুল কেমন?", "ফুটবল কেন এত গুরুত্বপূর্ণ?"। নিনা আর ডাভিড রাস্তায় মানুষের ইন্টারভিউ নেয় — তাই তুমি <b>বিভিন্ন বয়সের, বিভিন্ন উচ্চারণের সত্যিকারের জার্মান</b> শুনবে, যা পরীক্ষার Hören-এর জন্য দারুণ অনুশীলন।</p>
-      <div class="quiz">
-        <h4>✍️ প্রতিটা পর্ব দেখে এই ৩টা করো</h4>
-        <ol>
-          <li>পর্বের প্রশ্নের উত্তর <b>এক বাক্যে বাংলায়</b> লেখো (বুঝেছ কি না যাচাই)।</li>
-          <li>জার্মানি সম্পর্কে <b>নতুন জানা ৩টি তথ্য</b> টুকে নাও — <a class="inline" href="alltag.html#kultur">Alltag-এর কালচার সেকশনের</a> সাথে মিলাও।</li>
-          <li>রাস্তার ইন্টারভিউ থেকে <b>১টা নতুন শব্দ</b> খাতায় লেখো (der/die/das সহ)।</li>
-        </ol>
-      </div>
-      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+      <h2><span class="num">4</span> Das Deutschlandlabor — জার্মানি আসলে কেমন দেশ?</h2>
+      <p class="lead">এটা গল্প নয় — এটা ছোট ছোট তথ্যচিত্র। দুজন উপস্থাপক জার্মানি ঘুরে দেখান জার্মানরা আসলে কীভাবে থাকে, খায়, কাজ করে। <b>ভাষার সাথে সাথে দেশটাও চেনা</b> যায়।</p>
+      <div class="vplayer" data-vid="videoseries?list=PLs7zUO7VPyJ50sTVsDgfJV6_B3rFYtbFu"
+           data-title="Das Deutschlandlabor (প্লেলিস্ট)"
+           data-sub="DW Deutsch lernen · A2 স্তর"></div>
+      <div class="note"><b>কেন এটা দেখবে:</b> শুধু ভাষা শিখলে যথেষ্ট নয় — <b>সংস্কৃতি</b> জানাও দরকার। জার্মানিতে সময়ানুবর্তিতা কত গুরুত্বপূর্ণ, আবর্জনা কীভাবে আলাদা করে, রবিবারে দোকান কেন বন্ধ — এগুলো না জানলে বাস্তবে সমস্যায় পড়বে। প্রতিটা পর্ব ছোট, তাই A2 পর্যায়ে মজার বিরতি হিসেবে দেখো।</div>
     </section>
 
     <section class="lesson" id="more">
-      <h2><span class="num">6</span> DW-এর আরও ফ্রি রিসোর্স</h2>
-      <p class="lead">DW-এর নিজের সাইটের পেজগুলো এখানে embed করা যায় না (তাদের নিরাপত্তা নীতি), তাই সরাসরি লিংক — সবগুলোই সম্পূর্ণ ফ্রি:</p>
+      <h2><span class="num">5</span> DW-এর আরও ফ্রি রিসোর্স</h2>
+      <p class="lead">DW-এর সব কিছুই বিনামূল্যে। এগুলো বাড়তি অনুশীলনের জন্য কাজে লাগবে।</p>
+      <p>
+        <a class="dwlink" href="https://learngerman.dw.com/" target="_blank" rel="noopener">🌐 DW Learn German — মূল সাইট (A1–C1, ফ্রি অনুশীলনসহ)</a>
+        <a class="dwlink" href="https://www.youtube.com/@dwlearngerman" target="_blank" rel="noopener">▶ DW Learn German — ইউটিউব চ্যানেল</a>
+      </p>
       <div class="tblwrap">
       <table>
-        <tr><th>রিসোর্স</th><th>কী পাবে</th><th>লেভেল</th></tr>
-        <tr><td><a class="inline" href="https://learngerman.dw.com/en/placementDashboard" target="_blank" rel="noopener">Placement Test (Einstufungstest)</a></td><td>নিজের আসল লেভেল যাচাই করো — কোর্স শুরুর আগে একবার দাও</td><td>সব</td></tr>
-        <tr><td><a class="inline" href="https://learngerman.dw.com/en/nicos-weg/c-36519789" target="_blank" rel="noopener">Nicos Weg (ইন্টারঅ্যাকটিভ)</a></td><td>প্রতিটা পর্বের সাথে অনুশীলনী, শব্দতালিকা ও grammar</td><td>A1–B1</td></tr>
-        <tr><td><a class="inline" href="https://learngerman.dw.com/en/deutschtrainer/c-59519368" target="_blank" rel="noopener">Deutschtrainer</a></td><td>দৈনন্দিন জীবনের জরুরি শব্দভাণ্ডার — ছোট ভিডিও</td><td>A1–A2</td></tr>
-        <tr><td><a class="inline" href="https://learngerman.dw.com/en/deutsch-im-job/c-59900940" target="_blank" rel="noopener">Deutsch im Job — Profis gesucht</a></td><td>পেশার জার্মান — <a class="inline" href="beruf.html">Beruf</a> পেজের সাথে মিলিয়ে দেখো</td><td>A2–B1</td></tr>
-        <tr><td><a class="inline" href="https://www.dw.com/de/deutsch-lernen/nachrichten/s-8030" target="_blank" rel="noopener">Langsam gesprochene Nachrichten</a></td><td>প্রতিদিনের খবর <b>ধীরে পড়া</b> অডিও + টেক্সট — B1-এর daily শোনার অভ্যাসের জন্য সেরা</td><td>B1+</td></tr>
+        <tr><th>রিসোর্স</th><th>কী পাবে</th><th>কখন</th></tr>
+        <tr><td><b>Nicos Weg (A1)</b></td><td>গল্পের মধ্য দিয়ে A1 — কান তৈরি করার সেরা উপায়</td><td>কোর্সের ইউনিট ১–১২-এর সাথে</td></tr>
+        <tr><td><b>Nicos Weg (A2)</b></td><td>লম্বা বাক্য, মতামত, অতীতের গল্প</td><td>A1 শেষ হওয়ার পর</td></tr>
+        <tr><td><b>ছোট পর্ব (Folgen)</b></td><td>১–২ মিনিটের টুকরো — বারবার দেখা সহজ</td><td>প্রতিদিন ১০ মিনিট</td></tr>
+        <tr><td><b>Deutschlandlabor</b></td><td>জার্মান সংস্কৃতি ও দৈনন্দিন জীবন</td><td>A2 পর্যায়ে, মজার বিরতি</td></tr>
+        <tr><td><b>learngerman.dw.com</b></td><td>প্রতিটা পর্বের সাথে লিখিত অনুশীলন ও শব্দতালিকা</td><td>ভিডিও দেখার পরে</td></tr>
       </table>
       </div>
-      <div class="note">এই ভিডিও ও কোর্সগুলো Deutsche Welle-র তৈরি ও তাদেরই কনটেন্ট — এখানে শুধু অফিসিয়াল YouTube embed ও লিংক দেওয়া হয়েছে, যেন তোমার পুরো প্রস্তুতি এক জায়গা থেকে চালাতে পারো।</div>
-      <button class="mark-done">এই অংশ শেষ — চিহ্নিত করো</button>
+      <div class="warn"><b>শেষ কথা — ভিডিও একা যথেষ্ট নয়।</b> শুধু নিকোর গল্প দেখে তুমি সাবলীল হবে না, কারণ ভিডিওতে তুমি <b>শুনছ</b> কিন্তু <b>বলছ না</b>। সুষম রুটিন এটা: <a class="inline" href="kurs.html">কোর্স</a> (নিয়ম বোঝা) + <a class="inline" href="kks.html">KKS ক্লাস</a> (বিস্তারিত ব্যাখ্যা) + <b>DW ভিডিও</b> (কান তৈরি) + <a class="inline" href="trainer.html">শব্দ ট্রেইনার</a> (শব্দ গাঁথা) + <a class="inline" href="uebungen.html">অনুশীলন</a> (হাতে খাটানো) + <b>প্রতিদিন জোরে বলা</b>।</div>
     </section>
 
+    <section class="lesson">
+      <h2>🙏 কৃতজ্ঞতা</h2>
+      <p>সব ভিডিওর নির্মাতা <b>Deutsche Welle (DW)</b> — জার্মানির আন্তর্জাতিক সম্প্রচার সংস্থা। ভিডিওগুলো তাদের ইউটিউব চ্যানেল থেকে এখানে দেখানো হচ্ছে, আর দেখলে ভিউ তাদের চ্যানেলেই যায়। <b>Nicos Weg</b> সম্পূর্ণ বিনামূল্যে — DW-কে ধন্যবাদ এমন একটা রিসোর্স সবার জন্য খুলে দেওয়ার জন্য।</p>
+    </section>
   </main>
 </div>
 
-<footer>DW Videos · Deutsch für Bangla · ভিডিও কনটেন্ট © Deutsche Welle (dw.com) · Viel Spaß beim Lernen!</footer>
+<footer>
+  Deutsch für Bangla · DW ভিডিও গাইড · A1 + A2 · Viel Erfolg!
+</footer>
+
+<script src="player.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

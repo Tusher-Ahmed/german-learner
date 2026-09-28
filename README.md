@@ -1,42 +1,80 @@
-# Deutsch für Bangla 🇩🇪 — A1 → B1 German Course (in Bangla)
+# Deutsch für Bangla 🇩🇪 — শূন্য থেকে A1 → A2 (বাংলায়)
 
-A rich, self-contained German learning website for **Bangla-speaking absolute beginners**, built to take you from **zero to B1** and prepare you for the **Goethe-Zertifikat** exams (A1, A2, B1).
+বাংলাভাষী **একদম নতুনদের** জন্য একটি সম্পূর্ণ জার্মান কোর্স — ওয়েবসাইট আকারে, কোনো ইনস্টল বা সার্ভার ছাড়াই চলে।
 
-This is **not** an overview site — every grammar rule, vocabulary set, dialogue, and exercise is explained in **Bangla**, with click-to-hear German pronunciation.
+মূল নীতি একটাই: **কোনো জার্মান শব্দ অর্থ ছাড়া দেখানো হয় না।** প্রতিটা শব্দ ও বাক্যের সাথে থাকে —
 
-## ✨ Features
+- 🇧🇩 **বাংলা অর্থ**
+- 🗣 **বাংলা অক্ষরে উচ্চারণ** (যেমন `ich heiße` → *ইশ্ হাইসে*)
+- 🔊 **শোনার বাটন** (ব্রাউজারের জার্মান TTS, Chrome/Edge-এ সবচেয়ে ভালো)
 
-- **Full curriculum A1 → B1** — grammar tables, example sentences, dialogues, and exercises with reveal-answers.
-- 🔊 **Click-to-hear pronunciation** on every German word/sentence (browser Text-to-Speech, `de-DE`). Works best in **Chrome / Edge**.
-- 🃏 **Vocabulary trainer** (`trainer.html`) — 776+ words in 19 themes as flashcards with **spaced repetition** (Leitner system) and level/theme filters.
-- 📝 **Goethe-style model exams** — Lesen, Hören, Schreiben, Sprechen with answer keys.
-- ✉️ **Writing templates** — formal & informal letters/emails with memorizable building blocks.
-- 💬 **Graded dialogues** for everyday situations at each level.
-- ✅ **Progress tracking** saved in your browser (`localStorage`).
+---
 
-## 🚀 How to use
+## 🚀 শুরু করার উপায়
 
-Just open **`index.html`** in your browser (Chrome or Edge recommended for the best voice). No install, no server needed.
+`index.html` ব্রাউজারে খোলো → **ইউনিট ১** থেকে শুরু করো। ব্যস।
 
-Study order: **A1 → A2 → B1**, then use the Wortschatz trainer and model exams for revision.
+দিনে **একটা ইউনিট** (~৪৫ মিনিট)। এই গতিতে ~৭ সপ্তাহে A1, আরও ~৪ সপ্তাহে A2।
 
-## 📂 Structure
+---
 
-| File | Contents |
-|------|----------|
-| `index.html` | Roadmap, study method, Goethe exam format |
-| `a1.html` | A1 — 16 lessons (alphabet → Perfekt) |
-| `a2.html` | A2 — Dativ, Präteritum, subordinate clauses, comparison… |
-| `b1.html` | B1 — full adjective declension, Konjunktiv II, Passiv, relative clauses… |
-| `trainer.html` + `vocab-data.js` | Vocabulary flashcard trainer |
-| `pruefung-a1/a2/b1.html` | Model exams per level |
-| `schreiben.html` | Writing templates |
-| `dialoge.html` | Graded dialogues |
-| `style.css` | Shared styling |
-| `app.js` | Pronunciation, quizzes, progress |
+## 📂 সাইটের গঠন (মাত্র ৪টি মূল অংশ)
 
-## 📜 License
+| পাতা | কী আছে |
+|------|--------|
+| **`kurs.html`** — 📘 কোর্স | **মূল জিনিস।** ১৯টি ইউনিট (A1: ১২, A2: ৭)। প্রতিটি ইউনিটে ৭টি ধাপ: লক্ষ্য → শব্দ → বাক্য → গ্রামার → সংলাপ → ভিডিও → অনুশীলন + "নিজে বলো" |
+| **`kks.html`** — 📺 ভিডিও ক্লাস | ৩০টি বাংলা ভিডিও ক্লাস (Netzwerk neu A1 + A2), প্রতিটির সাথে "কী শেখানো হয়" ও "কীভাবে দেখবে" গাইড |
+| **`dw.html`** — 🎬 DW ভিডিও | DW-এর *Nicos Weg* (A1, A2) — ধাপে ধাপে বাংলা শোনার গাইডসহ, কান তৈরি করার জন্য |
+| **`trainer.html`** — 🃏 শব্দ | ৭৭৬টি শব্দের flashcard, spaced repetition (Leitner), বাংলা অর্থসহ |
 
-Free to use for personal study. Made with ❤️ for Bangla-speaking learners heading to Germany.
+বাড়তি: `uebungen.html` (ড্রিল), `pruefung.html` + `pruefung-a1/a2.html` (মডেল পরীক্ষা), আর হোমপেজের "বাড়তি সহায়তা" অংশে `spickzettel`, `sprechen`, `hoeren`, `schreiben`, `dialoge`, `alltag`।
 
-*Viel Erfolg bei der Prüfung! (শুভকামনা!)*
+### কনটেন্ট ও কোড ফাইল
+
+| ফাইল | কাজ |
+|------|-----|
+| `kurs-data.js` | পুরো সিলেবাসের ডেটা — ১৯ ইউনিট, ৩৮৪ শব্দ, ২০৯ বাক্য, ২০৩ সংলাপ-লাইন, ১৭০ অনুশীলন |
+| `kurs.js` | কোর্স রেন্ডারার — ডেটা থেকে ইউনিট তৈরি করে (অর্থ ও উচ্চারণ ছাড়া কিছু দেখাতেই পারে না) |
+| `kks-data.js` | ৩০টি ভিডিওর তালিকা ও বাংলা গাইড |
+| `player.js` | **নিজস্ব ভিডিও প্লেয়ার** (নিচে দেখো) |
+| `vocab-data.js` | শব্দ ট্রেইনারের ৭৭৬টি শব্দ |
+| `app.js` | উচ্চারণ (TTS), উত্তর দেখানো, progress, মোবাইল মেনু |
+| `style.css` | সব স্টাইল |
+
+---
+
+## 🎬 নিজস্ব ভিডিও প্লেয়ার
+
+ভিডিওগুলো YouTube থেকে আসে, কিন্তু **YouTube-এর চেহারায় নয়** — `player.js` নিজের কন্ট্রোল দেখায় (YouTube IFrame API-র উপরে):
+
+- **⟲10 / 10⟳** — ১০ সেকেন্ড পিছনে/সামনে (একই অংশ বারবার শোনার জন্য)
+- **গতি 0.5x → 1.25x** — শুরুতে ধীরে শুনলে উচ্চারণ ধরা অনেক সহজ
+- **নিজের পোস্টার, নিজের সিক-বার, নিজের টাইম ডিসপ্লে**
+- **ভিডিও শেষে নিজের পর্দা** — যাতে YouTube-এর "পরের ভিডিও" সাজেশনে মন না সরে
+- **ক্লিক-শিল্ড** — ভিডিওর উপর ক্লিক করলে YouTube-এ চলে যায় না, শুধু play/pause হয়
+
+> **সীমা:** ভিডিও YouTube থেকেই স্ট্রিম হয়, তাই **YouTube-এর বিজ্ঞাপন বন্ধ করা সম্ভব নয়** — ওটা YouTube নিজে পরিবেশন করে। বিজ্ঞাপনমুক্ত দেখতে চাইলে YouTube Premium লাগবে। শেষের সাজেশন-স্ক্রিন আমাদের নিজের পর্দা দিয়ে ঢেকে দেওয়া হয়েছে।
+
+---
+
+## 📖 কনটেন্ট ও কৃতজ্ঞতা
+
+- **অধ্যায়ের ক্রম ও বিষয়** অনুসরণ করা হয়েছে **Netzwerk neu** (প্রকাশক: Klett) বইয়ের A1/A2 অধ্যায়-তালিকা অনুযায়ী, যাতে ভিডিও ক্লাসের সাথে মিলে যায়। **সব শব্দ, বাক্য, উদাহরণ, সংলাপ ও অনুশীলন এই প্রকল্পের নিজের লেখা** — বইয়ের কোনো টেক্সট এখানে নকল করা হয়নি। বইটি কিনে সাথে রাখলে সবচেয়ে ভালো ফল পাবে।
+- **ভিডিও ক্লাস:** [Learn German with KKS](https://www.youtube.com/@learngermanwithkks) — ভিডিওগুলো তাঁর চ্যানেল থেকে embed করা, ভিউ তাঁর চ্যানেলেই যায়। ভালো লাগলে **সাবস্ক্রাইব** করো।
+- **DW ভিডিও:** [DW Learn German](https://learngerman.dw.com/) — *Nicos Weg* সম্পূর্ণ বিনামূল্যে।
+- প্রতিটি ভিডিওর সাথের বাংলা লেখাগুলো **"কী বিষয় শেখানো হয়" গাইড** — ভিডিওর কথার হুবহু প্রতিলিপি (transcript) নয়।
+
+---
+
+## 🔊 টিপস
+
+- **Chrome বা Edge** ব্যবহার করো — জার্মান TTS ভয়েস সবচেয়ে ভালো কাজ করে।
+- শব্দ সবসময় **article সহ** শেখো: `der Tisch`, না শুধু `Tisch`।
+- 🔊 চেপে শোনার পর **সাথে সাথে জোরে নকল করো** (shadowing) — এটাই সাবলীলতার সবচেয়ে বড় কৌশল।
+- প্রতিটি ইউনিটের শেষের **"নিজে বলো"** ধাপ কখনো বাদ দিয়ো না — শুধু পড়লে বোঝা হয়, বলা হয় না।
+
+অগ্রগতি ব্রাউজারের `localStorage`-এ সেভ হয়।
+
+---
+
+*Viel Erfolg! (শুভকামনা!)*

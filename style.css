@@ -187,3 +187,81 @@ details>summary::before{content:"▸";color:var(--muted);display:inline-block;ma
 footer{max-width:1200px;margin:0 auto;padding:38px 22px 84px;color:var(--muted);text-align:center;font-size:14px;border-top:1px solid var(--line)}
 a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
 .kbd{background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:13px;font-family:monospace}
+
+/* ===================== নিজস্ব ভিডিও প্লেয়ার (player.js) ===================== */
+.vplayer{margin:16px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:var(--shadow);background:#0b0d12}
+.vplayer:fullscreen{border-radius:0;border:0;display:flex;flex-direction:column;justify-content:center}
+.vp-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
+.vplayer:fullscreen .vp-stage{flex:1;aspect-ratio:auto}
+.vp-frame,.vp-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ক্লিক-শিল্ড: YouTube-এর নিজের UI-তে ক্লিক আটকায়, আমাদের play/pause চালায় */
+.vp-shield{position:absolute;inset:0;cursor:pointer;background:transparent}
+.vp-shield:focus-visible{outline:3px solid var(--brand);outline-offset:-3px}
+
+/* নিজের পোস্টার (শুরুর পর্দা) — YouTube থাম্বনেইল নয় */
+.vp-poster{position:absolute;inset:0;display:grid;place-items:center;cursor:pointer;z-index:3;
+  background:radial-gradient(1200px 400px at 50% 0%,#233,#0b0d12 70%)}
+.vp-poster.gone{display:none}
+.vp-poster-in{text-align:center;padding:20px;max-width:90%}
+.vp-bigplay{width:74px;height:74px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;
+  background:var(--brand);box-shadow:0 10px 30px rgba(0,0,0,.45);transition:.16s}
+.vp-bigplay:hover{transform:scale(1.07)}
+.vp-bigplay span{display:block;width:0;height:0;margin-left:5px;
+  border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:21px solid #fff}
+.vp-ptitle{color:#fff;font-weight:800;font-size:17px;margin-top:16px;line-height:1.45}
+.vp-psub{color:#aab;font-size:13.5px;margin-top:6px}
+
+/* ভিডিও শেষে YouTube-এর সাজেশন ঢাকার নিজের পর্দা */
+.vp-endcard{position:absolute;inset:0;z-index:5;display:grid;place-items:center;
+  background:linear-gradient(180deg,rgba(8,10,15,.94),rgba(8,10,15,.98))}
+.vp-endcard[hidden]{display:none}
+.vp-endcard-in{text-align:center;padding:22px;max-width:520px}
+.vp-endttl{color:#fff;font-weight:800;font-size:20px}
+.vp-endsub{color:#aab;font-size:14.5px;margin-top:8px;line-height:1.7}
+.vp-endbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.vp-btn{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:10px 18px;
+  font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:.16s}
+.vp-btn:hover{filter:brightness(1.12)}
+.vp-btn.vp-back30{background:rgba(255,255,255,.14)}
+
+/* লোডিং স্পিনার */
+.vp-spinner{position:absolute;inset:0;display:grid;place-items:center;z-index:4;pointer-events:none}
+.vp-spinner[hidden]{display:none}
+.vp-spinner i{width:42px;height:42px;border-radius:50%;display:block;
+  border:3px solid rgba(255,255,255,.25);border-top-color:#fff;animation:vpspin .8s linear infinite}
+@keyframes vpspin{to{transform:rotate(360deg)}}
+
+/* নিজের কন্ট্রোল বার */
+.vp-bar{display:flex;align-items:center;gap:8px;padding:9px 11px;background:#12151c;
+  border-top:1px solid rgba(255,255,255,.08)}
+.vp-ico{background:rgba(255,255,255,.09);color:#e8eaf0;border:0;border-radius:8px;cursor:pointer;
+  font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 9px;min-width:34px;
+  line-height:1;transition:.14s;flex:0 0 auto}
+.vp-ico:hover{background:var(--brand);color:#fff}
+.vp-seek{flex:1 1 auto;padding:9px 2px;cursor:pointer;min-width:60px}
+.vp-seek:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+.vp-seek-track{position:relative;height:6px;border-radius:99px;background:rgba(255,255,255,.16)}
+.vp-seek-buf{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:rgba(255,255,255,.18)}
+.vp-seek-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:var(--brand)}
+.vp-seek-knob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#fff;
+  transform:translate(-50%,-50%);box-shadow:0 1px 5px rgba(0,0,0,.5);pointer-events:none;
+  left:0;margin-left:0}
+.vp-seek-fill::after{content:"";position:absolute;right:-6px;top:50%;width:13px;height:13px;
+  border-radius:50%;background:#fff;transform:translateY(-50%);box-shadow:0 1px 5px rgba(0,0,0,.5)}
+.vp-seek-knob{display:none}
+.vp-time{color:#aab;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;flex:0 0 auto}
+
+/* টাইমস্ট্যাম্প "এই অংশে যাও" বোতাম */
+.vp-jump{background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.32);color:var(--brand);
+  border-radius:8px;padding:3px 9px;font-weight:700;font-size:13px;cursor:pointer;
+  font-family:inherit;font-variant-numeric:tabular-nums;transition:.14s;white-space:nowrap}
+.vp-jump:hover{background:var(--brand);color:#fff}
+
+@media (max-width:560px){
+  .vp-bar{gap:6px;padding:8px}
+  .vp-ico{padding:7px;min-width:30px;font-size:11.5px}
+  .vp-time{font-size:11px}
+  .vp-ptitle{font-size:15px}
+}

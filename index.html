@@ -3,32 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>বাংলায় জার্মান — A1 থেকে B2, সাবলীল হওয়া পর্যন্ত | Deutsch für Bangla</title>
+<title>বাংলায় জার্মান — শূন্য থেকে A1 ও A2 | Deutsch für Bangla</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .bigstart{display:block;border:1px solid rgba(79,70,229,.3);border-radius:16px;padding:20px 22px;
+    background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(79,70,229,.03));
+    text-decoration:none;color:inherit;transition:.18s;margin:16px 0}
+  .bigstart:hover{border-color:var(--brand);box-shadow:var(--shadow);transform:translateY(-2px)}
+  .bigstart .bs1{font-size:12.5px;font-weight:800;color:var(--brand);letter-spacing:.06em;text-transform:uppercase}
+  .bigstart .bs2{font-size:22px;font-weight:800;margin-top:6px}
+  .bigstart .bs3{font-size:14.5px;color:var(--muted);margin-top:7px;line-height:1.7}
+  .extra{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:9px;margin:12px 0}
+  .extra a{display:block;padding:11px 13px;border:1px solid var(--line);border-radius:11px;
+    background:var(--card);text-decoration:none;color:inherit;transition:.15s}
+  .extra a:hover{border-color:var(--brand)}
+  .extra a b{color:var(--brand);font-size:14.5px}
+  .extra a span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.55}
+</style>
 </head>
 <body>
 <header class="topbar">
   <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
   <nav>
     <a href="index.html" class="active">হোম</a>
-    <a href="a1.html">A1</a>
-    <a href="a2.html">A2</a>
-    <a href="b1.html">B1</a>
-    <a href="b2.html">B2</a>
-    <a href="trainer.html">Wortschatz</a>
-    <a href="pruefung.html">Prüfung</a>
-    <a href="schreiben.html">Schreiben</a>
-    <a href="sprechen.html">Sprechen</a>
-    <a href="hoeren.html">Hören</a>
-    <a href="dw.html">DW Videos</a>
-    <a href="dialoge.html">Dialoge</a>
-    <a href="alltag.html">Alltag</a>
-    <a href="beruf.html">Beruf</a>
-    <a href="uebungen.html">Übungen</a>
-    <a href="spickzettel.html">Referenz</a>
+    <a href="kurs.html">কোর্স</a>
+    <a href="kks.html">ভিডিও ক্লাস</a>
+    <a href="dw.html">DW ভিডিও</a>
+    <a href="trainer.html">শব্দ</a>
+    <a href="uebungen.html">অনুশীলন</a>
+    <a href="pruefung.html">পরীক্ষা</a>
   </nav>
 </header>
 
@@ -36,150 +42,121 @@
   <main>
     <section class="hero">
       <div>
-        <span class="pill">🇩🇪 শূন্য থেকে সাবলীল</span>
-        <span class="pill">🗣️ ৪টি দক্ষতা: পড়া · শোনা · লেখা · বলা</span>
-        <span class="pill">📝 Goethe A1 · A2 · B1 · B2</span>
+        <span class="pill">🇩🇪 একদম শূন্য থেকে</span>
+        <span class="pill">🔊 প্রতিটা শব্দের অর্থ ও উচ্চারণ</span>
+        <span class="pill">📘 A1 + A2 · ১৯টি ইউনিট</span>
       </div>
-      <h1>বাংলায় জার্মান — <span class="hl">শূন্য থেকে সাবলীল (fluent)</span></h1>
-      <p>এটা শুধু grammar-এর সাইট না — এটা একটা সম্পূর্ণ <b>গাইডেড কোর্স</b>। ধাপে ধাপে পথ, চারটি ভাষা-দক্ষতার অনুশীলন, শব্দভাণ্ডার ট্রেইনার, মডেল পরীক্ষা আর দৈনন্দিন ও চাকরির জার্মান — সব একসাথে, যেন তুমি Goethe পরীক্ষা পাস করে জার্মানিতে গিয়ে সাবলীলভাবে চলতে পারো।</p>
+      <h1>বাংলায় জার্মান — <span class="hl">শূন্য থেকে ধাপে ধাপে</span></h1>
+      <p>এই সাইটটা <b>একদম নতুনদের</b> জন্য বানানো। এখানে তোমাকে অচেনা জার্মান শব্দের পাহাড় দেখিয়ে দেওয়া হবে না — প্রতিটা শব্দের সাথে <b>বাংলা অর্থ</b>, <b>বাংলা অক্ষরে উচ্চারণ</b> আর <b>শোনার বাটন</b> আছে। এক দিনে একটা ইউনিট, ১৯ দিনে A1 আর A2-এর ভিত্তি।</p>
     </section>
 
-    <!-- METHOD -->
-    <section class="lesson" id="method">
-      <h2>🎯 কীভাবে সাবলীল হবে — শেখার আসল পদ্ধতি</h2>
-      <p class="lead">ভাষা শেখা মানে শুধু নিয়ম মুখস্থ করা না — নিয়মিত <b>ইনপুট</b> (পড়া/শোনা) আর <b>আউটপুট</b> (লেখা/বলা)-এর অভ্যাস। নিচের ৫টি নীতি মেনে চললে তুমি সত্যিই সাবলীল হবে:</p>
+    <!-- START HERE -->
+    <section class="lesson" id="start">
+      <h2>🚀 এখান থেকে শুরু করো</h2>
+      <p class="lead">বেশি অপশন দেখে বিভ্রান্ত হওয়ার দরকার নেই। <b>একটাই কাজ</b> করো — নিচের বাটনে চাপো আর ইউনিট ১ শুরু করো।</p>
+      <a class="bigstart" href="kurs.html#u1">
+        <div class="bs1">ধাপ ১ — আজই শুরু করো</div>
+        <div class="bs2">ইউনিট ১: Guten Tag! →</div>
+        <div class="bs3">সম্ভাষণ ও নিজের পরিচয়। ২০টি শব্দ, ১৬টি তৈরি বাক্য, ৫টি গ্রামার নিয়ম, একটা সংলাপ, একটা ভিডিও ক্লাস আর ৮টি অনুশীলন — সব বাংলায় ব্যাখ্যা করা। সময় লাগবে ~৪৫ মিনিট।</div>
+      </a>
+      <div class="tip"><b>আগে কিছু জার্মান জানো?</b> তাহলেও ইউনিট ১ থেকেই শুরু করো — শুধু দ্রুত পড়ে যাও। যেখানে অচেনা কিছু পাবে, সেখানে থামো। ফাঁক রেখে এগোলে পরে আটকে যাবে।</div>
+    </section>
+
+    <!-- WHAT CHANGED / HOW IT WORKS -->
+    <section class="lesson" id="how">
+      <h2>🧭 এই সাইট কীভাবে কাজ করে — মাত্র ৪টা জিনিস</h2>
+      <p class="lead">আগে এখানে অনেক পেজ ছিল আর সেটা বিভ্রান্তিকর ছিল। এখন শুধু <b>৪টা জিনিস</b> মনে রাখলেই হবে:</p>
       <div class="tblwrap">
       <table>
-        <tr><th>নীতি</th><th>কী করবে</th><th>কোথায়</th></tr>
-        <tr><td><b>১. প্রতিদিন অল্প</b></td><td>দিনে ৩০–৪৫ মিনিট, প্রতিদিন। সপ্তাহে একদিন ৩ ঘণ্টার চেয়ে অনেক ভালো।</td><td>—</td></tr>
-        <tr><td><b>২. Grammar বোঝো</b></td><td>নিয়ম বুঝে উদাহরণ পড়ো, তারপর সাথে সাথে অনুশীলন করো।</td><td><a class="inline" href="a1.html">A1–B2</a> + <a class="inline" href="uebungen.html">Übungen</a></td></tr>
-        <tr><td><b>৩. শব্দ গাঁথো</b></td><td>প্রতিদিন ১০–২০টি নতুন শব্দ (der/die/das সহ) — flashcard দিয়ে বারবার।</td><td><a class="inline" href="trainer.html">Wortschatz</a></td></tr>
-        <tr><td><b>৪. কান তৈরি করো</b></td><td>প্রতিদিন জার্মান শোনো; আগে শুনে বোঝার চেষ্টা, পরে স্ক্রিপ্ট।</td><td><a class="inline" href="hoeren.html">Hören</a> + 🔊</td></tr>
-        <tr><td><b>৫. মুখ খোলো (সবচেয়ে জরুরি)</b></td><td>জোরে জোরে বলো, 🔊 শুনে <b>নকল করো (shadowing)</b>, নিজের সম্পর্কে বলো।</td><td><a class="inline" href="sprechen.html">Sprechen</a></td></tr>
+        <tr><th>#</th><th>কোথায়</th><th>কী কাজ</th><th>কখন</th></tr>
+        <tr><td><b>১</b></td><td><a class="inline" href="kurs.html">📘 কোর্স</a></td><td><b>মূল জিনিস।</b> ১৯টি ইউনিট, প্রতিটায় শব্দ (অর্থ+উচ্চারণ), বাক্য, গ্রামার, সংলাপ, ভিডিও ও অনুশীলন।</td><td>প্রতিদিন — এটাই তোমার মূল পড়া</td></tr>
+        <tr><td><b>২</b></td><td><a class="inline" href="kks.html">📺 ভিডিও ক্লাস</a></td><td>৩০টি বাংলা ভিডিও ক্লাস (Netzwerk neu A1+A2), প্রতিটার সাথে \"কী শেখানো হয়\" গাইড।</td><td>ইউনিট পড়ার পরে</td></tr>
+        <tr><td><b>৩</b></td><td><a class="inline" href="dw.html">🎬 DW ভিডিও</a></td><td>Nicos Weg ফিল্ম — আসল জার্মান শোনা, কান তৈরি করা। ধাপে ধাপে বাংলা গাইডসহ।</td><td>সপ্তাহে ২–৩ দিন</td></tr>
+        <tr><td><b>৪</b></td><td><a class="inline" href="trainer.html">🃏 শব্দ</a></td><td>৭৭৬টি শব্দের flashcard, বাংলা অর্থসহ — বারবার ঝালানোর জন্য।</td><td>প্রতিদিন ১০ মিনিট</td></tr>
       </table>
       </div>
-      <div class="tip"><b>Shadowing</b> = 🔊 বাটনে শোনা বাক্যটা সাথে সাথে ঠিক একই সুরে-গতিতে নকল করে বলা। সাবলীল উচ্চারণ ও গতির জন্য এটাই সবচেয়ে শক্তিশালী কৌশল — প্রতিদিন ১০ মিনিট করো।</div>
-      <div class="warn">শুধু পড়ে গেলে তুমি "বুঝবে" কিন্তু "বলতে" পারবে না। প্রতিটা লেসনের পর অন্তত ৫টি বাক্য নিজে <b>জোরে বলো</b> ও <b>লেখো</b> — এটাই ইনপুটকে আউটপুটে রূপান্তর করে।</div>
+      <div class="note">এছাড়া <a class="inline" href="uebungen.html">অনুশীলন</a> (বাড়তি ড্রিল) আর <a class="inline" href="pruefung.html">পরীক্ষা</a> (মডেল পরীক্ষা) আছে — এগুলো লাগবে যখন একটা লেভেল শেষ করবে।</div>
     </section>
 
-    <!-- LEARNING PATH -->
-    <section class="lesson" id="path">
-      <h2>🗺️ ধাপে ধাপে শেখার পথ (Lernpfad)</h2>
-      <p class="lead">নিচের ক্রম অনুসরণ করো। প্রতিটি ধাপে <b>grammar → শব্দ → শোনা → বলা → অনুশীলন → পরীক্ষা</b> — এই লুপটা সম্পূর্ণ করো, তারপরই পরের ধাপে যাও।</p>
+    <!-- THE METHOD -->
+    <section class="lesson" id="method">
+      <h2>🎯 সাবলীলভাবে বলতে চাইলে যা করতেই হবে</h2>
+      <p class="lead">তুমি লিখেছ তোমার <b>তাড়াতাড়ি বলা শেখা দরকার</b>। সেটার জন্য এই ৫টা নিয়ম — এগুলোই আসল পার্থক্য গড়ে দেয়:</p>
+      <div class="tblwrap">
+      <table>
+        <tr><th>নিয়ম</th><th>কী করবে</th><th>কেন এটা কাজ করে</th></tr>
+        <tr><td><b>১. প্রতিদিন, অল্প করে</b></td><td>দিনে ৪৫ মিনিট — একটা ইউনিট।</td><td>সপ্তাহে একদিন ৩ ঘণ্টার চেয়ে প্রতিদিন ৪৫ মিনিট অনেক বেশি কাজ করে। মস্তিষ্ক পুনরাবৃত্তিতে শেখে।</td></tr>
+        <tr><td><b>২. জোরে বলো</b></td><td>প্রতিটা 🔊 চেপে শোনো, সাথে সাথে <b>নকল করো</b>।</td><td>চুপচাপ পড়লে তুমি বুঝবে কিন্তু মুখ চলবে না। মুখের পেশিরও অভ্যাস দরকার।</td></tr>
+        <tr><td><b>৩. article সহ শেখো</b></td><td>\"Tisch\" নয় — <b>\"der Tisch\"</b>।</td><td>পরে আলাদা করে লিঙ্গ মুখস্থ করা প্রায় অসম্ভব। প্রথমবারেই একসাথে গাঁথো।</td></tr>
+        <tr><td><b>৪. তৈরি বাক্য মুখস্থ</b></td><td>গ্রামার না বুঝেও পুরো বাক্য মুখস্থ করো।</td><td>বাস্তবে তুমি শব্দ জোড়া দিয়ে বাক্য বানানোর সময় পাবে না — তৈরি বাক্যই মুখে আসবে।</td></tr>
+        <tr><td><b>৫. ভুল করতে ভয় পেয়ো না</b></td><td>ভুল ব্যাকরণে হলেও <b>বলো</b>।</td><td>জার্মানরা ভাঙা জার্মানেও খুশি হয় ও সাহায্য করে। নিখুঁত হওয়ার অপেক্ষা করলে কখনো বলা শুরুই হবে না।</td></tr>
+      </table>
+      </div>
+      <div class="warn"><b>সবচেয়ে বড় ভুল যা নতুনরা করে:</b> শুধু পড়ে যাওয়া আর ভিডিও দেখে যাওয়া। এতে মনে হয় শেখা হচ্ছে, কিন্তু মুখ দিয়ে কিছু বের হয় না। <b>প্রতিটা ইউনিটের শেষে \"নিজে বলো\" ধাপটা কখনো বাদ দিয়ো না</b> — ওটাই আসল শেখার জায়গা।</div>
+    </section>
 
-      <h3>ধাপ ১ · A1 (একদম শুরু)</h3>
-      <ol>
-        <li><a class="inline" href="a1.html">A1 কোর্স</a> — বর্ণমালা থেকে Perfekt পর্যন্ত ১৬টি লেসন (প্রতিটার শেষে অনুশীলন)।</li>
-        <li><a class="inline" href="trainer.html">Wortschatz ট্রেইনার</a> → A1 থিমগুলোর শব্দ মুখস্থ করো।</li>
-        <li><a class="inline" href="hoeren.html">Hören</a> (A1) → কান তৈরি করো। <a class="inline" href="sprechen.html">Sprechen</a> (A1) → নিজের পরিচয় বলা অভ্যাস করো।</li>
-        <li><a class="inline" href="uebungen.html">Übungen</a> → Präsens, Artikel/Akkusativ ড্রিল করো।</li>
-        <li>✅ <a class="inline" href="pruefung-a1.html">A1 মডেল পরীক্ষা</a> দাও — ৬০%+ পেলে ধাপ ২-তে যাও।</li>
-      </ol>
-
-      <h3>ধাপ ২ · A2 (প্রাথমিক)</h3>
-      <ol>
-        <li><a class="inline" href="a2.html">A2 কোর্স</a> — Dativ, Präteritum, weil/dass/wenn, তুলনা।</li>
-        <li>Wortschatz (A2 থিম) + <a class="inline" href="hoeren.html">Hören</a> (A2) + <a class="inline" href="sprechen.html">Sprechen</a> (A2) + <a class="inline" href="uebungen.html">Übungen</a> (Dativ, Perfekt, Präteritum)।</li>
-        <li>✅ <a class="inline" href="pruefung-a2.html">A2 মডেল পরীক্ষা</a>।</li>
-      </ol>
-
-      <h3>ধাপ ৩ · B1 (স্বাধীন — ভিসা/ভর্তির লক্ষ্য)</h3>
-      <ol>
-        <li><a class="inline" href="b1.html">B1 কোর্স</a> — Adjektiv, Konjunktiv II, Passiv, Relativsatz, Genitiv।</li>
-        <li><a class="inline" href="schreiben.html">Schreiben</a> (চিঠি/ইমেইল টেমপ্লেট) + <a class="inline" href="sprechen.html">Sprechen</a> (B1 উপস্থাপন) + <a class="inline" href="hoeren.html">Hören</a> (B1) + <a class="inline" href="uebungen.html">Übungen</a>।</li>
-        <li>✅ <a class="inline" href="pruefung-b1.html">B1 মডেল পরীক্ষা</a> — <b>জার্মানিতে ভর্তি/ভিসার জন্য সাধারণত এটাই লাগে।</b></li>
-      </ol>
-
-      <h3>ধাপ ৪ · জীবনের জন্য জার্মান (B2 + বাস্তব জীবন)</h3>
-      <ol>
-        <li><a class="inline" href="alltag.html">Alltag</a> — Anmeldung, বাসা, ব্যাংক, ডাক্তার, কেনাকাটা: টিকে থাকার ভাষা।</li>
-        <li><a class="inline" href="beruf.html">Beruf</a> + <a class="inline" href="b2.html">B2</a> — চাকরি খোঁজা, Bewerbung, ইন্টারভিউ, কর্মক্ষেত্র (IT ফোকাস)। অনেক চাকরিতে B2 লাগে।</li>
-      </ol>
-      <div class="note">প্রতিদিন সব করতে হবে না। একদিন grammar+অনুশীলন, পরদিন শব্দ+শোনা+বলা — এভাবে ঘুরিয়ে করো, কিন্তু <b>প্রতিদিন একটু বলো</b>।</div>
+    <!-- ROUTINE -->
+    <section class="lesson" id="routine">
+      <h2>📅 নমুনা সাপ্তাহিক রুটিন (দিনে ~৪৫ মিনিট)</h2>
+      <div class="tblwrap">
+      <table>
+        <tr><th>দিন</th><th>কাজ</th></tr>
+        <tr><td>সোম</td><td>নতুন <a class="inline" href="kurs.html">ইউনিট</a> (৪৫ মি.) — ৭টা ধাপ পুরো করো</td></tr>
+        <tr><td>মঙ্গল</td><td>গতকালের <a class="inline" href="kks.html">ভিডিও ক্লাস</a> দেখো (৩০) + শব্দ ঝালাও (১৫)</td></tr>
+        <tr><td>বুধ</td><td>নতুন ইউনিট (৪৫)</td></tr>
+        <tr><td>বৃহ</td><td><a class="inline" href="dw.html">DW Nicos Weg</a> ছোট পর্ব ৩ বার (২০) + <a class="inline" href="trainer.html">শব্দ</a> (২৫)</td></tr>
+        <tr><td>শুক্র</td><td>নতুন ইউনিট (৪৫)</td></tr>
+        <tr><td>শনি</td><td>সপ্তাহের ৩টা ইউনিট রিভিশন + সব সংলাপ <b>জোরে পড়া</b> (৪৫)</td></tr>
+        <tr><td>রবি</td><td>বিশ্রাম, অথবা <a class="inline" href="uebungen.html">অনুশীলন</a>/<a class="inline" href="dw.html">DW ভিডিও</a> (মজার বিরতি)</td></tr>
+      </table>
+      </div>
+      <div class="tip">এই গতিতে চললে <b>~৭ সপ্তাহে A1</b> (১২ ইউনিট) আর <b>~৪ সপ্তাহে A2</b> (৭ ইউনিট) শেষ হবে। তারপর আবার শুরু থেকে দ্রুত রিভিশন দাও — <b>দ্বিতীয়বারেই আসল শেখা হয়</b>।</div>
     </section>
 
     <!-- CAN-DO -->
     <section class="lesson" id="cando">
-      <h2>✅ Can-Do — প্রতিটি লেভেলে তুমি কী পারবে</h2>
-      <p class="lead">এগুলো CEFR-এর অফিসিয়াল লক্ষ্য। প্রতিটা লেভেল শেষে নিজেকে যাচাই করো — সব "পারি" হলে তবেই পরের ধাপে যাও।</p>
+      <h2>✅ প্রতিটি লেভেল শেষে তুমি কী পারবে</h2>
+      <p class="lead">এগুলো CEFR-এর অফিসিয়াল লক্ষ্য। নিজেকে যাচাই করো — সব \"পারি\" হলে তবেই পরের ধাপে যাও।</p>
       <div class="tblwrap">
       <table>
-        <tr><th>লেভেল</th><th>এই লেভেল শেষে তুমি পারবে…</th></tr>
-        <tr><td><b class="de">A1</b></td><td>নিজের ও পরিচিত মানুষের পরিচয় দেওয়া; সহজ প্রশ্ন করা/উত্তর দেওয়া; দাম, সময়, সংখ্যা বলা; ফর্ম পূরণ করা; খুব সহজ ব্যক্তিগত মেসেজ লেখা।</td></tr>
-        <tr><td><b class="de">A2</b></td><td>পরিবার, কেনাকাটা, কাজ, আশপাশ নিয়ে সহজ কথা; অতীত-বর্তমান-ভবিষ্যৎ বলা; সহজ ইমেইল লেখা; ঘোষণা/বিজ্ঞাপনের মূল তথ্য বোঝা।</td></tr>
-        <tr><td><b class="de">B1</b></td><td>পরিচিত বিষয়ে মতামত ও যুক্তি দেওয়া; ভ্রমণে ভাষা সামলানো; অভিজ্ঞতা/স্বপ্ন/পরিকল্পনা বর্ণনা; সংযুক্ত টেক্সট লেখা; বেশিরভাগ দৈনন্দিন পরিস্থিতি সামলানো।</td></tr>
-        <tr><td><b class="de">B2</b></td><td>জটিল টেক্সট বোঝা; সাবলীল ও স্বতঃস্ফূর্তভাবে কথা বলা; পেশাদার পরিবেশে (মিটিং, ইন্টারভিউ) কার্যকর যোগাযোগ; বিস্তারিত মতামত/যুক্তি উপস্থাপন।</td></tr>
+        <tr><th>লেভেল</th><th>এই লেভেল শেষে তুমি পারবে…</th><th>কোথায়</th></tr>
+        <tr><td><b class="de">A1</b></td><td>নিজের ও পরিচিতদের পরিচয় দেওয়া; সহজ প্রশ্ন করা ও উত্তর দেওয়া; দাম, সময়, সংখ্যা বলা; খাবার অর্ডার করা; পথ জিজ্ঞেস করা; ডাক্তারকে সমস্যা বলা; অতীতের সহজ কথা বলা।</td><td><a class="inline" href="kurs.html#u1">ইউনিট ১–১২</a></td></tr>
+        <tr><td><b class="de">A2</b></td><td>পরিবার, কাজ, কেনাকাটা, বাসা নিয়ে কথা; মতামত ও যুক্তি দেওয়া; অতীতের গল্প বলা; ভদ্রভাবে অনুরোধ করা; জটিল বাক্য বোঝা ও বলা।</td><td><a class="inline" href="kurs.html#u13">ইউনিট ১৩–১৯</a></td></tr>
       </table>
       </div>
+      <div class="note"><b>A1 আর A2 কেন যথেষ্ট শুরুর জন্য:</b> A2 শেষ করলে তুমি জার্মানিতে <b>দৈনন্দিন জীবনের প্রায় সব পরিস্থিতি</b> সামলাতে পারবে — দোকান, ডাক্তার, বাসা, অফিসের সাধারণ কথা। এই সাইট এখন এই দুটো লেভেলেই মন দিচ্ছে, যাতে তুমি ছড়িয়ে না পড়ে <b>ভিত্তিটা পোক্ত</b> করতে পারো।</div>
     </section>
 
-    <!-- ALL RESOURCES -->
-    <section class="lesson" id="resources">
-      <h2>📚 সব রিসোর্স এক নজরে</h2>
-      <div class="cards">
-        <a class="lvlcard" href="a1.html"><span class="badge">A1</span><h3>শুরু (Anfänger)</h3><p>বর্ণমালা, পরিচয়, present tense, der/die/das, Akkusativ, Perfekt।</p><p class="meta">১৬ লেসন →</p></a>
-        <a class="lvlcard" href="a2.html"><span class="badge">A2</span><h3>প্রাথমিক</h3><p>Dativ, Präteritum, weil/dass/wenn, তুলনা, ভবিষ্যৎ।</p><p class="meta">১১ লেসন →</p></a>
-        <a class="lvlcard" href="b1.html"><span class="badge">B1</span><h3>স্বাধীন</h3><p>Adjektiv, Konjunktiv II, Passiv, Relativsatz, Genitiv।</p><p class="meta">১১ লেসন →</p></a>
-        <a class="lvlcard" href="b2.html"><span class="badge">B2</span><h3>পেশাদার (IT)</h3><p>ইন্টারভিউ, বেতন আলোচনা, মিটিং, কারিগরি আলোচনা।</p><p class="meta">৮ টপিক →</p></a>
-        <a class="lvlcard" href="trainer.html"><span class="badge">🃏</span><h3>Wortschatz ট্রেইনার</h3><p>৭৭৬+ শব্দ, flashcard, spaced repetition, 🔊।</p><p class="meta">শব্দ মুখস্থ →</p></a>
-        <a class="lvlcard" href="sprechen.html"><span class="badge">🗣️</span><h3>Sprechen</h3><p>উচ্চারণ, shadowing, পরীক্ষার speaking সিমুলেশন।</p><p class="meta">বলা শেখো →</p></a>
-        <a class="lvlcard" href="hoeren.html"><span class="badge">🎧</span><h3>Hören</h3><p>A1–B1 শোনার অনুশীলন — শুনে প্রশ্নের উত্তর।</p><p class="meta">শোনা →</p></a>
-        <a class="lvlcard" href="dw.html"><span class="badge">📺</span><h3>DW Videos</h3><p>Nicos Weg A1–B1 ফিল্ম, Deutschlandlabor, Ticket nach Berlin — ভিডিওতে শেখা।</p><p class="meta">ভিডিও দেখো →</p></a>
-        <a class="lvlcard" href="schreiben.html"><span class="badge">✉️</span><h3>Schreiben</h3><p>চিঠি/ইমেইল টেমপ্লেট ও নমুনা।</p><p class="meta">লেখা →</p></a>
-        <a class="lvlcard" href="uebungen.html"><span class="badge">✍️</span><h3>Übungen</h3><p>১০টি টপিকে গ্রামার ড্রিল, উত্তরসহ।</p><p class="meta">অনুশীলন →</p></a>
-        <a class="lvlcard" href="pruefung.html"><span class="badge">🎯</span><h3>Prüfung</h3><p>A1/A2/B1 সম্পূর্ণ মডেল পরীক্ষা, উত্তরসহ।</p><p class="meta">পরীক্ষা দাও →</p></a>
-        <a class="lvlcard" href="dialoge.html"><span class="badge">💬</span><h3>Dialoge</h3><p>দৈনন্দিন পরিস্থিতির কথোপকথন।</p><p class="meta">সংলাপ →</p></a>
-        <a class="lvlcard" href="alltag.html"><span class="badge">🏙️</span><h3>Alltag</h3><p>Anmeldung, বাসা, ব্যাংক, ডাক্তার — টিকে থাকার জার্মান।</p><p class="meta">দৈনন্দিন →</p></a>
-        <a class="lvlcard" href="beruf.html"><span class="badge">💼</span><h3>Beruf</h3><p>চাকরি খোঁজা, Bewerbung, ইন্টারভিউ (IT)।</p><p class="meta">চাকরি →</p></a>
-        <a class="lvlcard" href="spickzettel.html"><span class="badge">📄</span><h3>Referenz (Spickzettel)</h3><p>সব গ্রামার টেবিল এক পেজে — প্রিন্ট/PDF করে রাখো।</p><p class="meta">রেফারেন্স →</p></a>
+    <!-- EXTRA -->
+    <section class="lesson" id="extra">
+      <h2>🧰 বাড়তি সহায়তা (দরকার হলে)</h2>
+      <p class="lead">এগুলো মূল পথের অংশ নয় — তাই মেনুতে রাখিনি, যাতে বিভ্রান্তি না হয়। যখন নির্দিষ্ট কিছু দরকার হবে, তখন এখান থেকে নাও।</p>
+      <div class="extra">
+        <a href="spickzettel.html"><b>📄 রেফারেন্স শিট</b><span>সব গ্রামার টেবিল এক পেজে — প্রিন্ট করে দেয়ালে লাগাও।</span></a>
+        <a href="sprechen.html"><b>🗣️ বলার অনুশীলন</b><span>উচ্চারণ, shadowing ও পরীক্ষার speaking অংশের অভ্যাস।</span></a>
+        <a href="hoeren.html"><b>🎧 শোনার অনুশীলন</b><span>শুনে প্রশ্নের উত্তর দেওয়ার অভ্যাস।</span></a>
+        <a href="schreiben.html"><b>✉️ লেখার টেমপ্লেট</b><span>চিঠি ও ইমেইলের তৈরি ছাঁদ — পরীক্ষায় কাজে দেয়।</span></a>
+        <a href="dialoge.html"><b>💬 বাড়তি সংলাপ</b><span>দৈনন্দিন পরিস্থিতির আরও কথোপকথন।</span></a>
+        <a href="alltag.html"><b>🏙️ দৈনন্দিন জার্মানি</b><span>Anmeldung, বাসা, ব্যাংক, ডাক্তার — টিকে থাকার ভাষা।</span></a>
+        <a href="a1.html"><b>📗 পুরোনো A1 পাতা</b><span>আগের এক-পাতার A1 রেফারেন্স (কোর্সই এখন মূল পথ)।</span></a>
+        <a href="a2.html"><b>📘 পুরোনো A2 পাতা</b><span>আগের এক-পাতার A2 রেফারেন্স।</span></a>
       </div>
     </section>
 
-    <!-- WEEKLY ROUTINE -->
-    <section class="lesson" id="routine">
-      <h2>📅 নমুনা সাপ্তাহিক রুটিন (প্রতিদিন ~৪৫ মিনিট)</h2>
-      <div class="tblwrap">
-      <table>
-        <tr><th>দিন</th><th>কাজ (~৪৫ মিনিট)</th></tr>
-        <tr><td>সোম</td><td>নতুন grammar লেসন (২০ মি.) + সেই টপিকের <a class="inline" href="uebungen.html">Übungen</a> (১৫) + ১০টি নতুন শব্দ (১০)</td></tr>
-        <tr><td>মঙ্গল</td><td><a class="inline" href="sprechen.html">Sprechen</a> — 🔊 shadowing + জোরে পড়া (২৫) + কালকের শব্দ রিভিশন (২০)</td></tr>
-        <tr><td>বুধ</td><td>নতুন grammar লেসন (২০) + Übungen (১৫) + ১০ শব্দ (১০)</td></tr>
-        <tr><td>বৃহ</td><td><a class="inline" href="hoeren.html">Hören</a> (২০) + <a class="inline" href="dialoge.html">Dialoge</a> জোরে পড়া/নকল (২৫)</td></tr>
-        <tr><td>শুক্র</td><td><a class="inline" href="schreiben.html">Schreiben</a> — ছোট লেখা (২৫) + শব্দ রিভিশন (২০)</td></tr>
-        <tr><td>শনি</td><td>সপ্তাহের সব রিভিশন + <a class="inline" href="trainer.html">Wortschatz</a> ট্রেইনার (৪৫)</td></tr>
-        <tr><td>রবি</td><td>একটা <a class="inline" href="pruefung.html">মডেল পরীক্ষা</a> অংশ বা <a class="inline" href="alltag.html">Alltag</a>/<a class="inline" href="beruf.html">Beruf</a> (মজার বিরতি)</td></tr>
-      </table>
-      </div>
-      <div class="tip">লক্ষ্য A1→B1 ≈ ৬–৯ মাস (প্রতিদিন নিয়মিত পড়লে)। তাড়াহুড়ো নয় — প্রতিটি ধাপ পোক্ত করে এগোও।</div>
-    </section>
-
-    <!-- EXAM -->
-    <section class="lesson" id="exam">
-      <h2>🎯 Goethe পরীক্ষা কেমন হয়</h2>
-      <p class="lead">প্রতিটা লেভেলের পরীক্ষায় <b>৪টি অংশ (Module)</b> — মোট নম্বরের <b>৬০%</b> পেলে পাস।</p>
-      <div class="tblwrap">
-      <table>
-        <tr><th>Module</th><th>বাংলা</th><th>এই কোর্সে প্রস্তুতি</th></tr>
-        <tr><td><b class="de">Lesen</b></td><td>পড়া</td><td>সব লেসন + <a class="inline" href="pruefung.html">মডেল পরীক্ষা</a></td></tr>
-        <tr><td><b class="de">Hören</b></td><td>শোনা</td><td><a class="inline" href="hoeren.html">Hören</a> + সব 🔊</td></tr>
-        <tr><td><b class="de">Schreiben</b></td><td>লেখা</td><td><a class="inline" href="schreiben.html">Schreiben</a> টেমপ্লেট</td></tr>
-        <tr><td><b class="de">Sprechen</b></td><td>বলা</td><td><a class="inline" href="sprechen.html">Sprechen</a> সিমুলেশন</td></tr>
-      </table>
-      </div>
-      <div class="warn"><b>Goethe-Institut</b> (গযোটে) = জার্মান ভাষার সবচেয়ে স্বীকৃত পরীক্ষা। জার্মানিতে ভর্তি/ভিসার জন্য সাধারণত <b>B1</b>, আর অনেক চাকরিতে <b>B2</b> লাগে।</div>
-    </section>
-
-    <!-- START -->
-    <section class="lesson" id="start">
-      <h2>🚀 এখনই শুরু করো</h2>
-      <p>একদম নতুন হলে A1 দিয়ে শুরু করো। আগে কিছু জানলে, উপরের <b>Can-Do</b> দেখে নিজের লেভেল ঠিক করো।</p>
-      <p><a class="lvlcard" style="max-width:340px" href="a1.html"><span class="badge">A1</span><h3>Lektion 1 শুরু করো →</h3><p class="meta">Das Alphabet — বর্ণমালা ও উচ্চারণ</p></a></p>
+    <section class="lesson">
+      <h2>🚀 তাহলে আর দেরি কেন</h2>
+      <p>পড়া বন্ধ করো, শেখা শুরু করো। আজ একটা ইউনিট — কাল আরেকটা।</p>
+      <a class="bigstart" href="kurs.html#u1">
+        <div class="bs1">এখনই শুরু</div>
+        <div class="bs2">ইউনিট ১: Guten Tag! →</div>
+        <div class="bs3">Viel Erfolg! (শুভকামনা!)</div>
+      </a>
     </section>
   </main>
 </div>
 
 <footer>
-  Deutsch für Bangla · বাংলাভাষীদের জন্য সম্পূর্ণ জার্মান কোর্স · A1 → B2 · Viel Erfolg! (শুভকামনা!)
+  Deutsch für Bangla · বাংলাভাষীদের জন্য জার্মান কোর্স · A1 → A2 · Viel Erfolg! (শুভকামনা!)
 </footer>
 <script src="app.js"></script>
 </body>

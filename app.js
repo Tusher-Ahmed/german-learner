@@ -47,6 +47,7 @@
     // mark lesson done
     const md = e.target.closest(".mark-done");
     if (md) {
+      if (md.classList.contains("kurs-done")) return; // kurs.js নিজে সামলায়
       const sec = md.closest("section.lesson");
       if (sec) toggleDone(sec.id, md);
     }
@@ -109,6 +110,7 @@
     updateBar();
   }
   function applyDoneState() {
+    if (document.body && document.body.hasAttribute("data-no-auto-progress")) return;
     const p = loadProgress();
     document.querySelectorAll("section.lesson").forEach(sec => {
       const done = !!p[sec.id];
@@ -122,6 +124,7 @@
     });
   }
   function updateBar() {
+    if (document.body && document.body.hasAttribute("data-no-auto-progress")) return;
     const total = document.querySelectorAll("section.lesson").length;
     if (!total) return;
     const p = loadProgress();
@@ -179,6 +182,12 @@
     // close on Escape
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
   }
+
+  // ডায়নামিকভাবে বসানো কনটেন্টে (যেমন kurs.js) আবার 🔊 বসানোর হুক
+  window.DFB = {
+    refresh: function () { autoSpeakButtons(); alphabetAudio(); },
+    speak: speak
+  };
 
   document.addEventListener("DOMContentLoaded", function () {
     autoSpeakButtons();
