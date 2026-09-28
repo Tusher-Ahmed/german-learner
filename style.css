@@ -196,11 +196,10 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
 .vplayer:fullscreen .vp-stage{flex:1;aspect-ratio:auto}
 .vp-frame,.vp-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-/* ক্লিক-শিল্ড: YouTube-এর নিজের UI-তে ক্লিক আটকায়, আমাদের play/pause চালায় */
-.vp-shield{position:absolute;inset:0;cursor:pointer;background:transparent}
-.vp-shield:focus-visible{outline:3px solid var(--brand);outline-offset:-3px}
+/* ⚠️ ভিডিওর উপরে কোনো ক্লিক-শিল্ড নেই — নইলে YouTube-এর "Skip Ad"
+   বাটনে ক্লিক করা যায় না। ভিডিওতে ক্লিক করলে play/pause হবে (YouTube নিজেই করে)। */
 
-/* নিজের পোস্টার (শুরুর পর্দা) — YouTube থাম্বনেইল নয় */
+/* নিজের পোস্টার (শুরুর পর্দা) */
 .vp-poster{position:absolute;inset:0;display:grid;place-items:center;cursor:pointer;z-index:3;
   background:radial-gradient(1200px 400px at 50% 0%,#233,#0b0d12 70%)}
 .vp-poster.gone{display:none}
@@ -221,8 +220,8 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
 .vp-endttl{color:#fff;font-weight:800;font-size:20px}
 .vp-endsub{color:#aab;font-size:14.5px;margin-top:8px;line-height:1.7}
 .vp-endbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.vp-btn{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:10px 18px;
-  font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:.16s}
+.vp-btn{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:12px 18px;
+  font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:.16s;min-height:44px}
 .vp-btn:hover{filter:brightness(1.12)}
 .vp-btn.vp-back30{background:rgba(255,255,255,.14)}
 
@@ -233,35 +232,52 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
   border:3px solid rgba(255,255,255,.25);border-top-color:#fff;animation:vpspin .8s linear infinite}
 @keyframes vpspin{to{transform:rotate(360deg)}}
 
-/* নিজের কন্ট্রোল বার */
-.vp-bar{display:flex;align-items:center;gap:8px;padding:9px 11px;background:#12151c;
-  border-top:1px solid rgba(255,255,255,.08)}
-.vp-ico{background:rgba(255,255,255,.09);color:#e8eaf0;border:0;border-radius:8px;cursor:pointer;
-  font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 9px;min-width:34px;
-  line-height:1;transition:.14s;flex:0 0 auto}
-.vp-ico:hover{background:var(--brand);color:#fff}
-.vp-seek{flex:1 1 auto;padding:9px 2px;cursor:pointer;min-width:60px}
+/* ---------- নিজের কন্ট্রোল বার (দুই সারি, মোবাইলে সহজ) ---------- */
+.vp-bar{background:#12151c;border-top:1px solid rgba(255,255,255,.08);padding:8px 11px 10px}
+.vp-bar[hidden]{display:none}
+.vp-row{display:flex;align-items:center;gap:10px}
+.vp-row-seek{gap:12px}
+.vp-row-btns{margin-top:8px;gap:8px;flex-wrap:wrap}
+
+.vp-seek{flex:1 1 auto;min-width:80px;padding:12px 2px;cursor:pointer;touch-action:none}
 .vp-seek:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
 .vp-seek-track{position:relative;height:6px;border-radius:99px;background:rgba(255,255,255,.16)}
 .vp-seek-buf{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:rgba(255,255,255,.18)}
 .vp-seek-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:var(--brand)}
-.vp-seek-knob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#fff;
-  transform:translate(-50%,-50%);box-shadow:0 1px 5px rgba(0,0,0,.5);pointer-events:none;
-  left:0;margin-left:0}
-.vp-seek-fill::after{content:"";position:absolute;right:-6px;top:50%;width:13px;height:13px;
+.vp-seek-fill::after{content:"";position:absolute;right:-7px;top:50%;width:15px;height:15px;
   border-radius:50%;background:#fff;transform:translateY(-50%);box-shadow:0 1px 5px rgba(0,0,0,.5)}
-.vp-seek-knob{display:none}
 .vp-time{color:#aab;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;flex:0 0 auto}
+
+/* বাটন — কম ৪৪px, যাতে আঙুলে সহজে চাপা যায় */
+.vp-ico{background:rgba(255,255,255,.1);color:#e8eaf0;border:0;border-radius:10px;cursor:pointer;
+  font-family:inherit;font-size:13.5px;font-weight:700;line-height:1;
+  min-height:44px;min-width:48px;padding:0 12px;transition:.14s;flex:0 0 auto;
+  display:inline-flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.vp-ico:hover{background:var(--brand);color:#fff}
+.vp-ico:active{transform:scale(.94);background:var(--brand);color:#fff}
+.vp-ico:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.vp-play{min-width:56px;background:var(--brand);color:#fff}
+
+/* fallback বার্তা */
+.vp-msg{background:rgba(245,158,11,.1);border-top:1px solid rgba(245,158,11,.3);
+  color:var(--ink);font-size:13px;line-height:1.75;padding:11px 14px}
+.vp-msg[hidden]{display:none}
+.vp-msg code{background:rgba(0,0,0,.08);border-radius:5px;padding:1px 6px;font-size:12.5px}
 
 /* টাইমস্ট্যাম্প "এই অংশে যাও" বোতাম */
 .vp-jump{background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.32);color:var(--brand);
-  border-radius:8px;padding:3px 9px;font-weight:700;font-size:13px;cursor:pointer;
+  border-radius:9px;padding:8px 12px;font-weight:700;font-size:13px;cursor:pointer;min-height:40px;
   font-family:inherit;font-variant-numeric:tabular-nums;transition:.14s;white-space:nowrap}
 .vp-jump:hover{background:var(--brand);color:#fff}
 
+/* ছোট পর্দায় — বাটনগুলো সমান ভাগে ছড়িয়ে যাক */
 @media (max-width:560px){
-  .vp-bar{gap:6px;padding:8px}
-  .vp-ico{padding:7px;min-width:30px;font-size:11.5px}
-  .vp-time{font-size:11px}
+  .vp-bar{padding:7px 9px 9px}
+  .vp-row-btns{gap:6px}
+  .vp-ico{flex:1 1 auto;min-width:0;padding:0 8px;font-size:12.5px}
+  .vp-play{flex:1 1 100%;order:-1}
+  .vp-time{font-size:11.5px}
   .vp-ptitle{font-size:15px}
+  .vp-bigplay{width:62px;height:62px}
+  .vp-msg{font-size:12.5px;padding:10px 12px}
 }
