@@ -23,6 +23,10 @@ window.KURS = [
     "নিজের নামের বানান (spelling) জার্মান বর্ণমালায় বলতে পারবে"
   ],
   kks: { vid: "4yMEYTa1U1Q", label: "Kapitel 01: Guten Tag — Netzwerk neu A1", len: "1:30:13" },
+  kks_extra: [
+    { vid: "fVkbebXzuAs", label: "ভিত্তি-পাঠ ০১: জার্মান বর্ণমালা (das Alphabet)", len: "7:48" },
+    { vid: "PX23ETMFHpk", label: "ভিত্তি-পাঠ ০৭: সবচেয়ে দরকারি ২০টি বাক্য", len: "17:24" }
+  ],
 
   words: [
     { d: "hallo",        p: "হালো",           b: "হ্যালো (বন্ধুদের মধ্যে)" },
@@ -181,6 +185,10 @@ window.KURS = [
     "haben (থাকা/আছে) দিয়ে বাক্য বানাতে পারবে"
   ],
   kks: { vid: "mfOc9YKFN6s", label: "Kapitel 02: Freunde, Kollegen und ich — Netzwerk neu A1", len: "2:06:51" },
+  kks_extra: [
+    { vid: "EQ0v8gj-Sgs", label: "ভিত্তি-পাঠ ০৩: সংখ্যা ১–২০", len: "5:18" },
+    { vid: "2rRmYlSsCHk", label: "ভিত্তি-পাঠ ০৪: সংখ্যা ২১–১০০ (উল্টো ছাঁদ!)", len: "8:48" }
+  ],
 
   words: [
     { d: "der Freund / die Freundin", p: "ফ্রয়েন্ট / ফ্রয়েন্ডিন", b: "বন্ধু (পুরুষ / নারী)" },
@@ -612,7 +620,9 @@ window.KURS = [
   ],
   kks: { vid: "W6kinL6XUzw", label: "Kapitel 05: Alltag und Familie — Netzwerk neu A1", len: "1:27:09" },
   kks_extra: [
-    { vid: "BfzkKTzvUwM", label: "অধিকারবাচক শব্দ — mein, dein, sein, ihr (A1 ব্যাকরণ ০৬)", len: "27:12" }
+    { vid: "BfzkKTzvUwM", label: "অধিকারবাচক শব্দ — mein, dein, sein, ihr (A1 ব্যাকরণ ০৬)", len: "27:12" },
+    { vid: "QRuvNIVzfHw", label: "ভিত্তি-পাঠ ০২: সপ্তাহের সাত বার", len: "4:52" },
+    { vid: "5FMamZgEmKo", label: "ভিত্তি-পাঠ ০৫: ঘড়ির সময় (halb-এর ফাঁদ)", len: "11:37" }
   ],
 
   words: [
@@ -899,7 +909,8 @@ window.KURS = [
   ],
   kks: { vid: "2nhZhDJRvpk", label: "Kapitel 07: Arbeitsalltag — Netzwerk neu A1", len: "2:03:17" },
   kks_extra: [
-    { vid: "6CRduQr-vuQ", label: "haben ও sein — বর্তমান কালে সংযোজন (A1 ব্যাকরণ ০৭)", len: "19:20" }
+    { vid: "6CRduQr-vuQ", label: "haben ও sein — বর্তমান কালে সংযোজন (A1 ব্যাকরণ ০৭)", len: "19:20" },
+    { vid: "AKqqlnwGX6s", label: "ভিত্তি-পাঠ ০৬: বারো মাসের নাম (im + মাস)", len: "5:42" }
   ],
 
   words: [

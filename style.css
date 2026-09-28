@@ -281,3 +281,19 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
   .vp-bigplay{width:62px;height:62px}
   .vp-msg{font-size:12.5px;padding:10px 12px}
 }
+
+/* ---------- YouTube-এর উপরের টাইটেল/চ্যানেল/শেয়ার ঢাকার পর্দা ----------
+   pointer-events:none → ক্লিক এর ভেতর দিয়ে iframe-এ পৌঁছায়, তাই
+   YouTube-এর "Skip Ad" বাটন ঠিকই কাজ করে।
+   শুধু hover বা pause-এর সময় দেখা যায় — ঠিক যখন YouTube টাইটেল দেখায়।
+   বাকি সময় ভিডিওর উপরে কিছুই থাকে না।                                */
+.vp-topmask{position:absolute;top:0;left:0;right:0;height:60px;z-index:2;
+  pointer-events:none;opacity:0;transition:opacity .18s;
+  background:linear-gradient(180deg,#000 0%,#000 58%,rgba(0,0,0,.75) 82%,transparent 100%)}
+.vp-stage:hover .vp-topmask,
+.vplayer.is-paused .vp-topmask{opacity:1}
+@media (max-width:560px){ .vp-topmask{height:46px} }
+
+/* CC (সাবটাইটেল) বাটন — চালু থাকলে জ্বলজ্বল করবে */
+.vp-ico.vp-cc{font-size:12.5px;letter-spacing:.04em}
+.vp-ico.vp-cc.is-on{background:var(--brand);color:#fff;box-shadow:0 0 0 2px rgba(79,70,229,.35)}

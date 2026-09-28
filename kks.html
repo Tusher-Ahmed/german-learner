@@ -37,6 +37,41 @@
     border:1px solid rgba(16,185,129,.3);color:#059669;text-decoration:none;font-weight:700;
     font-size:13.5px;border-radius:9px;padding:7px 13px;margin-top:12px;transition:.15s}
   .ulink:hover{background:#059669;color:#fff}
+
+  /* ---------- ভাঁজ-করা ভিডিও তালিকা (organized list) ---------- */
+  .gcount{font-size:13px;font-weight:700;color:var(--brand);background:rgba(79,70,229,.12);
+    border-radius:99px;padding:3px 11px;vertical-align:middle;margin-left:6px}
+  .gtools{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+  .gbtn{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:9px;
+    padding:7px 13px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;
+    min-height:38px;transition:.14s}
+  .gbtn:hover{border-color:var(--brand);color:var(--brand)}
+
+  .glist{display:grid;gap:8px;margin:12px 0 4px}
+  .vitem{border:1px solid var(--line);border-radius:13px;background:var(--card);overflow:hidden}
+  .vitem[open]{border-color:var(--brand);box-shadow:var(--shadow)}
+  .vitem>summary{display:flex;align-items:center;gap:12px;padding:13px 15px;cursor:pointer;
+    list-style:none;transition:.14s}
+  .vitem>summary::-webkit-details-marker{display:none}
+  .vitem>summary:hover{background:rgba(79,70,229,.05)}
+  .vitem>summary::after{content:'▸';flex:0 0 auto;color:var(--muted);font-weight:800;
+    transition:transform .18s;font-size:15px}
+  .vitem[open]>summary::after{transform:rotate(90deg);color:var(--brand)}
+  .vitem .vno{flex:0 0 auto;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;
+    background:rgba(79,70,229,.1);color:var(--brand);font-weight:800;font-size:14px}
+  .vitem[open] .vno{background:var(--brand);color:#fff}
+  .vitem .vtt{flex:1 1 auto;min-width:0}
+  .vitem .vbn{display:block;font-weight:700;font-size:15px;line-height:1.45}
+  .vitem .vde{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .vitem .vlen{flex:0 0 auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;
+    white-space:nowrap}
+  .vbody{padding:0 15px 15px;border-top:1px solid var(--line)}
+  @media(max-width:560px){
+    .vitem>summary{padding:11px 12px;gap:9px}
+    .vitem .vde{display:none}
+    .vbody{padding:0 11px 12px}
+  }
 </style>
 </head>
 <body data-no-auto-progress>
@@ -57,8 +92,9 @@
   <aside class="sidebar">
     <h4>ভিডিও ক্লাস — সূচি</h4>
     <a href="#howto">কীভাবে দেখবে</a>
-    <a href="#g-start">শুরুর আগে</a>
-    <a href="#g-basic">মৌলিক ব্যাকরণ (১০)</a>
+    <a href="#g-warmup">Warming Up (৭)</a>
+    <a href="#g-basic">A1 Basic (১০)</a>
+    <a href="#g-a1gram">A1 Grammar (৭)</a>
     <a href="#g-a1">Netzwerk A1 (১২)</a>
     <a href="#g-a2">Netzwerk A2 (৭)</a>
   </aside>
@@ -66,14 +102,21 @@
   <main>
     <section class="hero">
       <div>
-        <span class="pill">📺 ৩০টি ভিডিও ক্লাস</span>
+        <span class="pill">📺 ৪৩টি ভিডিও ক্লাস</span>
         <span class="pill">📘 Netzwerk neu A1 + A2</span>
         <span class="pill">🎬 নিজস্ব প্লেয়ার · গতি কমানো যায়</span>
       </div>
       <h1>ভিডিও ক্লাস — <span class="hl">বাংলায় Netzwerk neu</span></h1>
-      <p>এই পেজে <b>Learn German with KKS</b> চ্যানেলের সব ভিডিও ক্লাস সাজিয়ে রাখা আছে — Netzwerk neu A1-এর ১২টি অধ্যায়, A2-এর ৭টি ব্যাকরণ পাঠ, আর ১০টি মৌলিক ভিত্তি-পাঠ। প্রতিটা ভিডিওর সাথে <b>বাংলায় লেখা আছে: এই ভিডিওতে কী কী শেখানো হয়</b> আর <b>কীভাবে দেখলে সবচেয়ে বেশি কাজে দেবে</b>।</p>
+      <p>এই পেজে <b>Learn German with KKS</b> চ্যানেলের <b>সব ৪৩টি ভিডিও</b> চ্যানেলের নিজের ৫টি প্লেলিস্ট ধরে সাজানো — প্রস্তুতির ৭টি, A1 Basic-এর ১০টি, A1 Grammar-এর ৭টি, Netzwerk neu A1-এর ১২টি অধ্যায় আর A2-এর ৭টি ব্যাকরণ পাঠ। প্রতিটা ভিডিওর সাথে <b>বাংলায় লেখা আছে: এই ভিডিওতে কী কী শেখানো হয়</b> আর <b>কীভাবে দেখলে সবচেয়ে বেশি কাজে দেবে</b>।</p>
     </section>
 
+    <div class="tip" style="margin:16px 0"><b>🧭 একদম নতুন? এই ক্রমে এগোও:</b><br>
+      <b>১.</b> Warming Up (৭টি) — পরিকল্পনা ঠিক করো &nbsp;→&nbsp;
+      <b>২.</b> A1 Basic (১০টি) — বর্ণমালা, সংখ্যা, সময় &nbsp;→&nbsp;
+      <b>৩.</b> A1 Grammar (৭টি) — der/die/das, বাক্যগঠন &nbsp;→&nbsp;
+      <b>৪.</b> Netzwerk A1 (১২টি অধ্যায়) &nbsp;→&nbsp;
+      <b>৫.</b> Netzwerk A2 (৭টি)।<br>
+      ধাপ ২ ও ৩ ছোট ছোট ভিডিও — এগুলো আগে শেষ করলে Netzwerk-এর লম্বা অধ্যায়গুলো অনেক সহজ লাগবে।</div>
     <section class="lesson" id="howto">
       <h2>🎯 কীভাবে দেখবে — যাতে সত্যিই কাজে লাগে</h2>
       <p class="lead">ভিডিও শুধু <b>দেখে গেলে</b> শেখা হয় না। নিচের পদ্ধতিতে দেখলে একই ভিডিও থেকে তিনগুণ বেশি শিখবে।</p>
@@ -109,54 +152,83 @@
   var D = window.KKS;
   if (!D) return;
   var host = document.getElementById("vids");
+  var BN = ["০","১","২","৩","৪","৫","৬","৭","৮","৯"];
+  function bn(n){ return String(n).split("").map(function(c){return BN[+c]}).join(""); }
+  function esc(t){ return String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
   var out = [];
-  var n = 0;
 
   D.groups.forEach(function (g) {
     var list = D.videos.filter(function (v) { return v.group === g.id; });
     if (!list.length) return;
 
+    /* ---- গ্রুপের হেডার ---- */
     out.push('<div class="gsec" id="g-' + g.id + '">' +
-      "<h2>" + g.title + "</h2>" +
-      '<div class="gbn">' + g.title_bn + "</div>" +
-      '<div class="gnote">' + g.note + "</div>" +
-    "</div>");
+      '<h2>' + g.title + ' <span class="gcount">' + bn(list.length) + 'টি</span></h2>' +
+      '<div class="gbn">' + g.title_bn + '</div>' +
+      '<div class="gnote">' + g.note + '</div>' +
+      '<div class="gtools">' +
+        '<button class="gbtn" type="button" data-open="g-' + g.id + '">সব খোলো</button>' +
+        '<button class="gbtn" type="button" data-close="g-' + g.id + '">সব বন্ধ</button>' +
+      '</div>' +
+    '</div>');
 
-    list.forEach(function (v) {
-      n++;
-      out.push('<div class="vblock">');
-      out.push('<div class="vhead">' +
-        '<span class="vno">' + n + "</span>" +
-        '<span class="vtt"><span class="vde">' + v.title + "</span>" +
-        '<span class="vbn">' + v.title_bn + "</span></span>" +
-        '<span class="vlen">⏱ ' + v.len + "</span>" +
-      "</div>");
+    out.push('<div class="glist" data-group="g-' + g.id + '">');
 
-      /* নিজস্ব প্লেয়ার */
-      out.push('<div class="vplayer" data-vid="' + v.vid + '" data-title="' +
-        String(v.title_bn).replace(/"/g, "&quot;") + '" data-sub="ভিডিও ক্লাস · ' + v.len + '"></div>');
+    list.forEach(function (v, idx) {
+      /* ---- প্রতিটি ভিডিও একটা ভাঁজ-করা সারি (details) ---- */
+      out.push('<details class="vitem">');
+      out.push('<summary>' +
+        '<span class="vno">' + bn(idx + 1) + '</span>' +
+        '<span class="vtt">' +
+          '<span class="vbn">' + v.title_bn + '</span>' +
+          '<span class="vde">' + esc(v.title) + '</span>' +
+        '</span>' +
+        '<span class="vlen">⏱ ' + v.len + '</span>' +
+      '</summary>');
 
-      /* কী শেখানো হয় */
+      out.push('<div class="vbody">');
+      out.push('<div class="vplayer" data-lazy="1" data-vid="' + v.vid + '" data-title="' +
+        esc(v.title_bn) + '" data-sub="' + g.title_bn.split(' · ')[0] + ' · ' + v.len + '"></div>');
+
       out.push('<div class="vsec"><h4>📚 এই ভিডিওতে কী শেখানো হয়</h4><ul class="tlist">');
-      v.teaches.forEach(function (t) { out.push("<li>" + t + "</li>"); });
-      out.push("</ul></div>");
+      v.teaches.forEach(function (t) { out.push('<li>' + t + '</li>'); });
+      out.push('</ul></div>');
 
-      /* কীভাবে দেখবে */
       out.push('<div class="vsec"><h4>👁 কীভাবে দেখবে — মন দেওয়ার জায়গা</h4><ul class="wlist">');
-      v.watch.forEach(function (t) { out.push("<li>" + t + "</li>"); });
-      out.push("</ul></div>");
+      v.watch.forEach(function (t) { out.push('<li>' + t + '</li>'); });
+      out.push('</ul></div>');
 
-      /* কোর্সের ইউনিটে লিঙ্ক */
       if (v.unit) {
         out.push('<a class="ulink" href="kurs.html#' + v.unit +
           '">📘 এই বিষয়ের কোর্স ইউনিটে যাও (শব্দ, অর্থ ও অনুশীলনসহ) →</a>');
       }
-      out.push("</div>");
+      out.push('</div></details>');
     });
+
+    out.push('</div>');
   });
 
   host.innerHTML = out.join("");
-  if (window.VPlayer && window.VPlayer.init) window.VPlayer.init();
+
+  /* ---- ভাঁজ খুললে তখনই প্লেয়ার বানাও (৪৩টা একসাথে নয়) ---- */
+  host.addEventListener("toggle", function (e) {
+    var d = e.target;
+    if (d.tagName !== "DETAILS" || !d.open) return;
+    var p = d.querySelector(".vplayer[data-lazy]");
+    if (p && window.VPlayer) { p.removeAttribute("data-lazy"); window.VPlayer.build(p); }
+  }, true);
+
+  /* ---- সব খোলো / সব বন্ধ ---- */
+  host.addEventListener("click", function (e) {
+    var b = e.target.closest(".gbtn");
+    if (!b) return;
+    var id = b.getAttribute("data-open") || b.getAttribute("data-close");
+    var open = !!b.getAttribute("data-open");
+    var wrap = host.querySelector('.glist[data-group="' + id + '"]');
+    if (!wrap) return;
+    wrap.querySelectorAll("details").forEach(function (d) { d.open = open; });
+  });
 })();
 </script>
 <script src="app.js"></script>

@@ -90,6 +90,10 @@
     box.innerHTML =
       '<div class="vp-stage">' +
         '<div class="vp-frame"><div id="' + uid + '"></div></div>' +
+        /* YouTube-এর উপরের টাইটেল/চ্যানেল/শেয়ার ঢাকার পর্দা।
+           pointer-events:none — তাই ক্লিক এর ভেতর দিয়ে চলে যায়, "Skip Ad" কাজ করে।
+           শুধু hover বা pause-এর সময় দেখা যায়, নইলে ভিডিও পুরো পরিষ্কার থাকে। */
+        '<div class="vp-topmask" aria-hidden="true"></div>' +
         '<div class="vp-poster">' +
           '<div class="vp-poster-in">' +
             '<button class="vp-bigplay" type="button" aria-label="ভিডিও চালাও"><span></span></button>' +
@@ -121,6 +125,7 @@
           '<button class="vp-ico vp-rew" type="button" aria-label="১০ সেকেন্ড পিছনে" title="১০ সেকেন্ড পিছনে">⟲ 10</button>' +
           '<button class="vp-ico vp-ffw" type="button" aria-label="১০ সেকেন্ড সামনে" title="১০ সেকেন্ড সামনে">10 ⟳</button>' +
           '<button class="vp-ico vp-rate" type="button" aria-label="বলার গতি" title="বলার গতি">1x</button>' +
+          '<button class="vp-ico vp-cc" type="button" aria-label="সাবটাইটেল চালু বা বন্ধ" title="সাবটাইটেল (subtitle) চালু/বন্ধ">CC</button>' +
           '<button class="vp-ico vp-mute" type="button" aria-label="শব্দ বন্ধ বা চালু">🔊</button>' +
           '<button class="vp-ico vp-full" type="button" aria-label="ফুল স্ক্রিন">⛶</button>' +
         "</div>" +
@@ -137,6 +142,7 @@
     var bRew    = box.querySelector(".vp-rew");
     var bFfw    = box.querySelector(".vp-ffw");
     var bRate   = box.querySelector(".vp-rate");
+    var bCC     = box.querySelector(".vp-cc");
     var bMute   = box.querySelector(".vp-mute");
     var bFull   = box.querySelector(".vp-full");
     var seek    = box.querySelector(".vp-seek");
@@ -192,6 +198,7 @@
         var pv = {
           controls: 0, disablekb: 1, fs: 0, modestbranding: 1,
           rel: 0, iv_load_policy: 3, playsinline: 1,
+          cc_load_policy: 0,   /* সাবটাইটেল ডিফল্টে বন্ধ — CC বাটনে চালু করা যাবে */
           start: start, autoplay: 1
         };
         /* origin শুধু http(s)-এ পাঠাও — file:// হলে "null" যায় ও API ভেঙে পড়ে */
@@ -209,6 +216,7 @@
                 elDur.textContent = fmt(duration);
                 spin.hidden = true;
                 applyRate();
+                setCC(false);      /* শুরুতে সাবটাইটেল বন্ধ */
                 tick();
                 timer = setInterval(tick, 250);
               },
@@ -217,6 +225,7 @@
                 var S = YT.PlayerState;
                 spin.hidden = e.data !== S.BUFFERING;
                 if (e.data === S.PLAYING) {
+                  box.classList.remove("is-paused");
                   bPlay.textContent = "❚❚";
                   bPlay.setAttribute("aria-label", "থামাও");
                   endcard.hidden = true;
@@ -227,7 +236,9 @@
                 } else if (e.data === S.PAUSED) {
                   bPlay.textContent = "▶";
                   bPlay.setAttribute("aria-label", "চালাও");
+                  box.classList.add("is-paused");
                 } else if (e.data === S.ENDED) {
+                  box.classList.remove("is-paused");
                   bPlay.textContent = "▶";
                   endcard.hidden = false;
                 }
@@ -269,6 +280,30 @@
       yt.seekTo(Math.max(0, (yt.getCurrentTime() || 0) + sec), true);
       yt.playVideo();
     }
+    /* সাবটাইটেল চালু/বন্ধ — YouTube-এর caption module ব্যবহার করে।
+       module-এর নাম প্লেয়ার-সংস্করণে আলাদা হতে পারে, তাই দুটোই চেষ্টা করি। */
+    var ccOn = false;
+    function setCC(on) {
+      if (!yt) return;
+      ccOn = !!on;
+      ["captions", "cc"].forEach(function (mod) {
+        try {
+          if (ccOn) {
+            yt.loadModule(mod);
+            yt.setOption(mod, "track", { languageCode: "de" });
+          } else {
+            yt.setOption(mod, "track", {});
+            yt.unloadModule(mod);
+          }
+        } catch (e) { /* এই module নেই — সমস্যা নেই */ }
+      });
+      if (bCC) {
+        bCC.classList.toggle("is-on", ccOn);
+        bCC.setAttribute("aria-pressed", ccOn ? "true" : "false");
+        bCC.title = ccOn ? "সাবটাইটেল বন্ধ করো" : "সাবটাইটেল চালু করো (জার্মান)";
+      }
+    }
+
     function applyRate() {
       if (!yt || !yt.setPlaybackRate) return;
       yt.setPlaybackRate(RATES[rateIx]);
@@ -283,6 +318,10 @@
     bRate.addEventListener("click", function () {
       rateIx = (rateIx + 1) % RATES.length;
       applyRate();
+    });
+    bCC.addEventListener("click", function () {
+      if (!yt || !readyOK) return;
+      setCC(!ccOn);
     });
     bMute.addEventListener("click", function () {
       if (!yt || !readyOK || !yt.isMuted) return;
