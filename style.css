@@ -287,6 +287,16 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
   .vp-presume{width:58px;height:58px}
   .vp-ptxt{font-size:13.5px}
 }
+
+/* ---------- ⚙ YouTube-এর নিজের কন্ট্রোল (মান/quality বদলাতে) ----------
+   YouTube-এর setPlaybackQuality() API বহু বছর ধরে কাজ করে না, তাই
+   নিজের quality মেনু বানানো সম্ভব নয়। একমাত্র উপায় YouTube-এর নিজের
+   গিয়ার আইকন — তাই ⚙ বাটনে চাপলে সেটাই চালু হয়।
+   এই অবস্থায় আমাদের পর্দাগুলো সরে যায়, নইলে গিয়ারে ক্লিক করা যেত না। */
+.vp-ico.vp-qual{font-size:12px}
+.vp-ico.vp-qual.is-on{background:#f59e0b;color:#1a1205}
+.vplayer.vp-native .vp-topmask{display:none}
+.vplayer.vp-native .vp-pause{display:none !important}
 /* ---------- কন্ট্রোল বার — ভিডিওর নিচে, সবসময় দেখা যায় ---------- */
 .vp-ctrl{background:#12151c;padding:6px 11px 9px;border-top:1px solid rgba(255,255,255,.07)}
 .vp-ctrl[hidden]{display:none}

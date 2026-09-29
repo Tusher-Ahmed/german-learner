@@ -70,7 +70,7 @@
     }
     if (!vid && !listId) return;
 
-    var uid = "ytp-" + (++SEQ);
+    var uid = "ytp-" + (++SEQ);   /* মোড বদলালে নতুন id লাগে */
 
     box.innerHTML =
       '<div class="vp-stage">' +
@@ -117,6 +117,7 @@
           '<button class="vp-ico vp-rate" type="button" title="বলার গতি" disabled>1x</button>' +
           '<button class="vp-ico vp-cc"   type="button" title="সাবটাইটেল" disabled>CC</button>' +
           '<button class="vp-ico vp-mute" type="button" title="শব্দ" disabled>🔊</button>' +
+          '<button class="vp-ico vp-qual" type="button" title="ভিডিওর মান (quality) ও YouTube সেটিংস">⚙&#8202;HD</button>' +
           '<button class="vp-ico vp-full" type="button" title="ফুল স্ক্রিন">⛶</button>' +
         "</div>" +
         '<div class="vp-hint">প্লেয়ার তৈরি হচ্ছে…</div>' +
@@ -136,6 +137,7 @@
     var bRate  = box.querySelector(".vp-rate");
     var bCC    = box.querySelector(".vp-cc");
     var bMute  = box.querySelector(".vp-mute");
+    var bQual  = box.querySelector(".vp-qual");
     var bFull  = box.querySelector(".vp-full");
     var seek   = box.querySelector(".vp-seek");
     var fill   = box.querySelector(".vp-seek-fill");
@@ -148,6 +150,11 @@
     var wantPlay = false, wantCC = false, wantSeek = null;
     var RATES = [0.5, 0.75, 1, 1.25], rateIx = 2;
     var ccOn = false;
+    /* nativeMode = YouTube-এর নিজের কন্ট্রোল (⚙ গিয়ার) দেখানো হচ্ছে।
+       ভিডিওর মান (quality) বদলানোর একমাত্র উপায় ওই গিয়ার — YouTube-এর
+       setPlaybackQuality() API বহু বছর ধরে কাজ করে না, তাই নিজের
+       quality মেনু বানানো সম্ভব নয়। */
+    var nativeMode = false;
 
     var GATED = [bPlay, bRew, bFfw, bRate, bCC, bMute];
     function gate(on) {
@@ -200,7 +207,8 @@
       whenAPI(function (failed) {
         if (failed) { plainEmbed(API_MSG); return; }
         var pv = {
-          controls: 0, disablekb: 1, fs: 0, modestbranding: 1,
+          controls: nativeMode ? 1 : 0, disablekb: nativeMode ? 0 : 1,
+          fs: nativeMode ? 1 : 0, modestbranding: 1,
           rel: 0, iv_load_policy: 3, playsinline: 1, cc_load_policy: 0,
           autoplay: 1, origin: location.origin
         };
@@ -351,6 +359,36 @@
         else { yt.mute(); bMute.textContent = "🔇"; }
       } catch (e) {}
     });
+    /* YouTube-এর নিজের কন্ট্রোলে যাওয়া/ফেরা — একই জায়গা থেকে আবার শুরু */
+    function switchMode() {
+      var t = 0, wasPlaying = false;
+      if (readyOK && yt) {
+        try { t = yt.getCurrentTime() || 0; } catch (e) {}
+        try { wasPlaying = yt.getPlayerState() === YT.PlayerState.PLAYING; } catch (e) {}
+        try { yt.destroy(); } catch (e) {}
+      }
+      if (timer) { clearInterval(timer); timer = null; }
+      yt = null; readyOK = false; creating = false; duration = 0;
+      nativeMode = !nativeMode;
+      box.classList.toggle("vp-native", nativeMode);
+      bQual.classList.toggle("is-on", nativeMode);
+      bQual.title = nativeMode
+        ? "আমাদের নিজের প্লেয়ারে ফিরে যাও"
+        : "ভিডিওর মান (quality) ও YouTube সেটিংস";
+      box.classList.remove("is-paused");
+      gate(false);
+      /* নতুন placeholder — YT.Player আগেরটা iframe দিয়ে বদলে ফেলেছে */
+      uid = "ytp-" + (++SEQ);
+      box.querySelector(".vp-frame").innerHTML = '<div id="' + uid + '"></div>';
+      start = Math.floor(t);
+      wantPlay = wasPlaying;
+      setHint(nativeMode
+        ? "⚙ YouTube-এর নিজের কন্ট্রোল চালু — নিচে-ডানে <b>গিয়ার আইকনে</b> চেপে <b>Quality</b> থেকে 720p/1080p বেছে নাও।"
+        : null);
+      create();
+    }
+    bQual.addEventListener("click", switchMode);
+
     bFull.addEventListener("click", function () {
       if (document.fullscreenElement) document.exitFullscreen();
       else if (box.requestFullscreen) box.requestFullscreen();
