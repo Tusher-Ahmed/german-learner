@@ -60,6 +60,30 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 }
 @keyframes navdrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 
+/* ---- এক মেনুতে গোছানো নেভিগেশন (অভ্যাস ▾) ---- */
+.ndrop{position:relative;display:inline-block}
+.ndrop-btn{color:var(--muted);background:transparent;border:0;padding:7px 13px;border-radius:11px;
+  font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:.18s;
+  display:inline-flex;align-items:center;gap:6px}
+.ndrop-btn:hover{background:var(--card2);color:var(--ink)}
+.ndrop-btn.active{background:linear-gradient(135deg,var(--brand),var(--violet));color:#fff;box-shadow:var(--shadow-brand)}
+.ndrop-btn i{font-style:normal;font-size:10px;transition:transform .18s;opacity:.8}
+.ndrop.open .ndrop-btn i{transform:rotate(180deg)}
+.ndrop-menu{position:absolute;top:calc(100% + 7px);right:0;min-width:210px;display:none;
+  flex-direction:column;gap:2px;padding:7px;background:var(--card);border:1px solid var(--line);
+  border-radius:13px;box-shadow:0 18px 38px -12px rgba(38,50,90,.34);z-index:60}
+.ndrop.open .ndrop-menu{display:flex;animation:navdrop .16s ease}
+.ndrop-menu a{white-space:nowrap;padding:10px 13px;border-radius:10px;font-size:14px}
+@media(max-width:800px){
+  /* মোবাইলে হ্যামবার্গারের ভেতরে — সবসময় খোলা, আলাদা করে দেখানো */
+  .ndrop{width:100%}
+  .ndrop-btn{width:100%;justify-content:flex-start;padding:12px 15px;font-size:15.5px;border-radius:12px}
+  .ndrop-btn i{display:none}
+  .ndrop-menu{position:static;display:flex;min-width:0;padding:4px 0 2px 10px;background:transparent;
+    border:0;border-left:2px solid var(--line);border-radius:0;box-shadow:none;margin:4px 0 6px 8px}
+  .ndrop-menu a{width:100%;font-size:15px}
+}
+
 /* ---- Layout ---- */
 .wrap{max-width:1200px;margin:0 auto;padding:34px 22px 110px;display:grid;grid-template-columns:270px 1fr;gap:36px}
 .wrap.single{grid-template-columns:1fr;max-width:940px}

@@ -155,6 +155,37 @@
     Object.keys(map).forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
   }
 
+  /* ---------- এক-মেনু নেভিগেশন (অভ্যাস ▾) ---------- */
+  function navDropdown() {
+    var drops = Array.prototype.slice.call(document.querySelectorAll(".ndrop"));
+    if (!drops.length) return;
+    drops.forEach(function (d) {
+      var btn = d.querySelector(".ndrop-btn");
+      if (!btn) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = !d.classList.contains("open");
+        drops.forEach(function (x) { x.classList.remove("open"); });
+        d.classList.toggle("open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
+    /* বাইরে ক্লিক বা Escape — বন্ধ করো */
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".ndrop")) closeAll();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeAll();
+    });
+    function closeAll() {
+      drops.forEach(function (x) {
+        x.classList.remove("open");
+        var b = x.querySelector(".ndrop-btn");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+    }
+  }
+
   /* ---------- Mobile hamburger nav ---------- */
   function mobileNav() {
     const bar = document.querySelector(".topbar");
@@ -193,6 +224,7 @@
     autoSpeakButtons();
     alphabetAudio();
     mobileNav();
+    navDropdown();
     applyDoneState();
     updateBar();
     scrollSpy();
