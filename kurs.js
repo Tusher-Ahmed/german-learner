@@ -32,6 +32,9 @@
     if (lbl) lbl.textContent = done + " / " + K.length + " ইউনিট শেষ (" + pct + "%)";
   }
 
+  /* "1:30:13" → সেকেন্ড (প্লেয়ারকে আসল দৈর্ঘ্য জানাতে, বিজ্ঞাপন ধরার জন্য) */
+  function secs(t){var p=String(t||"").split(":").map(Number);if(p.length===3)return p[0]*3600+p[1]*60+p[2];if(p.length===2)return p[0]*60+p[1];return 0;}
+
   /* ---------- helpers ---------- */
   function esc(s) {
     return String(s == null ? "" : s)
@@ -166,12 +169,12 @@
     h.push('<div class="step"><span class="sno">৬</span><h3>এই অধ্যায়ের ভিডিও ক্লাস</h3></div>');
     h.push('<p class="lead">এই ইউনিটের বিষয়টাই ভিডিওতে বিস্তারিত ব্যাখ্যা করা আছে। উপরের শব্দ ও গ্রামার আগে পড়ে নিলে ভিডিওটা অনেক সহজ লাগবে।</p>');
     h.push('<div class="vplayer" data-vid="' + esc(u.kks.vid) + '" data-title="' + esc(u.kks.label) +
-           '" data-sub="ভিডিও ক্লাস · ' + esc(u.kks.len) + '"></div>');
+           '" data-sub="ভিডিও ক্লাস · ' + esc(u.kks.len) + '" data-dur="' + secs(u.kks.len) + '"></div>');
     if (u.kks_extra && u.kks_extra.length) {
       h.push("<h3>এই বিষয়ে বাড়তি ভিডিও</h3>");
       u.kks_extra.forEach(function (v) {
         h.push('<div class="vplayer" data-vid="' + esc(v.vid) + '" data-title="' + esc(v.label) +
-               '" data-sub="বাড়তি ক্লাস · ' + esc(v.len) + '"></div>');
+               '" data-sub="বাড়তি ক্লাস · ' + esc(v.len) + '" data-dur="' + secs(v.len) + '"></div>');
       });
     }
     h.push('<div class="note">ভিডিও দেখার সময় <b>0.75x</b> গতিতে দিলে শুরুতে বুঝতে সহজ হয় — প্লেয়ারের <b>1x</b> বাটনে চেপে গতি বদলাতে পারবে। আর <b>⟲10</b> বাটন দিয়ে যেকোনো অংশ বারবার শুনতে পারবে।</div>');

@@ -72,6 +72,20 @@
     .vitem .vde{display:none}
     .vbody{padding:0 11px 12px}
   }
+
+  /* can-do তালিকা ও মূল শব্দ */
+  .clist{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+  .clist li{padding:8px 12px 8px 30px;border-radius:9px;background:rgba(16,185,129,.07);
+    border:1px solid rgba(16,185,129,.2);position:relative;font-size:14px;line-height:1.6}
+  .clist li::before{content:"✓";position:absolute;left:12px;top:8px;color:#059669;font-weight:800}
+  .kwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+  .kw{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--card2)}
+  .kwde{font-weight:700;font-size:14.5px;color:var(--brand);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .kwp{font-size:12px;color:#0f766e;background:rgba(13,148,136,.09);border-radius:5px;
+    padding:1px 6px;display:inline-block;margin-top:4px}
+  .kwb{font-size:13.5px;margin-top:4px;line-height:1.5}
+  .kwmore{font-size:13px;color:var(--muted);margin-top:9px;padding:8px 11px;border-radius:8px;
+    background:rgba(79,70,229,.06);line-height:1.6}
 </style>
 </head>
 <body data-no-auto-progress>
@@ -144,6 +158,7 @@
 </footer>
 
 <script src="kks-data.js"></script>
+<script src="kurs-data.js"></script>
 <script src="player.js"></script>
 <script>
 /* ---------- KKS ভিডিও পেজ রেন্ডারার ---------- */
@@ -155,6 +170,17 @@
   var BN = ["০","১","২","৩","৪","৫","৬","৭","৮","৯"];
   function bn(n){ return String(n).split("").map(function(c){return BN[+c]}).join(""); }
   function esc(t){ return String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  /* "1:30:13" → সেকেন্ড (বিজ্ঞাপন ধরার জন্য প্লেয়ারকে আসল দৈর্ঘ্য জানানো) */
+  function secs(t){
+    var p = String(t||"").split(":").map(Number);
+    if(p.length===3) return p[0]*3600+p[1]*60+p[2];
+    if(p.length===2) return p[0]*60+p[1];
+    return 0;
+  }
+  /* ইউনিট খুঁজে বের করো — ভিডিওর সাথে কোর্সের সংযোগ */
+  var UNITS = {};
+  (window.KURS||[]).forEach(function(u){ UNITS[u.id]=u; });
+  function sayBtn(t){ return '<button class="say" type="button" data-say="'+esc(t)+'">🔊</button>'; }
 
   var out = [];
 
@@ -189,7 +215,8 @@
 
       out.push('<div class="vbody">');
       out.push('<div class="vplayer" data-lazy="1" data-vid="' + v.vid + '" data-title="' +
-        esc(v.title_bn) + '" data-sub="' + g.title_bn.split(' · ')[0] + ' · ' + v.len + '"></div>');
+        esc(v.title_bn) + '" data-sub="' + g.title_bn.split(' · ')[0] + ' · ' + v.len +
+        '" data-dur="' + secs(v.len) + '"></div>');
 
       out.push('<div class="vsec"><h4>📚 এই ভিডিওতে কী শেখানো হয়</h4><ul class="tlist">');
       v.teaches.forEach(function (t) { out.push('<li>' + t + '</li>'); });
@@ -199,9 +226,30 @@
       v.watch.forEach(function (t) { out.push('<li>' + t + '</li>'); });
       out.push('</ul></div>');
 
-      if (v.unit) {
+      var U = v.unit ? UNITS[v.unit] : null;
+      if (U) {
+        /* এই ভিডিওর পরে তুমি কী পারবে */
+        out.push('<div class="vsec"><h4>✅ এই বিষয়টা শেষ হলে তুমি পারবে</h4><ul class="clist">');
+        U.goal_bn.forEach(function (g2) { out.push('<li>' + g2 + '</li>'); });
+        out.push('</ul></div>');
+
+        /* মূল শব্দ — অর্থ ও উচ্চারণসহ, শোনার বাটনসহ */
+        var ws = U.words.slice(0, 8);
+        out.push('<div class="vsec"><h4>🔑 এই বিষয়ের মূল শব্দ (অর্থ ও উচ্চারণসহ)</h4><div class="kwgrid">');
+        ws.forEach(function (w) {
+          out.push('<div class="kw"><div class="kwde">' + esc(w.d) + sayBtn(w.d.split(" / ")[0]) + '</div>' +
+            '<div class="kwp">🗣 ' + w.p + '</div><div class="kwb">' + w.b + '</div></div>');
+        });
+        out.push('</div>');
+        out.push('<div class="kwmore">এই ইউনিটে মোট <b>' + U.words.length + 'টি শব্দ</b>, <b>' +
+          U.phrases.length + 'টি তৈরি বাক্য</b>, <b>' + U.grammar.length + 'টি গ্রামার নিয়ম</b>, ' +
+          'একটি সংলাপ আর <b>' + U.drills.length + 'টি অনুশীলন</b> আছে।</div>');
+        out.push('</div>');
+
         out.push('<a class="ulink" href="kurs.html#' + v.unit +
-          '">📘 এই বিষয়ের কোর্স ইউনিটে যাও (শব্দ, অর্থ ও অনুশীলনসহ) →</a>');
+          '">📘 পুরো ইউনিটে যাও — সব শব্দ, বাক্য, গ্রামার ও অনুশীলন →</a>');
+      } else if (v.unit) {
+        out.push('<a class="ulink" href="kurs.html#' + v.unit + '">📘 এই বিষয়ের কোর্স ইউনিটে যাও →</a>');
       }
       out.push('</div></details>');
     });
