@@ -83,6 +83,27 @@
   .ubadge{display:inline-block;background:var(--brand);color:#fff;font-weight:800;font-size:12px;
     border-radius:99px;padding:3px 11px;letter-spacing:.03em}
   .hidden{display:none !important}
+
+  /* ---------- কোর্সের সারসংক্ষেপ ---------- */
+  .kstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:9px;margin:12px 0}
+  .kstat{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 10px;text-align:center}
+  .kstat b{display:block;font-size:24px;font-weight:800;color:var(--brand);line-height:1.1}
+  .kstat span{display:block;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+  .kstat.done{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.28)}
+  .kstat.done b{color:#059669}
+  .knote{font-size:14px;line-height:1.75;padding:11px 13px;border-radius:10px;
+    background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.16)}
+
+  /* ---------- ইউনিট কার্ডে বাড়তি তথ্য ---------- */
+  .ucard{align-items:flex-start}
+  .uchips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+  .uchip{font-size:11px;font-weight:700;border-radius:99px;padding:3px 9px;
+    background:rgba(79,70,229,.09);color:var(--brand);white-space:nowrap}
+  .uchip.more{background:var(--card2);color:var(--muted)}
+  .ucounts{display:flex;gap:10px;flex-wrap:wrap;margin-top:7px}
+  .ucounts i{font-style:normal;font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .okmark{color:#059669;font-size:11px}
+  @media(max-width:560px){ .ucounts i:nth-child(n+4){display:none} }
 </style>
 </head>
 <body data-no-auto-progress>
@@ -97,6 +118,7 @@
     <a href="trainer.html">শব্দ</a>
     <a href="uebungen.html">অনুশীলন</a>
     <a href="pruefung.html">পরীক্ষা</a>
+    <a href="mehr.html">আরও</a>
   </nav>
 </header>
 
@@ -124,6 +146,11 @@
         <p>এখানে কোনো শব্দ <b>অর্থ ছাড়া</b> দেখানো হয় না। প্রতিটা জার্মান শব্দের সাথে <b>বাংলা অর্থ</b>, <b>বাংলা অক্ষরে উচ্চারণ</b> আর 🔊 বাটন আছে। ইউনিট ১ থেকে শুরু করে ক্রমে এগোও — প্রতিটা ইউনিট একটা সম্পূর্ণ দিনের পাঠ।</p>
       </section>
 
+      <section class="lesson" id="overview">
+        <h2>📊 এই কোর্সে কী কী আছে</h2>
+        <div id="kursSummary"></div>
+      </section>
+
       <section class="lesson">
         <h2>🧭 প্রতিটা ইউনিট কীভাবে পড়বে (৭টি ধাপ)</h2>
         <p class="lead">প্রতিটা ইউনিটে ঠিক একই ৭টি ধাপ আছে। এই লুপটা সম্পূর্ণ করলেই তুমি সেই বিষয়ে <b>বলতে</b> পারবে — শুধু বুঝবে না।</p>
@@ -146,6 +173,12 @@
       <section class="lesson">
         <h2>📚 সব ইউনিট</h2>
         <div id="unitList"></div>
+      </section>
+
+      <section class="lesson" id="syllabusSec">
+        <h2>🗂️ পূর্ণ সিলেবাস — কোন ইউনিটে কী শেখাবে</h2>
+        <p class="lead">পুরো কোর্সে কোন গ্রামার কোথায় আসছে, এক নজরে। কোনো নির্দিষ্ট নিয়ম খুঁজলে এই টেবিল থেকে সরাসরি সেই ইউনিটে যাও।</p>
+        <div id="syllabus"></div>
       </section>
     </div>
 

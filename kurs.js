@@ -50,38 +50,116 @@
   }
 
   /* ---------- ইউনিট তালিকা ---------- */
+  /* গ্রামারের শিরোনাম থেকে বিষয়ের নাম বের করো ("১. sein — …" → "sein") */
+  function topics(u) {
+    return u.grammar.map(function (g) {
+      var t = String(g.h).replace(/^[০-৯0-9]+[.।]s*/, "");
+      t = t.split(" — ")[0].split(" (")[0].trim();
+      return t;
+    });
+  }
+
+  /* পুরো কোর্সের হিসাব */
+  function totals() {
+    var t = { w:0, p:0, d:0, dr:0, g:0, min:0, vid:0 };
+    K.forEach(function (u) {
+      t.w += u.words.length; t.p += u.phrases.length;
+      t.d += u.dialog.lines.length; t.dr += u.drills.length;
+      t.g += u.grammar.length; t.min += u.minutes;
+      t.vid += 1 + ((u.kks_extra || []).length);
+    });
+    return t;
+  }
+
   function renderHub() {
     var host = document.getElementById("unitList");
     var toc = document.getElementById("toc");
+    var sum = document.getElementById("kursSummary");
     if (!host) return;
     var d = loadDone();
-    var html = "", tocHtml = "", lastLevel = "";
+    var T = totals();
 
+    /* ---- উপরে পুরো কোর্সের তথ্য ---- */
+    if (sum) {
+      var doneN = K.filter(function (u) { return d[u.id]; }).length;
+      var hrs = Math.round(T.min / 60);
+      sum.innerHTML =
+        '<div class="kstats">' +
+          '<div class="kstat"><b>' + K.length + '</b><span>ইউনিট</span></div>' +
+          '<div class="kstat"><b>' + T.w + '</b><span>শব্দ</span></div>' +
+          '<div class="kstat"><b>' + T.p + '</b><span>তৈরি বাক্য</span></div>' +
+          '<div class="kstat"><b>' + T.g + '</b><span>গ্রামার নিয়ম</span></div>' +
+          '<div class="kstat"><b>' + T.d + '</b><span>সংলাপের লাইন</span></div>' +
+          '<div class="kstat"><b>' + T.dr + '</b><span>অনুশীলন</span></div>' +
+          '<div class="kstat"><b>' + T.vid + '</b><span>ভিডিও ক্লাস</span></div>' +
+          '<div class="kstat done"><b>' + doneN + '</b><span>শেষ হয়েছে</span></div>' +
+        "</div>" +
+        '<div class="knote">পুরো কোর্স শেষ করতে সময় লাগবে প্রায় <b>' + hrs + ' ঘণ্টা</b> পড়া ' +
+        '(দিনে একটা ইউনিট = ' + K.length + ' দিন), সাথে ভিডিও দেখার সময় আলাদা। ' +
+        'প্রতিটা শব্দের সাথে <b>বাংলা অর্থ ও উচ্চারণ</b> আছে।</div>';
+    }
+
+    /* ---- ইউনিট কার্ড ---- */
+    var html = "", tocHtml = "", lastLevel = "";
     K.forEach(function (u, i) {
       if (u.level !== lastLevel) {
         lastLevel = u.level;
-        var head = u.level === "A1"
-          ? "A1 · একদম শুরু (১২ ইউনিট)"
-          : "A2 · প্রাথমিক (৭ ইউনিট)";
+        var inLv = K.filter(function (x) { return x.level === u.level; });
+        var wLv = inLv.reduce(function (a, x) { return a + x.words.length; }, 0);
+        var head = (u.level === "A1" ? "A1 · একদম শুরু" : "A2 · প্রাথমিক") +
+          " — " + inLv.length + "টি ইউনিট · " + wLv + "টি শব্দ";
         html += '<div class="lvlhead">' + head + "</div>";
         tocHtml += '<h4 style="margin:14px 0 6px">' + esc(u.level) + "</h4>";
       }
       var done = !!d[u.id];
+      var tp = topics(u);
+
       html +=
         '<a class="ucard' + (done ? " is-done" : "") + '" href="#' + u.id + '">' +
           '<span class="unum">' + (done ? "✓" : (i + 1)) + "</span>" +
           '<span class="ubody">' +
             '<span class="ude">' + esc(u.title) + "</span>" +
             '<span class="ubn">' + u.title_bn + "</span>" +
+            '<span class="uchips">' +
+              tp.slice(0, 4).map(function (t) { return '<span class="uchip">' + t + "</span>"; }).join("") +
+              (tp.length > 4 ? '<span class="uchip more">+' + (tp.length - 4) + "</span>" : "") +
+            "</span>" +
+            '<span class="ucounts">' +
+              "<i>📖 " + u.words.length + " শব্দ</i>" +
+              "<i>💬 " + u.phrases.length + " বাক্য</i>" +
+              "<i>✍️ " + u.drills.length + " অনুশীলন</i>" +
+              "<i>🎬 " + u.kks.len + "</i>" +
+            "</span>" +
           "</span>" +
-          '<span class="umeta">Kap ' + u.kap + "<br>~" + u.minutes + " মি.</span>" +
+          '<span class="umeta">Kap ' + u.kap + "<br>~" + u.minutes + " মি." +
+            (done ? '<br><b class="okmark">✓ শেষ</b>' : "") + "</span>" +
         "</a>";
+
       tocHtml += '<a href="#' + u.id + '"' + (done ? ' class="done"' : "") + ">" +
         (i + 1) + ". " + esc(u.title) + "</a>";
     });
 
     host.innerHTML = html;
     if (toc) toc.innerHTML = tocHtml;
+
+    /* ---- সিলেবাসের পূর্ণ টেবিল ---- */
+    var syl = document.getElementById("syllabus");
+    if (syl) {
+      var rows = K.map(function (u, i) {
+        return "<tr>" +
+          "<td><b>" + (i + 1) + "</b></td>" +
+          '<td><a class="inline" href="#' + u.id + '">' + esc(u.title) + "</a><br>" +
+            '<span style="font-size:12.5px;color:var(--muted)">' + u.title_bn + "</span></td>" +
+          "<td>" + topics(u).join(" · ") + "</td>" +
+          "<td style='white-space:nowrap'>" + u.level + "<br>Kap " + u.kap + "</td>" +
+        "</tr>";
+      }).join("");
+      syl.innerHTML =
+        '<div class="tblwrap"><table>' +
+          "<tr><th>#</th><th>ইউনিট</th><th>যে গ্রামার ও বিষয় শেখাবে</th><th>লেভেল</th></tr>" +
+          rows +
+        "</table></div>";
+    }
   }
 
   /* ---------- একটি ইউনিট ---------- */
