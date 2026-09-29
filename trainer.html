@@ -3,53 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wortschatz-Trainer — শব্দভাণ্ডার ফ্ল্যাশকার্ড | Deutsch für Bangla</title>
+<title>শব্দভাণ্ডার — ৭৭৬টি শব্দ, অর্থ ও উদাহরণসহ | Deutsch für Bangla</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  .trainer-wrap{max-width:820px;margin:0 auto}
-  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}
-  .controls select,.controls button{font-family:inherit;font-size:15px;border-radius:9px;border:1px solid var(--line);
-    background:var(--card2);color:var(--ink);padding:8px 12px;cursor:pointer}
-  .controls select{min-width:150px}
-  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
-  .seg button{border:none;border-radius:0;background:var(--bg2)}
-  .seg button.active{background:var(--brand);color:#fff;font-weight:700}
-  .stat{color:var(--muted);font-size:14px;margin-left:auto}
+  /* ---------- নিয়ন্ত্রণ প্যানেল ---------- */
+  .tctl{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+    padding:12px 0 13px;margin-bottom:16px}
+  .tctl .row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+  .tctl .row+.row{margin-top:9px}
+  .tlabel{font-size:12.5px;font-weight:700;color:var(--muted);margin-right:2px}
+  .seg{display:inline-flex;background:var(--card2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{background:transparent;border:0;padding:9px 14px;font-family:inherit;font-size:13.5px;
+    font-weight:700;color:var(--muted);cursor:pointer;min-height:40px;transition:.14s}
+  .seg button:hover{color:var(--brand)}
+  .seg button.active{background:var(--brand);color:#fff}
+  .tsel,.tsearch{font-family:inherit;font-size:13.5px;padding:9px 12px;border-radius:10px;
+    border:1px solid var(--line);background:var(--card);color:var(--ink);min-height:40px}
+  .tsel{max-width:320px}
+  .tsearch{flex:1 1 200px;min-width:150px}
+  .tsel:focus,.tsearch:focus{outline:2px solid var(--brand);outline-offset:1px}
+  .tstat{font-size:13px;color:var(--muted);font-weight:700}
+  .tstat b{color:var(--brand)}
 
-  .card{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;
-    min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-    padding:34px;box-shadow:var(--shadow);cursor:pointer;position:relative;user-select:none}
-  .card .lvltag{position:absolute;top:14px;left:16px;font-size:12px;background:var(--brand);color:#fff;
-    font-weight:800;border-radius:8px;padding:2px 10px}
-  .card .themetag{position:absolute;top:14px;right:16px;font-size:12px;color:var(--muted)}
-  .card .front-word{font-size:38px;font-weight:800;color:var(--ink);line-height:1.3}
-  .card .flip-hint{position:absolute;bottom:14px;color:var(--muted);font-size:13px}
-  .card .bn-main{font-size:30px;font-weight:700;color:var(--brand);margin-bottom:6px}
-  .card .pl{color:var(--accent);font-size:16px;margin:4px 0}
-  .card .exline{margin-top:14px;background:var(--bg2);border-radius:10px;padding:10px 14px;max-width:100%}
-  .card .exline .de{font-weight:600;color:var(--ink);font-size:17px}
-  .card .exline .bn{display:block;color:var(--muted);font-size:14px;margin-top:3px}
-  .rate{display:flex;gap:12px;margin:16px 0}
-  .rate button{flex:1;font-size:16px;font-weight:700;border-radius:12px;padding:14px;cursor:pointer;border:1px solid var(--line)}
-  .rate .no{background:rgba(221,0,0,.15);color:#ff9b9b}
-  .rate .yes{background:rgba(57,217,138,.15);color:var(--ok)}
-  .nav-btns{display:flex;gap:10px;justify-content:center;margin-top:8px}
-  .nav-btns button{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:10px 18px;cursor:pointer;font-size:15px}
-  .big-say{background:var(--brand)!important;color:#fff!important;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;margin-top:10px}
-  .listview .vocab .lv{font-size:12px;color:var(--brand)}
-  .empty{color:var(--muted);text-align:center;padding:40px}
-  .loading{text-align:center;color:var(--muted);padding:60px}
+  /* ---------- তালিকা (একসাথে অনেক শব্দ) ---------- */
+  .wlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px}
+  .wrow{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 14px;
+    display:flex;flex-direction:column;gap:5px;transition:.14s}
+  .wrow:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+  .wrow.known{border-left:3px solid #10b981}
+  .wtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .wde{font-weight:800;font-size:17px;color:var(--brand);line-height:1.35}
+  .wtags{margin-left:auto;display:flex;gap:5px;flex-wrap:wrap}
+  .wtag{font-size:10.5px;font-weight:800;letter-spacing:.03em;border-radius:99px;padding:2px 8px;
+    background:rgba(79,70,229,.1);color:var(--brand);white-space:nowrap}
+  .wtag.lv{background:rgba(16,185,129,.12);color:#059669}
+  .wbn{font-size:15px;line-height:1.55;font-weight:600}
+  .wpl{font-size:12.5px;color:var(--muted)}
+  .wex{margin-top:4px;padding:9px 11px;border-radius:9px;background:var(--card2);
+    border:1px solid var(--line);font-size:13.5px;line-height:1.65}
+  .wex .exde{color:var(--brand);font-weight:600;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .wex .exbn{color:var(--ink);margin-top:3px}
+  .wmark{align-self:flex-start;margin-top:5px;background:transparent;border:1px solid var(--line);
+    border-radius:8px;padding:5px 11px;font-family:inherit;font-size:12px;font-weight:700;
+    color:var(--muted);cursor:pointer;min-height:34px;transition:.14s}
+  .wmark:hover{border-color:#10b981;color:#059669}
+  .wrow.known .wmark{background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.35);color:#059669}
+
+  /* ---------- থিম ভাগ করে দেখানো ---------- */
+  .thead{display:flex;align-items:center;gap:10px;margin:22px 0 10px;font-size:15px;font-weight:800}
+  .thead .tcount{font-size:12px;font-weight:700;color:var(--brand);background:rgba(79,70,229,.12);
+    border-radius:99px;padding:3px 10px}
+  .thead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* ---------- ফ্ল্যাশকার্ড ---------- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 22px;
+    text-align:center;box-shadow:var(--shadow);cursor:pointer;position:relative;min-height:230px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+  .card .lvltag{position:absolute;top:12px;left:14px;font-size:11px;font-weight:800;color:#059669;
+    background:rgba(16,185,129,.12);border-radius:99px;padding:3px 10px}
+  .card .themetag{position:absolute;top:12px;right:14px;font-size:11px;font-weight:700;color:var(--brand);
+    background:rgba(79,70,229,.1);border-radius:99px;padding:3px 10px}
+  .front-word{font-size:34px;font-weight:800;color:var(--brand);line-height:1.3}
+  .bn-main{font-size:24px;font-weight:700;line-height:1.5}
+  .flip-hint{font-size:13px;color:var(--muted)}
+  .big-say{font-size:20px;background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.3);
+    border-radius:50%;width:48px;height:48px;cursor:pointer}
+  .rate{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+  .rate button{border:0;border-radius:11px;padding:12px 22px;font-family:inherit;font-size:14.5px;
+    font-weight:700;cursor:pointer;min-height:46px}
+  .rate .no{background:rgba(239,68,68,.12);color:#b91c1c}
+  .rate .yes{background:rgba(16,185,129,.15);color:#047857}
+  .nav-btns{display:flex;gap:9px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+  .nav-btns button{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:10px 16px;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--ink);
+    cursor:pointer;min-height:42px;transition:.14s}
+  .nav-btns button:hover{border-color:var(--brand);color:var(--brand)}
+  .empty{padding:36px 18px;text-align:center;color:var(--muted);border:1px dashed var(--line);
+    border-radius:14px;font-size:15px}
+  @media(max-width:560px){
+    .front-word{font-size:27px}.bn-main{font-size:20px}
+    .wlist{grid-template-columns:1fr}
+    .tsel{max-width:100%}
+  }
 </style>
 </head>
-<body>
+<body data-no-auto-progress>
 <header class="topbar">
   <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
   <nav>
     <a href="index.html">হোম</a>
     <a href="kurs.html">কোর্স</a>
+    <a href="gespraech.html">কথা বলা</a>
     <a href="kks.html">ভিডিও ক্লাস</a>
     <a href="dw.html">DW ভিডিও</a>
     <a href="trainer.html" class="active">শব্দ</a>
@@ -59,163 +106,270 @@
 </header>
 
 <div class="wrap single">
-  <main class="trainer-wrap">
-    <section class="hero" style="margin-bottom:10px">
-      <span class="pill">🃏 Flashcards</span><span class="pill">🔊 উচ্চারণসহ</span><span class="pill">🔁 Spaced Repetition</span>
-      <h1>Wortschatz-Trainer</h1>
-      <p class="lead">বিষয় বেছে নাও, কার্ডে চাপলে অর্থ ও উদাহরণ দেখাবে। "পারি / পারিনি" চাপলে কঠিন শব্দগুলো বারবার ফিরে আসবে (Leitner পদ্ধতি)। অগ্রগতি ব্রাউজারে সেভ থাকে।</p>
+  <main>
+    <section class="hero" style="margin-bottom:6px">
+      <div>
+        <span class="pill">📚 ৭৭৬টি শব্দ</span>
+        <span class="pill">🔊 প্রতিটার উচ্চারণ</span>
+        <span class="pill">📝 উদাহরণ বাক্যসহ</span>
+      </div>
+      <h1>শব্দভাণ্ডার — <span class="hl">অর্থ ও উদাহরণসহ</span></h1>
+      <p>লেভেল ও বিষয় বেছে নাও — সেই বিষয়ের <b>সব শব্দ একসাথে</b> নিচে দেখাবে, প্রতিটার সাথে <b>বাংলা অর্থ</b>, <b>বহুবচন</b>, <b>উদাহরণ বাক্য ও তার অনুবাদ</b> আর 🔊 বাটন। মুখস্থ যাচাই করতে <b>কার্ড</b> মোডে যাও।</p>
     </section>
 
-    <div class="controls">
-      <div class="seg" id="levelSeg">
-        <button data-level="all" class="active">সব</button>
-        <button data-level="A1">A1</button>
-        <button data-level="A2">A2</button>
-        <button data-level="B1">B1</button>
+    <div class="tctl">
+      <div class="row">
+        <span class="tlabel">লেভেল:</span>
+        <div class="seg" id="levelSeg">
+          <button data-level="all" class="active">সব</button>
+          <button data-level="A1">A1</button>
+          <button data-level="A2">A2</button>
+          <button data-level="B1">B1</button>
+        </div>
+        <span class="tlabel">দেখাও:</span>
+        <div class="seg" id="modeSeg">
+          <button data-mode="list" class="active">📋 তালিকা</button>
+          <button data-mode="card">🃏 কার্ড</button>
+        </div>
       </div>
-      <select id="themeSel"><option value="all">সব বিষয়</option></select>
-      <div class="seg" id="modeSeg">
-        <button data-mode="card" class="active">কার্ড</button>
-        <button data-mode="list">তালিকা</button>
+      <div class="row">
+        <span class="tlabel">বিষয়:</span>
+        <select id="themeSel" class="tsel"><option value="all">সব বিষয়</option></select>
+        <input id="searchBox" class="tsearch" type="search" placeholder="🔍 শব্দ খোঁজো (জার্মান বা বাংলা)…" autocomplete="off">
+        <span class="tstat" id="stat"></span>
       </div>
-      <span class="stat" id="stat"></span>
     </div>
 
     <div id="cardArea">
-      <div class="loading" id="loading">শব্দভাণ্ডার লোড হচ্ছে… (যদি না আসে, workflow শেষ হলে vocab-data.js যুক্ত হবে)</div>
+      <div class="empty" id="loading">শব্দভাণ্ডার লোড হচ্ছে…</div>
     </div>
   </main>
 </div>
 
-<footer>Wortschatz-Trainer · Deutsch für Bangla · প্রতিদিন ২০টি নতুন শব্দ = ১ বছরে ৭০০০+ শব্দ!</footer>
+<footer>শব্দভাণ্ডার · Deutsch für Bangla · প্রতিদিন ২০টি নতুন শব্দ = ১ বছরে ৭০০০+ শব্দ!</footer>
 
 <script src="app.js"></script>
-<script src="vocab-data.js" onerror="document.getElementById('loading').innerHTML='⏳ এখনো vocab-data.js তৈরি হয়নি। শব্দভাণ্ডার generate হওয়ার পর এই পেজ কাজ করবে।'"></script>
+<script src="vocab-data.js"></script>
 <script>
 (function(){
   "use strict";
   var DATA = (window.VOCAB && Array.isArray(window.VOCAB)) ? window.VOCAB : null;
-  if(!DATA){ return; }
+  var area = document.getElementById('cardArea');
+  if(!DATA){ area.innerHTML='<div class="empty">শব্দভাণ্ডার (vocab-data.js) পাওয়া যায়নি।</div>'; return; }
 
-  // Flatten into word records with theme/level attached
-  var ALL = [];
-  DATA.forEach(function(g){
-    (g.words||[]).forEach(function(w){
-      ALL.push({d:w.d,b:w.b,pl:w.pl,ex:w.ex,exb:w.exb,theme:g.theme,theme_bn:g.theme_bn||g.theme,level:g.level});
+  /* সব শব্দ এক তালিকায় — থিম ও লেভেল সহ */
+  var ALL=[];
+  DATA.forEach(function(t){
+    (t.words||[]).forEach(function(w){
+      ALL.push({d:w.d,b:w.b,pl:w.pl,ex:w.ex,exb:w.exb,
+                theme:t.theme,theme_bn:t.theme_bn,level:t.level});
     });
   });
 
   var LS='deutsch_vocab_leitner_v1';
   function loadBox(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){return{}}}
   function saveBox(b){localStorage.setItem(LS,JSON.stringify(b))}
+  function key(w){return w.level+'|'+w.d}
+  function known(w,box){return (box||loadBox())[key(w)]>=2}
 
-  var state={level:'all',theme:'all',mode:'card',idx:0,flipped:false,deck:[]};
+  var state={level:'all',theme:'all',mode:'list',q:'',idx:0,flipped:false,deck:[]};
   var themeSel=document.getElementById('themeSel');
-  var cardArea=document.getElementById('cardArea');
+  var searchBox=document.getElementById('searchBox');
   var stat=document.getElementById('stat');
 
-  // populate theme dropdown
-  function refreshThemes(){
-    var seen={}, opts='<option value="all">সব বিষয়</option>';
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+  function sayBtn(t){return '<button class="say" type="button" data-say="'+esc(t)+'">🔊</button>'}
+
+  /* বিষয়ের ড্রপডাউন — নির্বাচিত লেভেল অনুযায়ী, শব্দসংখ্যাসহ */
+  function refreshThemes(keep){
+    var prev = keep ? state.theme : 'all';
+    var count={}, order=[], bn={};
     ALL.forEach(function(w){
       if(state.level!=='all' && w.level!==state.level) return;
-      if(!seen[w.theme]){ seen[w.theme]=1; opts+='<option value="'+encodeURIComponent(w.theme)+'">'+w.theme+' — '+w.theme_bn+'</option>'; }
+      if(!count[w.theme]){ count[w.theme]=0; order.push(w.theme); bn[w.theme]=w.theme_bn; }
+      count[w.theme]++;
     });
-    themeSel.innerHTML=opts; state.theme='all';
+    var total=order.reduce(function(a,t){return a+count[t]},0);
+    var opts='<option value="all">সব বিষয় ('+total+'টি শব্দ)</option>';
+    order.forEach(function(t){
+      opts+='<option value="'+encodeURIComponent(t)+'">'+esc(t)+' — '+esc(bn[t])+' ('+count[t]+')</option>';
+    });
+    themeSel.innerHTML=opts;
+    if(prev!=='all' && count[prev]) themeSel.value=encodeURIComponent(prev);
+    else state.theme='all';
   }
 
+  /* ফিল্টার প্রয়োগ */
   function buildDeck(){
-    var box=loadBox();
+    var q=state.q.trim().toLowerCase();
     state.deck=ALL.filter(function(w){
       if(state.level!=='all' && w.level!==state.level) return false;
       if(state.theme!=='all' && w.theme!==state.theme) return false;
+      if(q){
+        var hay=(w.d+' '+w.b+' '+(w.ex||'')+' '+(w.exb||'')).toLowerCase();
+        if(hay.indexOf(q)<0) return false;
+      }
       return true;
     });
-    // Leitner: sort so "hard/unknown" (lower box) come first
-    state.deck.sort(function(a,b){ return (box[key(a)]||0)-(box[key(b)]||0); });
     state.idx=0; state.flipped=false;
   }
-  function key(w){return w.level+'|'+w.d}
 
-  function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-
-  function render(){
-    if(state.mode==='list'){ renderList(); return; }
-    var w=state.deck[state.idx];
-    if(!w){ cardArea.innerHTML='<div class="empty">এই ফিল্টারে কোনো শব্দ নেই।</div>'; stat.textContent=''; return; }
+  /* ---------- তালিকা: একসাথে সব শব্দ, সবকিছু সহ ---------- */
+  function renderList(){
     var box=loadBox();
-    stat.textContent=(state.idx+1)+' / '+state.deck.length+' · শেখা হয়েছে: '+Object.values(box).filter(function(v){return v>=2}).length;
+    if(!state.deck.length){
+      area.innerHTML='<div class="empty">এই ফিল্টারে কোনো শব্দ পাওয়া যায়নি।<br>অন্য লেভেল/বিষয় বেছে নাও, বা খোঁজার শব্দটা বদলাও।</div>';
+      stat.innerHTML=''; return;
+    }
+    var learned=state.deck.filter(function(w){return known(w,box)}).length;
+    stat.innerHTML='<b>'+state.deck.length+'</b> শব্দ · শেখা হয়েছে <b>'+learned+'</b>';
+
+    /* "সব বিষয়" হলে বিষয় ধরে ভাগ করে দেখাও */
+    var groups=[];
+    if(state.theme==='all'){
+      var byT={};
+      state.deck.forEach(function(w){ (byT[w.theme]=byT[w.theme]||[]).push(w); });
+      Object.keys(byT).forEach(function(t){ groups.push({t:t,bn:byT[t][0].theme_bn,lv:byT[t][0].level,ws:byT[t]}); });
+    } else {
+      groups.push({t:state.deck[0].theme,bn:state.deck[0].theme_bn,lv:state.deck[0].level,ws:state.deck});
+    }
+
+    var h=[];
+    groups.forEach(function(g){
+      h.push('<div class="thead">'+esc(g.t)+' — '+esc(g.bn)+
+             '<span class="tcount">'+g.lv+' · '+g.ws.length+'টি</span></div>');
+      h.push('<div class="wlist">');
+      g.ws.forEach(function(w){
+        var isK=known(w,box);
+        h.push('<div class="wrow'+(isK?' known':'')+'" data-k="'+esc(key(w))+'">'+
+          '<div class="wtop"><span class="wde">'+esc(w.d)+'</span>'+sayBtn(w.d)+
+            '<span class="wtags"><span class="wtag lv">'+g.lv+'</span></span></div>'+
+          '<div class="wbn">'+esc(w.b)+'</div>'+
+          (w.pl?'<div class="wpl">বহুবচন: '+esc(w.pl)+'</div>':'')+
+          (w.ex?'<div class="wex"><div class="exde">'+esc(w.ex)+sayBtn(w.ex)+'</div>'+
+                '<div class="exbn">'+esc(w.exb||'')+'</div></div>':'')+
+          '<button class="wmark" type="button" data-mark="'+esc(key(w))+'">'+
+            (isK?'✓ শেখা হয়েছে':'শেখা হয়েছে — চিহ্নিত করো')+'</button>'+
+        '</div>');
+      });
+      h.push('</div>');
+    });
+    area.innerHTML=h.join('');
+  }
+
+  /* ---------- ফ্ল্যাশকার্ড ---------- */
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+
+  function renderCard(){
+    var box=loadBox();
+    var w=state.deck[state.idx];
+    if(!w){ area.innerHTML='<div class="empty">এই ফিল্টারে কোনো শব্দ নেই।</div>'; stat.innerHTML=''; return; }
+    var learned=state.deck.filter(function(x){return known(x,box)}).length;
+    stat.innerHTML='<b>'+(state.idx+1)+'</b> / '+state.deck.length+' · শেখা হয়েছে <b>'+learned+'</b>';
+    var h='';
     if(!state.flipped){
-      cardArea.innerHTML=
-        '<div class="card" id="theCard">'+
+      h='<div class="card" id="theCard">'+
           '<span class="lvltag">'+w.level+'</span>'+
           '<span class="themetag">'+esc(w.theme_bn)+'</span>'+
           '<div class="front-word">'+esc(w.d)+'</div>'+
-          '<button class="big-say say" data-say="'+esc(w.d)+'">🔊</button>'+
+          '<button class="big-say say" type="button" data-say="'+esc(w.d)+'">🔊</button>'+
           '<div class="flip-hint">👆 অর্থ দেখতে কার্ডে চাপো</div>'+
         '</div>';
     } else {
-      cardArea.innerHTML=
-        '<div class="card" id="theCard">'+
+      h='<div class="card" id="theCard">'+
           '<span class="lvltag">'+w.level+'</span>'+
           '<span class="themetag">'+esc(w.theme_bn)+'</span>'+
+          '<div class="front-word" style="font-size:24px">'+esc(w.d)+'</div>'+
           '<div class="bn-main">'+esc(w.b)+'</div>'+
-          (w.pl?'<div class="pl">বহুবচন: '+esc(w.pl)+'</div>':'')+
-          '<div class="exline"><span class="de">'+esc(w.ex)+' <button class="say" data-say="'+esc(w.ex)+'">🔊</button></span><span class="bn">'+esc(w.exb)+'</span></div>'+
+          (w.pl?'<div class="wpl">বহুবচন: '+esc(w.pl)+'</div>':'')+
+          (w.ex?'<div class="wex" style="text-align:left;width:100%"><div class="exde">'+esc(w.ex)+sayBtn(w.ex)+
+                '</div><div class="exbn">'+esc(w.exb||'')+'</div></div>':'')+
         '</div>'+
-        '<div class="rate"><button class="no" data-rate="0">😓 পারিনি</button><button class="yes" data-rate="1">✅ পারি</button></div>';
+        '<div class="rate"><button class="no" data-rate="0">😓 পারিনি</button>'+
+        '<button class="yes" data-rate="1">✅ পারি</button></div>';
     }
-    cardArea.innerHTML+='<div class="nav-btns"><button data-nav="prev">◀ আগের</button><button data-nav="shuffle">🔀 এলোমেলো</button><button data-nav="next">পরের ▶</button></div>';
+    h+='<div class="nav-btns"><button data-nav="prev">◀ আগের</button>'+
+       '<button data-nav="shuffle">🔀 এলোমেলো করো</button>'+
+       '<button data-nav="next">পরের ▶</button></div>';
+    area.innerHTML=h;
   }
 
-  function renderList(){
-    var box=loadBox();
-    if(!state.deck.length){ cardArea.innerHTML='<div class="empty">কোনো শব্দ নেই।</div>'; return; }
-    var html='<div class="listview"><div class="vocab">';
-    state.deck.forEach(function(w){
-      html+='<div class="w"><span class="lv">'+w.level+' · '+esc(w.theme_bn)+'</span>'+
-        '<span class="de">'+esc(w.d)+' <button class="say" data-say="'+esc(w.d)+'">🔊</button></span>'+
-        '<span class="bn">'+esc(w.b)+(w.pl?' · '+esc(w.pl):'')+'</span></div>';
-    });
-    html+='</div></div>';
-    cardArea.innerHTML=html;
-    stat.textContent=state.deck.length+' শব্দ';
-  }
+  function render(){ state.mode==='list' ? renderList() : renderCard(); }
+  function next(){ state.idx=(state.idx+1)%Math.max(1,state.deck.length); state.flipped=false; renderCard(); }
 
-  // events
+  /* ---------- ইভেন্ট ---------- */
   document.getElementById('levelSeg').addEventListener('click',function(e){
     var b=e.target.closest('button'); if(!b)return;
     this.querySelectorAll('button').forEach(function(x){x.classList.remove('active')}); b.classList.add('active');
-    state.level=b.dataset.level; refreshThemes(); buildDeck(); render();
+    state.level=b.dataset.level; refreshThemes(false); state.theme='all';
+    buildDeck(); if(state.mode==='card') shuffle(state.deck); render();
   });
   document.getElementById('modeSeg').addEventListener('click',function(e){
     var b=e.target.closest('button'); if(!b)return;
     this.querySelectorAll('button').forEach(function(x){x.classList.remove('active')}); b.classList.add('active');
-    state.mode=b.dataset.mode; state.flipped=false; render();
+    state.mode=b.dataset.mode; state.flipped=false;
+    /* কার্ড মোডে এলোমেলো — নইলে প্রতিবার একই শব্দ আসত */
+    if(state.mode==='card'){ shuffle(state.deck); state.idx=0; }
+    render();
   });
-  themeSel.addEventListener('change',function(){ state.theme=this.value==='all'?'all':decodeURIComponent(this.value); buildDeck(); render(); });
+  themeSel.addEventListener('change',function(){
+    state.theme = this.value==='all' ? 'all' : decodeURIComponent(this.value);
+    buildDeck(); if(state.mode==='card') shuffle(state.deck); render();
+  });
+  var qT;
+  searchBox.addEventListener('input',function(){
+    var v=this.value;
+    clearTimeout(qT);
+    qT=setTimeout(function(){ state.q=v; buildDeck(); render(); },180);
+  });
 
-  cardArea.addEventListener('click',function(e){
-    if(e.target.closest('.say')) return; // let app.js handle TTS
+  area.addEventListener('click',function(e){
+    if(e.target.closest('.say')) return;            /* TTS app.js সামলায় */
+
+    /* তালিকায় "শেখা হয়েছে" চিহ্ন */
+    var mk=e.target.closest('[data-mark]');
+    if(mk){
+      var k=mk.getAttribute('data-mark'), box=loadBox();
+      box[k] = (box[k]>=2) ? 0 : 2;
+      saveBox(box);
+      var row=mk.closest('.wrow');
+      var on=box[k]>=2;
+      row.classList.toggle('known',on);
+      mk.textContent = on ? '✓ শেখা হয়েছে' : 'শেখা হয়েছে — চিহ্নিত করো';
+      var box2=loadBox();
+      var learned=state.deck.filter(function(x){return known(x,box2)}).length;
+      stat.innerHTML='<b>'+state.deck.length+'</b> শব্দ · শেখা হয়েছে <b>'+learned+'</b>';
+      return;
+    }
+
     var rate=e.target.closest('[data-rate]');
     if(rate){
-      var w=state.deck[state.idx]; var box=loadBox();
-      box[key(w)]=rate.dataset.rate==='1'?((box[key(w)]||0)+1):0; saveBox(box);
-      next(); return;
+      var w=state.deck[state.idx], bx=loadBox();
+      bx[key(w)] = rate.dataset.rate==='1' ? ((bx[key(w)]||0)+1) : 0;
+      saveBox(bx); next(); return;
     }
     var nav=e.target.closest('[data-nav]');
     if(nav){
       if(nav.dataset.nav==='next') next();
-      else if(nav.dataset.nav==='prev'){ state.idx=Math.max(0,state.idx-1); state.flipped=false; render(); }
-      else if(nav.dataset.nav==='shuffle'){ shuffle(state.deck); state.idx=0; state.flipped=false; render(); }
+      else if(nav.dataset.nav==='prev'){ state.idx=Math.max(0,state.idx-1); state.flipped=false; renderCard(); }
+      else { shuffle(state.deck); state.idx=0; state.flipped=false; renderCard(); }
       return;
     }
-    if(e.target.closest('.card')){ state.flipped=!state.flipped; render(); }
+    if(e.target.closest('#theCard')){ state.flipped=!state.flipped; renderCard(); }
   });
-  function next(){ state.idx++; if(state.idx>=state.deck.length) state.idx=0; state.flipped=false; render(); }
-  function shuffle(a){ for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t;} }
 
-  refreshThemes(); buildDeck(); render();
+  /* কীবোর্ড — কার্ড মোডে */
+  document.addEventListener('keydown',function(e){
+    if(state.mode!=='card') return;
+    if(document.activeElement===searchBox) return;
+    if(e.key===' '){ e.preventDefault(); state.flipped=!state.flipped; renderCard(); }
+    else if(e.key==='ArrowRight') next();
+    else if(e.key==='ArrowLeft'){ state.idx=Math.max(0,state.idx-1); state.flipped=false; renderCard(); }
+  });
+
+  refreshThemes(false);
+  buildDeck();
+  render();
 })();
 </script>
 </body>

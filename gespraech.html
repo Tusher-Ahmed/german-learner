@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>কথা বলা — দৈনন্দিন জীবনের বাস্তব কথোপকথন | Deutsch für Bangla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---------- পরিস্থিতির কার্ড গ্রিড ---------- */
+  .sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px;margin:14px 0}
+  .scard{display:flex;align-items:center;gap:11px;padding:13px 14px;border:1px solid var(--line);
+    border-radius:13px;background:var(--card);text-decoration:none;color:inherit;transition:.15s}
+  .scard:hover{border-color:var(--brand);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .scard .ic{font-size:24px;flex:0 0 auto}
+  .scard .tx{min-width:0}
+  .scard .t1{font-weight:800;font-size:14.5px;line-height:1.4}
+  .scard .t2{font-size:12px;color:var(--muted);margin-top:2px}
+
+  /* ---------- একটি পরিস্থিতি ---------- */
+  .scene{border:1px solid var(--line);border-radius:15px;background:var(--card);margin:16px 0;overflow:hidden}
+  .scene>summary{display:flex;align-items:center;gap:12px;padding:15px 17px;cursor:pointer;list-style:none}
+  .scene>summary::-webkit-details-marker{display:none}
+  .scene>summary:hover{background:rgba(79,70,229,.05)}
+  .scene>summary::after{content:'▸';margin-left:auto;color:var(--muted);font-weight:800;
+    font-size:16px;transition:transform .18s;flex:0 0 auto}
+  .scene[open]>summary::after{transform:rotate(90deg);color:var(--brand)}
+  .scene[open]{border-color:var(--brand);box-shadow:var(--shadow)}
+  .scene .sic{font-size:26px;flex:0 0 auto}
+  .scene .sttl{min-width:0}
+  .scene .sde{font-weight:800;font-size:16px;color:var(--brand);line-height:1.35}
+  .scene .sbn{font-size:14px;color:var(--muted);margin-top:2px}
+  .scene .slv{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:99px;padding:3px 10px;
+    background:rgba(16,185,129,.12);color:#059669}
+  .sbody{padding:0 17px 18px;border-top:1px solid var(--line)}
+
+  .situ{margin:14px 0;padding:12px 14px;border-radius:11px;background:rgba(79,70,229,.06);
+    border:1px solid rgba(79,70,229,.18);font-size:14.5px;line-height:1.75}
+
+  /* ---------- সংলাপ ---------- */
+  .stools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 10px}
+  .stool{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:9px;
+    padding:8px 13px;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;
+    min-height:38px;transition:.14s}
+  .stool:hover{border-color:var(--brand);color:var(--brand)}
+  .stool.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+  .dlg{display:grid;gap:7px}
+  .dl{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:11px 13px;
+    border:1px solid var(--line);border-radius:11px;background:var(--card2)}
+  .dl.me{background:rgba(79,70,229,.07);border-color:rgba(79,70,229,.22)}
+  .dl .who{font-weight:800;font-size:12.5px;color:var(--muted);padding-top:2px}
+  .dl.me .who{color:var(--brand)}
+  .dl .de{font-weight:600;color:var(--brand);font-size:15.5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.45}
+  .dl .pr{font-size:12.5px;color:#0f766e;margin-top:3px}
+  .dl .bn{font-size:14px;margin-top:4px;line-height:1.6}
+  .hide-bn .dl .bn{display:none}
+  .hide-de .dl .de{visibility:hidden}
+  .hide-pr .dl .pr{display:none}
+  @media(max-width:600px){.dl{grid-template-columns:1fr;gap:2px}.dl .who{padding-top:0}}
+
+  /* ---------- দরকারি বাক্য ---------- */
+  .pbank{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px;margin:10px 0}
+  .pb{border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:10px;
+    padding:10px 12px;background:var(--card2)}
+  .pb .pde{font-weight:700;color:var(--brand);font-size:14.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .pb .ppr{font-size:12px;color:#0f766e;margin-top:3px}
+  .pb .pbn{font-size:13.5px;margin-top:3px;line-height:1.5}
+
+  /* ---------- টিপস ---------- */
+  .tips{list-style:none;padding:0;margin:10px 0;display:grid;gap:7px}
+  .tips li{padding:10px 13px 10px 34px;border-radius:10px;background:rgba(245,158,11,.08);
+    border:1px solid rgba(245,158,11,.22);position:relative;font-size:14px;line-height:1.75}
+  .tips li::before{content:"💡";position:absolute;left:11px;top:10px;font-size:13px}
+
+  .shead{display:flex;align-items:center;gap:9px;margin:20px 0 8px;font-size:15.5px;font-weight:800}
+  .shead::after{content:"";flex:1;height:1px;background:var(--line)}
+</style>
+</head>
+<body data-no-auto-progress>
+<header class="topbar">
+  <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
+  <nav>
+    <a href="index.html">হোম</a>
+    <a href="kurs.html">কোর্স</a>
+    <a href="gespraech.html" class="active">কথা বলা</a>
+    <a href="kks.html">ভিডিও ক্লাস</a>
+    <a href="dw.html">DW ভিডিও</a>
+    <a href="trainer.html">শব্দ</a>
+    <a href="uebungen.html">অনুশীলন</a>
+    <a href="pruefung.html">পরীক্ষা</a>
+  </nav>
+</header>
+
+<div class="wrap single">
+  <main>
+    <section class="hero">
+      <div>
+        <span class="pill">💬 ১৩টি বাস্তব পরিস্থিতি</span>
+        <span class="pill">🔊 প্রতিটা লাইনের উচ্চারণ</span>
+        <span class="pill">🎭 ভূমিকা অভিনয় মোড</span>
+      </div>
+      <h1>কথা বলা — <span class="hl">বাস্তব জীবনের কথোপকথন</span></h1>
+      <p>জার্মানিতে সত্যিই যে পরিস্থিতিতে তুমি পড়বে — দোকান, বিল দেওয়া, রেস্টুরেন্ট, বাস, মেট্রো, রুমমেট, বন্ধু, প্রফেসর, ব্যাংক, ডাক্তার, সরকারি অফিস, ফোন কল — তার <b>সম্পূর্ণ সংলাপ</b>। প্রতিটা লাইনের সাথে <b>বাংলা অর্থ</b>, <b>উচ্চারণ</b> আর 🔊, আর সাথে <b>দরকারি বাক্যের ভাণ্ডার</b> ও <b>বাস্তব টিপস</b>।</p>
+    </section>
+
+    <section class="lesson">
+      <h2>🎭 কীভাবে অভ্যাস করবে — ৪টি ধাপ</h2>
+      <p class="lead">সংলাপ শুধু <b>পড়লে</b> মুখ চলবে না। নিচের ৪ ধাপে করলে সত্যিই বলতে পারবে:</p>
+      <div class="tblwrap">
+      <table>
+        <tr><th>ধাপ</th><th>কী করবে</th></tr>
+        <tr><td><b>১. শোনো</b></td><td>প্রতিটা লাইনের 🔊 চেপে শোনো, উচ্চারণ মিলিয়ে নাও।</td></tr>
+        <tr><td><b>২. নকল করো</b></td><td>শুনে সাথে সাথে <b>ঠিক একই সুরে জোরে বলো</b> (shadowing)। এটাই সবচেয়ে জরুরি ধাপ।</td></tr>
+        <tr><td><b>৩. বাংলা লুকাও</b></td><td><b>“বাংলা লুকাও”</b> বাটনে চেপে শুধু জার্মান দেখে বুঝতে চেষ্টা করো।</td></tr>
+        <tr><td><b>৪. অভিনয় করো</b></td><td><b>“শুধু আমার লাইন”</b> বাটনে চাপো — অন্য পক্ষের লাইন লুকিয়ে যাবে, তুমি নিজের অংশ বলে অভিনয় করো।</td></tr>
+      </table>
+      </div>
+      <div class="tip"><b>সবচেয়ে কাজের কৌশল:</b> একটা পরিস্থিতি বেছে নাও, আর সেটা <b>৩ দিন ধরে</b> রোজ একবার জোরে অভিনয় করো। তিন দিনে বাক্যগুলো মুখে বসে যাবে — তখন বাস্তবে ভাবতে হবে না, আপনিই বেরিয়ে আসবে।</div>
+      <div class="warn"><b>একটা কথা মনে রাখো:</b> বাস্তবে কথা হুবহু এভাবে হবে না — মানুষ অন্যভাবেও বলবে। কিন্তু এই ছাঁদগুলো জানা থাকলে তুমি <b>মূল কথাটা ধরতে পারবে</b> আর নিজের কথা বলতে পারবে। ১০০% না বুঝলেও কাজ চালিয়ে নেওয়া যায় — সেটাই আসল দক্ষতা।</div>
+    </section>
+
+    <section class="lesson">
+      <h2>📍 পরিস্থিতি বেছে নাও</h2>
+      <div class="sgrid" id="sgrid"></div>
+    </section>
+
+    <div id="scenes"></div>
+  </main>
+</div>
+
+<footer>কথা বলা · Deutsch für Bangla · প্রতিদিন একটা পরিস্থিতি জোরে অভিনয় করো · Viel Erfolg!</footer>
+
+<script src="gespraech-data.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  "use strict";
+  var G = window.GESPRAECH || [];
+  var grid = document.getElementById('sgrid');
+  var host = document.getElementById('scenes');
+  if(!G.length){ host.innerHTML='<div class="warn">সংলাপের ডেটা পাওয়া যায়নি।</div>'; return; }
+
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+  function sayBtn(t){return '<button class="say" type="button" data-say="'+esc(t)+'">🔊</button>'}
+
+  /* উপরের কার্ড — দ্রুত যাওয়ার জন্য */
+  grid.innerHTML = G.map(function(s){
+    return '<a class="scard" href="#'+s.id+'" data-jump="'+s.id+'">'+
+      '<span class="ic">'+s.icon+'</span>'+
+      '<span class="tx"><span class="t1">'+s.title_bn.split(' — ')[0]+'</span>'+
+      '<span class="t2">'+s.level+' · '+s.lines.length+' লাইন</span></span></a>';
+  }).join('');
+
+  /* প্রতিটি পরিস্থিতি */
+  host.innerHTML = G.map(function(s){
+    var h = '<details class="scene" id="'+s.id+'">';
+    h += '<summary><span class="sic">'+s.icon+'</span>'+
+         '<span class="sttl"><span class="sde">'+esc(s.title)+'</span>'+
+         '<span class="sbn">'+s.title_bn+'</span></span>'+
+         '<span class="slv">'+s.level+'</span></summary>';
+    h += '<div class="sbody">';
+
+    h += '<div class="situ"><b>পরিস্থিতি:</b> '+s.situation_bn+'</div>';
+
+    /* অভ্যাসের বাটন */
+    h += '<div class="stools" data-tools="'+s.id+'">'+
+           '<button class="stool" type="button" data-t="bn">বাংলা লুকাও</button>'+
+           '<button class="stool" type="button" data-t="pr">উচ্চারণ লুকাও</button>'+
+           '<button class="stool" type="button" data-t="me">শুধু আমার লাইন</button>'+
+           '<button class="stool" type="button" data-t="all">🔊 পুরো সংলাপ শোনো</button>'+
+         '</div>';
+
+    /* সংলাপ */
+    h += '<div class="dlg" data-dlg="'+s.id+'">';
+    s.lines.forEach(function(l){
+      var isMe = /তুমি/.test(l.s);
+      h += '<div class="dl'+(isMe?' me':'')+'">'+
+             '<div class="who">'+esc(l.s)+'</div>'+
+             '<div><div class="de">'+esc(l.d)+sayBtn(l.d)+'</div>'+
+             '<div class="pr">🗣 '+l.p+'</div>'+
+             '<div class="bn">'+l.b+'</div></div>'+
+           '</div>';
+    });
+    h += '</div>';
+
+    /* দরকারি বাক্য */
+    h += '<div class="shead">🗣️ দরকারি বাক্য — এগুলো মুখস্থ করো</div><div class="pbank">';
+    s.phrases.forEach(function(p){
+      h += '<div class="pb"><div class="pde">'+esc(p.d)+sayBtn(p.d)+'</div>'+
+           '<div class="ppr">🗣 '+p.p+'</div><div class="pbn">'+p.b+'</div></div>';
+    });
+    h += '</div>';
+
+    /* টিপস */
+    h += '<div class="shead">💡 বাস্তব টিপস</div><ul class="tips">';
+    s.tips_bn.forEach(function(t){ h += '<li>'+t+'</li>'; });
+    h += '</ul>';
+
+    h += '</div></details>';
+    return h;
+  }).join('');
+
+  /* কার্ডে চাপলে সেই পরিস্থিতি খুলে যাবে */
+  grid.addEventListener('click', function(e){
+    var a = e.target.closest('[data-jump]');
+    if(!a) return;
+    var d = document.getElementById(a.getAttribute('data-jump'));
+    if(d){ d.open = true; setTimeout(function(){ d.scrollIntoView({behavior:'smooth',block:'start'}); }, 60); }
+  });
+
+  /* অভ্যাসের বাটন */
+  host.addEventListener('click', function(e){
+    var b = e.target.closest('.stool');
+    if(!b) return;
+    var id = b.closest('[data-tools]').getAttribute('data-tools');
+    var dlg = host.querySelector('[data-dlg="'+id+'"]');
+    var t = b.getAttribute('data-t');
+
+    if(t === 'all'){
+      /* পুরো সংলাপ একবারে — app.js-এর TTS ব্যবহার করে */
+      var all = G.filter(function(s){return s.id===id})[0].lines.map(function(l){return l.d}).join(' ');
+      if(window.DFB && window.DFB.speak) window.DFB.speak(all);
+      return;
+    }
+    var cls = t==='bn' ? 'hide-bn' : t==='pr' ? 'hide-pr' : 'hide-de';
+    var on = dlg.classList.toggle(cls);
+    b.classList.toggle('on', on);
+    if(t==='me'){
+      b.textContent = on ? '✓ শুধু আমার লাইন (অন্যের লাইন লুকানো)' : 'শুধু আমার লাইন';
+      /* "শুধু আমার লাইন" = অন্য পক্ষের জার্মান লাইন লুকাও */
+      dlg.querySelectorAll('.dl').forEach(function(d){
+        if(!d.classList.contains('me')) d.classList.toggle('hide-de-row', on);
+      });
+    } else {
+      b.textContent = on
+        ? (t==='bn' ? '✓ বাংলা লুকানো' : '✓ উচ্চারণ লুকানো')
+        : (t==='bn' ? 'বাংলা লুকাও' : 'উচ্চারণ লুকাও');
+    }
+  });
+})();
+</script>
+<style>
+  /* "শুধু আমার লাইন" — অন্য পক্ষের জার্মান লাইন ঝাপসা */
+  .dl.hide-de-row .de{filter:blur(5px);user-select:none}
+  .dl.hide-de-row:hover .de{filter:none}
+  .dlg.hide-de .dl .de{visibility:visible}
+</style>
+</body>
+</html>
