@@ -226,7 +226,7 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
 
 /* উপরের টাইটেল ঢাকার পর্দা — pointer-events:none, তাই কোনো ক্লিক আটকায় না।
    শুধু উপরের অংশ ঢাকে; নিচের অংশ (যেখানে Skip Ad থাকে) পুরো খোলা। */
-.vp-topmask{position:absolute;top:0;left:0;right:0;height:58px;z-index:2;pointer-events:none;
+.vp-topmask{position:absolute;top:0;left:0;right:0;height:68px;z-index:2;pointer-events:none;
   opacity:0;transition:opacity .18s;
   background:linear-gradient(180deg,#000 0%,#000 55%,rgba(0,0,0,.7) 80%,transparent 100%)}
 .vp-stage:hover .vp-topmask{opacity:1}
@@ -246,7 +246,7 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
 .vp-psub{color:#8b94a5;font-size:13px;margin-top:6px}
 
 /* ভিডিও শেষ হলে */
-.vp-endcard{position:absolute;inset:0;z-index:5;display:grid;place-items:center;
+.vp-endcard{position:absolute;inset:0;z-index:7;display:grid;place-items:center;
   background:linear-gradient(180deg,rgba(6,8,12,.94),rgba(6,8,12,.98))}
 .vp-endcard[hidden]{display:none}
 .vp-endcard-in{text-align:center;padding:22px;max-width:520px}
@@ -265,6 +265,28 @@ a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
   border:3px solid rgba(255,255,255,.22);border-top-color:#fff;animation:vpspin .8s linear infinite}
 @keyframes vpspin{to{transform:rotate(360deg)}}
 
+
+/* ---------- থামা অবস্থার পর্দা ----------
+   YouTube থামলে উপরে টাইটেল+চ্যানেল, নিচে Share / ঘড়ি /
+   "More videos" / YouTube লোগো দেখায়। এই পর্দা সেগুলো ঢেকে দেয়।
+   নিরাপদ, কারণ: বিজ্ঞাপন চলে playing অবস্থায় — থামা অবস্থায় নয়।
+   তাই এটি কখনো "Skip Ad" ঢাকে না। কন্ট্রোল বারও নিচে, আলাদা।   */
+.vp-pause{position:absolute;inset:0;z-index:5;display:none;place-items:center;align-content:center;
+  gap:14px;cursor:pointer;text-align:center;padding:18px;
+  background:radial-gradient(900px 400px at 50% 45%,#1b2534,#07090d 75%)}
+.vplayer.is-paused .vp-pause{display:grid}
+.vp-presume{width:70px;height:70px;border-radius:50%;border:0;cursor:pointer;display:grid;
+  place-items:center;background:var(--vpb);box-shadow:0 12px 32px rgba(79,70,229,.5);transition:.18s}
+.vp-presume:hover{transform:scale(1.08)}
+.vp-presume span{display:block;width:0;height:0;margin-left:6px;
+  border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:21px solid #fff}
+.vp-ptxt{color:#e8ecf4;font-weight:700;font-size:15px;line-height:1.5;max-width:90%;
+  margin:0 auto;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.vplayer.vp-plain .vp-pause{display:none !important}
+@media (max-width:620px){
+  .vp-presume{width:58px;height:58px}
+  .vp-ptxt{font-size:13.5px}
+}
 /* ---------- কন্ট্রোল বার — ভিডিওর নিচে, সবসময় দেখা যায় ---------- */
 .vp-ctrl{background:#12151c;padding:6px 11px 9px;border-top:1px solid rgba(255,255,255,.07)}
 .vp-ctrl[hidden]{display:none}

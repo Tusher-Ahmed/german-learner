@@ -78,6 +78,12 @@
         /* উপরের টাইটেল ঢাকার পর্দা — pointer-events:none, তাই কিছুই আটকায় না।
            ভিডিওর নিচের অংশ পুরো খোলা, তাই "Skip Ad" সবসময় চাপা যায়। */
         '<div class="vp-topmask" aria-hidden="true"></div>' +
+        /* থামলে YouTube উপরে টাইটেল, নিচে Share / "More videos" / লোগো দেখায়।
+           সেগুলো ঢাকতে আমাদের নিজের পর্দা — শুধু <b>থামা অবস্থায়</b>।
+           বিজ্ঞাপন চলে "playing" অবস্থায়, থামা অবস্থায় নয় — তাই এতে
+           "Skip Ad" কখনো ঢাকা পড়ে না। */
+        '<div class="vp-pause"><button class="vp-presume" type="button" aria-label="আবার চালাও"><span></span></button>' +
+        (title ? '<div class="vp-ptxt">' + esc(title) + "</div>" : "") + "</div>" +
         '<div class="vp-poster">' +
           '<div class="vp-poster-in">' +
             '<button class="vp-bigplay" type="button" aria-label="ভিডিও চালাও"><span></span></button>' +
@@ -226,6 +232,7 @@
                 var S = YT.PlayerState;
                 spin.hidden = e.data !== S.BUFFERING;
                 if (e.data === S.PLAYING) {
+                  box.classList.remove("is-paused");
                   bPlay.textContent = "❚❚";
                   bPlay.setAttribute("aria-label", "থামাও");
                   endc.hidden = true;
@@ -234,9 +241,11 @@
                     if (duration) elDur.textContent = fmt(duration);
                   }
                 } else if (e.data === S.PAUSED) {
+                  box.classList.add("is-paused");
                   bPlay.textContent = "▶";
                   bPlay.setAttribute("aria-label", "চালাও");
                 } else if (e.data === S.ENDED) {
+                  box.classList.remove("is-paused");
                   bPlay.textContent = "▶";
                   endc.hidden = false;
                 }
@@ -322,6 +331,9 @@
 
     /* ---------- ইভেন্ট ---------- */
     poster.addEventListener("click", function () { wantPlay = true; create(); });
+    box.querySelector(".vp-pause").addEventListener("click", function () {
+      if (readyOK) { try { yt.playVideo(); } catch (e) {} }
+    });
     bPlay.addEventListener("click", toggle);
     bRew.addEventListener("click", function () { nudge(-10); });
     bFfw.addEventListener("click", function () { nudge(10); });
