@@ -10,3 +10,6 @@ Desktop.ini
 *.swp
 .vscode/
 .idea/
+
+# অসম্পর্কিত প্রকল্প — এই রিপোর্জিটরির অংশ নয়
+greenroute-demo/
