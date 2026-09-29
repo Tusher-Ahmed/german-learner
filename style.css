@@ -211,151 +211,113 @@ details>summary::before{content:"▸";color:var(--muted);display:inline-block;ma
 footer{max-width:1200px;margin:0 auto;padding:38px 22px 84px;color:var(--muted);text-align:center;font-size:14px;border-top:1px solid var(--line)}
 a.inline{color:var(--brand);font-weight:600}a.inline:hover{color:var(--pink)}
 .kbd{background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:13px;font-family:monospace}
-/* ===================== নিজস্ব পেশাদার ভিডিও প্লেয়ার (player.js) ===================== */
-.vplayer{--vpb:#4f46e5;margin:16px 0;border-radius:14px;overflow:hidden;background:#000;
-  box-shadow:0 8px 30px rgba(0,0,0,.28);position:relative;isolation:isolate}
-.vplayer:fullscreen{border-radius:0;display:flex;flex-direction:column;justify-content:center;background:#000}
-.vp-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;
-  font-family:inherit;-webkit-tap-highlight-color:transparent}
+/* ===================== ভিডিও প্লেয়ার (player.js) =====================
+   গুরুত্বপূর্ণ নীতি: ভিডিওর উপরে কোনো ক্লিকযোগ্য জিনিস ভাসে না।
+   কন্ট্রোল বার ভিডিওর নিচে, তাই YouTube-এর "Skip Ad" বাটন কখনো
+   ঢাকা পড়ে না, আর play/pause বাটনেও ক্লিক সবসময় পৌঁছায়।
+   ==================================================================== */
+.vplayer{--vpb:#4f46e5;margin:16px 0;border-radius:14px;overflow:hidden;background:#0b0d12;
+  border:1px solid var(--line);box-shadow:var(--shadow)}
+.vplayer:fullscreen{border-radius:0;border:0;display:flex;flex-direction:column;justify-content:center;background:#000}
+.vp-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
 .vplayer:fullscreen .vp-stage{flex:1;aspect-ratio:auto}
 .vp-frame{position:absolute;inset:0}
 .vp-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 
-/* ---- শিল্ড: মাউস iframe-এ ঢুকতে দেয় না, তাই YouTube কোনো চেহারা দেখায় না ---- */
-.vp-shield{position:absolute;inset:0;z-index:4;cursor:pointer;background:transparent}
-.vp-shield:focus-visible{outline:3px solid var(--vpb);outline-offset:-3px;border-radius:6px}
-/* বিজ্ঞাপনের সময় শিল্ড সরে যায়, তখন Skip Ad বাটনে ক্লিক করা যায় */
-.vplayer.vp-adopen .vp-shield{pointer-events:none}
-.vplayer.vp-plain .vp-shield,
-.vplayer.vp-plain .vp-top,
-.vplayer.vp-plain .vp-center,
-.vplayer.vp-plain .vp-ctrl,
-.vplayer.vp-plain .vp-pausecard{display:none}
+/* উপরের টাইটেল ঢাকার পর্দা — pointer-events:none, তাই কোনো ক্লিক আটকায় না।
+   শুধু উপরের অংশ ঢাকে; নিচের অংশ (যেখানে Skip Ad থাকে) পুরো খোলা। */
+.vp-topmask{position:absolute;top:0;left:0;right:0;height:58px;z-index:2;pointer-events:none;
+  opacity:0;transition:opacity .18s;
+  background:linear-gradient(180deg,#000 0%,#000 55%,rgba(0,0,0,.7) 80%,transparent 100%)}
+.vp-stage:hover .vp-topmask{opacity:1}
+.vplayer.vp-plain .vp-topmask{display:none}
 
-/* ---- উপরে আমাদের নিজের টাইটেল ---- */
-.vp-top{position:absolute;top:0;left:0;right:0;z-index:6;padding:12px 16px 26px;
-  pointer-events:none;opacity:0;transform:translateY(-6px);transition:.2s;
-  background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 60%,transparent)}
-.vplayer.vp-active .vp-top,.vplayer.is-paused .vp-top{opacity:1;transform:none}
-.vp-toptitle{color:#fff;font-weight:700;font-size:14.5px;line-height:1.4;display:block;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+/* শুরুর পোস্টার */
+.vp-poster{position:absolute;inset:0;z-index:6;display:grid;place-items:center;cursor:pointer;
+  background:radial-gradient(1000px 420px at 50% -10%,#1e2a38,#07090d 72%)}
+.vp-poster.gone{display:none}
+.vp-poster-in{text-align:center;padding:20px;max-width:90%}
+.vp-bigplay{width:74px;height:74px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;
+  background:var(--vpb);box-shadow:0 12px 32px rgba(79,70,229,.5);transition:.18s}
+.vp-bigplay:hover{transform:scale(1.08)}
+.vp-bigplay span{display:block;width:0;height:0;margin-left:6px;
+  border-top:13px solid transparent;border-bottom:13px solid transparent;border-left:21px solid #fff}
+.vp-ptitle{color:#fff;font-weight:800;font-size:16px;margin-top:15px;line-height:1.5}
+.vp-psub{color:#8b94a5;font-size:13px;margin-top:6px}
 
-/* ---- মাঝের বড় play ---- */
-.vp-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.9);z-index:5;
-  width:68px;height:68px;border-radius:50%;border:0;cursor:pointer;display:none;place-items:center;
-  background:rgba(0,0,0,.55);transition:.16s}
-.vplayer.is-paused .vp-center{display:grid;transform:translate(-50%,-50%) scale(1)}
-.vp-center:hover{background:var(--vpb)}
-.vp-center i{display:block;width:0;height:0;margin-left:5px;
-  border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:19px solid #fff}
-
-/* ---- থামালে আমাদের পর্দা: YouTube-এর More videos গ্রিড ঢেকে দেয় ---- */
-.vp-pausecard{position:absolute;inset:0;z-index:7;display:grid;place-items:center;
-  background:linear-gradient(180deg,rgba(6,8,12,.93),rgba(6,8,12,.97))}
-.vp-pausecard[hidden]{display:none}
-.vp-pausecard-in{text-align:center;padding:20px;max-width:520px}
-.vp-pc-ttl{color:#fff;font-weight:800;font-size:19px}
-.vp-pc-sub{color:#9aa3b2;font-size:14px;margin-top:7px;line-height:1.6}
-
-/* ---- শেষ-পর্দা ---- */
-.vp-endcard{position:absolute;inset:0;z-index:8;display:grid;place-items:center;
+/* ভিডিও শেষ হলে */
+.vp-endcard{position:absolute;inset:0;z-index:5;display:grid;place-items:center;
   background:linear-gradient(180deg,rgba(6,8,12,.94),rgba(6,8,12,.98))}
 .vp-endcard[hidden]{display:none}
 .vp-endcard-in{text-align:center;padding:22px;max-width:520px}
-.vp-endttl{color:#fff;font-weight:800;font-size:20px}
-.vp-endsub{color:#9aa3b2;font-size:14.5px;margin-top:8px;line-height:1.7}
-.vp-endbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.vp-endttl{color:#fff;font-weight:800;font-size:19px}
+.vp-endsub{color:#9aa3b2;font-size:14px;margin-top:8px;line-height:1.7}
+.vp-endbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .vp-btn{background:var(--vpb);color:#fff;border:0;border-radius:10px;padding:12px 20px;
   font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:.16s;
   min-height:44px;margin-top:14px}
 .vp-btn:hover{filter:brightness(1.14)}
-.vp-btn.vp-back30{background:rgba(255,255,255,.14)}
 
-/* ---- শুরুর পোস্টার ---- */
-.vp-poster{position:absolute;inset:0;z-index:9;display:grid;place-items:center;cursor:pointer;
-  background:radial-gradient(1000px 420px at 50% -10%,#1e2a38,#07090d 72%)}
-.vp-poster.gone{display:none}
-.vp-poster-in{text-align:center;padding:20px;max-width:90%}
-.vp-bigplay{width:76px;height:76px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;
-  background:var(--vpb);box-shadow:0 12px 34px rgba(79,70,229,.5);transition:.18s}
-.vp-bigplay:hover{transform:scale(1.08)}
-.vp-bigplay span{display:block;width:0;height:0;margin-left:6px;
-  border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid #fff}
-.vp-ptitle{color:#fff;font-weight:800;font-size:16.5px;margin-top:16px;line-height:1.5}
-.vp-psub{color:#8b94a5;font-size:13px;margin-top:6px}
-
-/* ---- স্পিনার ---- */
-.vp-spinner{position:absolute;inset:0;display:grid;place-items:center;z-index:5;pointer-events:none}
+/* লোডিং */
+.vp-spinner{position:absolute;inset:0;display:grid;place-items:center;z-index:4;pointer-events:none}
 .vp-spinner[hidden]{display:none}
-.vp-spinner i{width:44px;height:44px;border-radius:50%;display:block;
+.vp-spinner i{width:42px;height:42px;border-radius:50%;display:block;
   border:3px solid rgba(255,255,255,.22);border-top-color:#fff;animation:vpspin .8s linear infinite}
 @keyframes vpspin{to{transform:rotate(360deg)}}
 
-/* ---- ভিডিওর উপরে ভেসে থাকা কন্ট্রোল ---- */
-.vp-ctrl{position:absolute;left:0;right:0;bottom:0;z-index:6;padding:26px 12px 10px;
-  opacity:0;transform:translateY(8px);transition:.2s;
-  background:linear-gradient(0deg,rgba(0,0,0,.86),rgba(0,0,0,.5) 55%,transparent)}
-.vplayer.vp-active .vp-ctrl,.vplayer.is-paused .vp-ctrl{opacity:1;transform:none}
-.vp-ctrl.is-loading .vp-btns{opacity:.5}
+/* ---------- কন্ট্রোল বার — ভিডিওর নিচে, সবসময় দেখা যায় ---------- */
+.vp-ctrl{background:#12151c;padding:6px 11px 9px;border-top:1px solid rgba(255,255,255,.07)}
+.vp-ctrl[hidden]{display:none}
+.vplayer.vp-plain .vp-ctrl{display:none}
+.vp-ctrl.is-loading .vp-btns{opacity:.55}
 
-.vp-seek{padding:8px 2px;cursor:pointer;touch-action:none}
-.vp-seek:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
-.vp-seek-track{position:relative;height:5px;border-radius:99px;background:rgba(255,255,255,.26);transition:height .14s}
-.vp-seek:hover .vp-seek-track{height:7px}
-.vp-seek-buf{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:rgba(255,255,255,.3)}
+.vp-seek{padding:9px 2px 7px;cursor:pointer;touch-action:none}
+.vp-seek:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:4px}
+.vp-seek-track{position:relative;height:6px;border-radius:99px;background:rgba(255,255,255,.2);transition:height .14s}
+.vp-seek:hover .vp-seek-track{height:8px}
+.vp-seek-buf{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:rgba(255,255,255,.26)}
 .vp-seek-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:var(--vpb)}
-.vp-seek-fill::after{content:"";position:absolute;right:-6px;top:50%;width:13px;height:13px;border-radius:50%;
-  background:#fff;transform:translateY(-50%) scale(0);transition:transform .14s;box-shadow:0 1px 5px rgba(0,0,0,.6)}
-.vp-seek:hover .vp-seek-fill::after,.vp-seek:focus-visible .vp-seek-fill::after{transform:translateY(-50%) scale(1)}
+.vp-seek-fill::after{content:"";position:absolute;right:-7px;top:50%;width:14px;height:14px;border-radius:50%;
+  background:#fff;transform:translateY(-50%);box-shadow:0 1px 5px rgba(0,0,0,.6)}
 
 .vp-btns{display:flex;align-items:center;gap:6px;flex-wrap:wrap;transition:opacity .16s}
 .vp-gap{flex:1 1 auto}
-.vp-ico{background:transparent;color:#eef1f6;border:0;border-radius:9px;cursor:pointer;
-  font-family:inherit;font-size:13px;font-weight:700;line-height:1;min-height:40px;min-width:42px;
-  padding:0 10px;display:inline-flex;align-items:center;justify-content:center;transition:.14s;
+.vp-ico{background:rgba(255,255,255,.1);color:#eef1f6;border:0;border-radius:9px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:700;line-height:1;min-height:42px;min-width:46px;
+  padding:0 11px;display:inline-flex;align-items:center;justify-content:center;transition:.14s;
   -webkit-tap-highlight-color:transparent;white-space:nowrap}
-.vp-ico:hover:not(:disabled){background:rgba(255,255,255,.16)}
+.vp-ico:hover:not(:disabled){background:var(--vpb);color:#fff}
 .vp-ico:active:not(:disabled){transform:scale(.93)}
 .vp-ico:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.vp-ico:disabled{opacity:.4;cursor:default}
-.vp-play{background:rgba(255,255,255,.14);min-width:48px;font-size:14px}
-.vp-play:hover:not(:disabled){background:var(--vpb)}
-.vp-time{color:#c9cfdb;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;padding:0 6px}
+.vp-ico:disabled{opacity:.38;cursor:default}
+.vp-play{background:var(--vpb);color:#fff;min-width:54px;font-size:14px}
+.vp-time{color:#c9cfdb;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;padding:0 7px}
 .vp-time i{opacity:.5;font-style:normal;margin:0 2px}
-.vp-ico.vp-cc.is-on{background:var(--vpb);color:#fff}
-.vp-ico.vp-cc.is-none{opacity:.45}
-.vp-ico.vp-ad{background:rgba(245,158,11,.22);color:#fde68a;font-size:12px}
-.vp-ico.vp-ad:hover{background:#f59e0b;color:#1a1205}
-.vplayer.vp-adopen .vp-ico.vp-ad{background:#f59e0b;color:#1a1205}
+.vp-ico.vp-cc.is-on{background:#10b981;color:#04231a}
+.vp-ico.vp-cc.is-none{opacity:.4}
 
-/* ---- ছোট বার্তা ---- */
-.vp-toast{position:absolute;left:50%;bottom:76px;transform:translateX(-50%);z-index:9;
-  background:rgba(8,10,15,.9);color:#fff;font-size:13px;font-weight:600;line-height:1.5;
-  padding:9px 15px;border-radius:10px;max-width:86%;text-align:center;pointer-events:none;
-  box-shadow:0 6px 20px rgba(0,0,0,.4)}
-.vp-toast[hidden]{display:none}
+.vp-hint{color:#aab2c0;font-size:12px;line-height:1.6;margin-top:7px;padding-left:2px}
+.vp-hint[hidden]{display:none}
 
-/* ---- fallback বার্তা ---- */
+/* fallback বার্তা */
 .vp-msg{background:rgba(245,158,11,.1);border-top:1px solid rgba(245,158,11,.3);
   color:var(--ink);font-size:13px;line-height:1.75;padding:11px 14px}
 .vp-msg[hidden]{display:none}
 .vp-msg code{background:rgba(0,0,0,.08);border-radius:5px;padding:1px 6px;font-size:12.5px}
 
-/* ---- টাইমস্ট্যাম্প বোতাম ---- */
+/* টাইমস্ট্যাম্প বোতাম */
 .vp-jump{background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.32);color:var(--brand);
   border-radius:9px;padding:8px 12px;font-weight:700;font-size:13px;cursor:pointer;min-height:40px;
   font-family:inherit;font-variant-numeric:tabular-nums;transition:.14s;white-space:nowrap}
 .vp-jump:hover{background:var(--brand);color:#fff}
 
 @media (max-width:620px){
-  .vp-ctrl{padding:22px 8px 8px}
-  .vp-btns{gap:4px}
-  .vp-ico{min-width:38px;padding:0 7px;font-size:12px;min-height:38px}
-  .vp-time{font-size:11.5px;padding:0 3px;width:100%;order:9;text-align:center}
+  .vp-ctrl{padding:5px 8px 8px}
+  .vp-btns{gap:5px}
+  .vp-ico{min-width:42px;padding:0 8px;font-size:12px;min-height:40px}
+  .vp-time{font-size:11.5px;padding:0 4px;width:100%;order:9;text-align:center}
   .vp-gap{display:none}
-  .vp-ico.vp-ad{font-size:11px}
-  .vp-toptitle{font-size:13px}
-  .vp-bigplay{width:64px;height:64px}
-  .vp-center{width:58px;height:58px}
-  .vp-toast{bottom:auto;top:12px;font-size:12px}
+  .vp-bigplay{width:62px;height:62px}
+  .vp-ptitle{font-size:14.5px}
+  .vp-topmask{height:46px}
 }

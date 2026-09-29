@@ -25,6 +25,15 @@
     border:1px solid rgba(79,70,229,.3);color:var(--brand);text-decoration:none;font-weight:700;
     font-size:14.5px;border-radius:11px;padding:9px 16px;margin:6px 8px 6px 0;transition:.16s}
   .dwlink:hover{background:var(--brand);color:#fff}
+
+  .epbox{border:1px solid var(--line);border-radius:13px;background:var(--card);padding:12px 14px;margin:11px 0}
+  .ephead{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:4px}
+  .epno{width:29px;height:29px;flex:0 0 auto;border-radius:9px;display:grid;place-items:center;
+    background:rgba(79,70,229,.1);color:var(--brand);font-weight:800;font-size:13.5px}
+  .eptt{flex:1 1 180px;min-width:0}
+  .eptt b{display:block;font-size:15px;color:var(--brand);line-height:1.35}
+  .eptt span{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+  .eplen{flex:0 0 auto;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body data-no-auto-progress>
@@ -58,7 +67,6 @@
     <a href="#a2">Nicos Weg — A2 ফিল্ম</a>
     <a href="#a2steps">A2 — ধাপে ধাপে গাইড</a>
     <a href="#folgen">ছোট পর্ব ধরে ধরে</a>
-    <a href="#labor">Das Deutschlandlabor</a>
     <a href="#more">DW-এর আরও রিসোর্স</a>
   </aside>
 
@@ -280,33 +288,50 @@
       </div>
     </section>
 
-    <!-- ======================= পর্ব ধরে ======================= -->
+    <!-- ======================= ছোট পর্ব ======================= -->
     <section class="lesson" id="folgen">
       <h2><span class="num">3</span> ছোট পর্ব ধরে ধরে (Folgen)</h2>
       <p class="lead">লম্বা ফিল্ম কঠিন লাগছে? DW একই গল্প <b>১–২ মিনিটের ছোট পর্বে</b>ও ভাগ করে রেখেছে। <b>একদম শুরুর জন্য এটাই সবচেয়ে ভালো উপায়</b> — একটা পর্ব ৩ বার দেখা অনেক সহজ।</p>
-      <div class="vplayer" data-vid="videoseries?list=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg"
-           data-title="Nicos Weg — সব ছোট পর্ব (প্লেলিস্ট)"
-           data-sub="DW Deutsch lernen · A1 → B1 প্লেলিস্ট"></div>
-      <div class="tip"><b>ছোট পর্বের সেরা পদ্ধতি (দিনে ১০ মিনিট):</b><br>
-        ১. একটা পর্ব <b>সাবটাইটেল ছাড়া</b> দেখো — শুধু বোঝার চেষ্টা করো।<br>
-        ২. আবার দেখো, এবার <b>জার্মান সাবটাইটেল</b> দিয়ে।<br>
+      <div class="tip"><b>প্রতিটা পর্বের সেরা পদ্ধতি (দিনে ১০ মিনিট):</b><br>
+        ১. <b>সাবটাইটেল ছাড়া</b> একবার দেখো — শুধু বোঝার চেষ্টা করো।<br>
+        ২. <b>CC</b> বাটনে চেপে সাবটাইটেল চালু করে আবার দেখো।<br>
         ৩. তৃতীয়বার দেখো আর <b>চরিত্রের সাথে সাথে জোরে বলো</b> (shadowing)।<br>
-        ৪. যে ২–৩টা নতুন শব্দ পেলে, সেগুলো খাতায় লিখে রাখো।<br>
-        এভাবে দিনে একটা পর্ব — এক মাসে তোমার কান পুরো বদলে যাবে।</div>
-    </section>
-
-    <!-- ======================= Deutschlandlabor ======================= -->
-    <section class="lesson" id="labor">
-      <h2><span class="num">4</span> Das Deutschlandlabor — জার্মানি আসলে কেমন দেশ?</h2>
-      <p class="lead">এটা গল্প নয় — এটা ছোট ছোট তথ্যচিত্র। দুজন উপস্থাপক জার্মানি ঘুরে দেখান জার্মানরা আসলে কীভাবে থাকে, খায়, কাজ করে। <b>ভাষার সাথে সাথে দেশটাও চেনা</b> যায়।</p>
-      <div class="vplayer" data-vid="videoseries?list=PLs7zUO7VPyJ50sTVsDgfJV6_B3rFYtbFu"
-           data-title="Das Deutschlandlabor (প্লেলিস্ট)"
-           data-sub="DW Deutsch lernen · A2 স্তর"></div>
-      <div class="note"><b>কেন এটা দেখবে:</b> শুধু ভাষা শিখলে যথেষ্ট নয় — <b>সংস্কৃতি</b> জানাও দরকার। জার্মানিতে সময়ানুবর্তিতা কত গুরুত্বপূর্ণ, আবর্জনা কীভাবে আলাদা করে, রবিবারে দোকান কেন বন্ধ — এগুলো না জানলে বাস্তবে সমস্যায় পড়বে। প্রতিটা পর্ব ছোট, তাই A2 পর্যায়ে মজার বিরতি হিসেবে দেখো।</div>
+        ৪. নতুন ২–৩টা শব্দ খাতায় লিখে রাখো।</div>
+      <p>নিচে A1-এর <b>প্রথম ৭টি পর্ব</b> দেওয়া আছে — ক্রম ধরে দেখো। প্রতিটা পর্ব আলাদা প্লেয়ারে, তাই গতি কমানো (0.75x), <b>⟲ 10</b> আর <b>CC</b> — সব কাজ করবে।</p>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">1</span><span class="eptt"><b>Folge 1: Hallo!</b><span>সম্ভাষণ — "Hallo", "Guten Tag"</span></span><span class="eplen">⏱ 1:37</span></div>
+        <div class="vplayer" data-vid="dC6ZGLzdaTs" data-title="Nicos Weg — Folge 1: Hallo!" data-sub="DW · A1 · 1:37" data-dur="97"></div>
+      </div>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">2</span><span class="eptt"><b>Folge 2: Kein Problem!</b><span>সমস্যা নেই — সহজ উত্তর দেওয়া</span></span><span class="eplen">⏱ 1:51</span></div>
+        <div class="vplayer" data-vid="upvuC9FR-xU" data-title="Nicos Weg — Folge 2: Kein Problem!" data-sub="DW · A1 · 1:51" data-dur="111"></div>
+      </div>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">3</span><span class="eptt"><b>Folge 3: Tschüss!</b><span>বিদায় জানানো</span></span><span class="eplen">⏱ 1:28</span></div>
+        <div class="vplayer" data-vid="idFrq0H1Af0" data-title="Nicos Weg — Folge 3: Tschüss!" data-sub="DW · A1 · 1:28" data-dur="88"></div>
+      </div>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">4</span><span class="eptt"><b>Folge 4: Von A bis Z</b><span>বর্ণমালা — A থেকে Z</span></span><span class="eplen">⏱ 1:49</span></div>
+        <div class="vplayer" data-vid="-qAuGimugds" data-title="Nicos Weg — Folge 4: Von A bis Z" data-sub="DW · A1 · 1:49" data-dur="109"></div>
+      </div>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">5</span><span class="eptt"><b>Folge 5: Ich heiße Emma</b><span>নিজের নাম বলা</span></span><span class="eplen">⏱ 1:24</span></div>
+        <div class="vplayer" data-vid="FoYSUfsLcjA" data-title="Nicos Weg — Folge 5: Ich heiße Emma" data-sub="DW · A1 · 1:24" data-dur="84"></div>
+      </div>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">6</span><span class="eptt"><b>Folge 6: Das ist Nico</b><span>অন্যের পরিচয় দেওয়া</span></span><span class="eplen">⏱ 1:02</span></div>
+        <div class="vplayer" data-vid="fZr-eVZ3YOs" data-title="Nicos Weg — Folge 6: Das ist Nico" data-sub="DW · A1 · 1:02" data-dur="62"></div>
+      </div>
+      <div class="epbox">
+        <div class="ephead"><span class="epno">7</span><span class="eptt"><b>Folge 7: Woher kommst du?</b><span>কোথা থেকে এসেছ</span></span><span class="eplen">⏱ 1:54</span></div>
+        <div class="vplayer" data-vid="Q7ECRAQrzFc" data-title="Nicos Weg — Folge 7: Woher kommst du?" data-sub="DW · A1 · 1:54" data-dur="114"></div>
+      </div>
+      <p style="margin-top:14px"><a class="dwlink" href="https://www.youtube.com/playlist?list=PLs7zUO7VPyJ5DV1iBRgSw2uDl832n0bLg" target="_blank" rel="noopener">▶ বাকি সব পর্ব (১০০টি) — DW-এর প্লেলিস্টে দেখো</a></p>
+      <div class="note">আগে এখানে পুরো প্লেলিস্ট বসানো ছিল, কিন্তু প্লেলিস্ট শুরু হতো <b>ট্রেলার</b> দিয়ে আর আমাদের কন্ট্রোলগুলোও ঠিকভাবে আসত না। তাই এখন আসল পর্বগুলো আলাদা করে দেওয়া হলো।</div>
     </section>
 
     <section class="lesson" id="more">
-      <h2><span class="num">5</span> DW-এর আরও ফ্রি রিসোর্স</h2>
+      <h2><span class="num">4</span> DW-এর আরও ফ্রি রিসোর্স</h2>
       <p class="lead">DW-এর সব কিছুই বিনামূল্যে। এগুলো বাড়তি অনুশীলনের জন্য কাজে লাগবে।</p>
       <p>
         <a class="dwlink" href="https://learngerman.dw.com/" target="_blank" rel="noopener">🌐 DW Learn German — মূল সাইট (A1–C1, ফ্রি অনুশীলনসহ)</a>
@@ -318,7 +343,6 @@
         <tr><td><b>Nicos Weg (A1)</b></td><td>গল্পের মধ্য দিয়ে A1 — কান তৈরি করার সেরা উপায়</td><td>কোর্সের ইউনিট ১–১২-এর সাথে</td></tr>
         <tr><td><b>Nicos Weg (A2)</b></td><td>লম্বা বাক্য, মতামত, অতীতের গল্প</td><td>A1 শেষ হওয়ার পর</td></tr>
         <tr><td><b>ছোট পর্ব (Folgen)</b></td><td>১–২ মিনিটের টুকরো — বারবার দেখা সহজ</td><td>প্রতিদিন ১০ মিনিট</td></tr>
-        <tr><td><b>Deutschlandlabor</b></td><td>জার্মান সংস্কৃতি ও দৈনন্দিন জীবন</td><td>A2 পর্যায়ে, মজার বিরতি</td></tr>
         <tr><td><b>learngerman.dw.com</b></td><td>প্রতিটা পর্বের সাথে লিখিত অনুশীলন ও শব্দতালিকা</td><td>ভিডিও দেখার পরে</td></tr>
       </table>
       </div>
