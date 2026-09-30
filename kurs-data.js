@@ -2783,8 +2783,152 @@ window.KURS = [
   speak_bn: [
     "৫টা অনুরোধ খুব ভদ্রভাবে করো — <span class='de'>Könnten Sie …? Hätten Sie …? Ich hätte gern …</span>",
     "৫টা কাল্পনিক ইচ্ছা বলো: <span class='de'>Wenn ich … hätte, würde ich …</span>",
-    "৫টা Relativsatz বানাও নিজের পরিচিত মানুষ ও জিনিস নিয়ে।",
-    "🎉 <b>A2 শেষ!</b> এবার A2 মডেল পরীক্ষা দাও — তুমি এখন দৈনন্দিন জীবনের প্রায় সব পরিস্থিতি সামলাতে পারো।"
+    "৫টা Relativsatz বানাও নিজের পরিচিত মানুষ ও জিনিস নিয়ে।"
+  ]
+},
+
+/* ============================ A2 · UNIT 8 ============================ */
+{
+  id: "u20", level: "A2", kap: 8,
+  title: "Welch-? Was für ein-?",
+  title_bn: "কোনটা? কী ধরনের? — প্রশ্ন করে বেছে নেওয়া",
+  minutes: 45,
+  goal_bn: [
+    "\"কোনটা?\" জিজ্ঞেস করতে পারবে — welcher / welche / welches",
+    "\"কী ধরনের?\" জিজ্ঞেস করতে পারবে — was für ein …?",
+    "এই দুটোর পার্থক্য বুঝে ঠিক জায়গায় ব্যবহার করতে পারবে",
+    "দোকানে বা সিদ্ধান্তের সময় বেছে নেওয়ার কথা বলতে পারবে"
+  ],
+  kks: { vid: "_tLpfjtoeTM", label: "Kapitel 8: Grammatik — Netzwerk neu A2", len: "23:58" },
+
+  words: [
+    { d: "die Auswahl",     p: "ডি আউসভাল",       b: "বাছাই / নির্বাচন" },
+    { d: "die Möglichkeit", p: "ডি ম্যোগলিশকাইট", b: "সম্ভাবনা / বিকল্প" },
+    { d: "der Unterschied", p: "ডেয়ার উন্টারশীট", b: "পার্থক্য" },
+    { d: "die Farbe",       p: "ডি ফারবে",        b: "রং" },
+    { d: "die Größe",       p: "ডি গ্র্যোসে",     b: "মাপ / সাইজ" },
+    { d: "das Modell",      p: "ডাস মোডেল",       b: "মডেল / ধরন" },
+    { d: "die Marke",       p: "ডি মার্কে",       b: "ব্র্যান্ড" },
+    { d: "der Preis",       p: "ডেয়ার প্রাইস",    b: "দাম" },
+    { d: "die Qualität",    p: "ডি কভালিটেট",     b: "মান / গুণ" },
+    { d: "aussuchen",       p: "আউসজুখেন",        b: "বেছে নেওয়া" },
+    { d: "auswählen",       p: "আউসভেলেন",        b: "নির্বাচন করা" },
+    { d: "sich entscheiden",p: "জিশ এন্টশাইডেন",  b: "সিদ্ধান্ত নেওয়া" },
+    { d: "vergleichen",     p: "ফেয়ারগ্লাইশেন",  b: "তুলনা করা" },
+    { d: "empfehlen",       p: "এম্পফেলেন",       b: "পরামর্শ দেওয়া" },
+    { d: "vorziehen",       p: "ফোয়ারৎসীয়েন",   b: "বেশি পছন্দ করা" },
+    { d: "geeignet",        p: "গেআইগনেট",        b: "উপযুক্ত" },
+    { d: "ähnlich",         p: "এনলিশ",           b: "একই রকম" },
+    { d: "verschieden",     p: "ফেয়ারশীডেন",     b: "আলাদা রকম" },
+    { d: "beide",           p: "বাইডে",           b: "দুটোই" },
+    { d: "lieber",          p: "লীবার",           b: "বরং / বেশি পছন্দ" }
+  ],
+
+  phrases: [
+    { d: "Welches Modell möchten Sie?",        p: "ভেলশেস মোডেল ম্যোশটেন জি",       b: "আপনি কোন মডেলটা চান?" },
+    { d: "Welche Farbe gefällt dir besser?",   p: "ভেলশে ফারবে গেফেল্ট ডীয়ার বেসার", b: "কোন রংটা তোমার বেশি পছন্দ?" },
+    { d: "Was für ein Handy suchst du?",       p: "ভাস ফ্যুয়ার আইন হেন্ডি জুখস্ট ডু", b: "তুমি কী ধরনের ফোন খুঁজছ?" },
+    { d: "Was für eine Wohnung suchen Sie?",   p: "ভাস ফ্যুয়ার আইনে ভোনুং জুখেন জি",  b: "আপনি কী ধরনের ফ্ল্যাট খুঁজছেন?" },
+    { d: "Dieses hier, bitte.",                p: "ডীজেস হীয়ার, বিটে",              b: "এইটা, দয়া করে।" },
+    { d: "Ich nehme lieber das blaue.",        p: "ইশ্ নেমে লীবার ডাস ব্লাউয়ে",     b: "আমি বরং নীলটাই নিচ্ছি।" },
+    { d: "Was ist der Unterschied?",           p: "ভাস ইস্ট ডেয়ার উন্টারশীট",       b: "পার্থক্যটা কী?" },
+    { d: "Welches empfehlen Sie?",             p: "ভেলশেস এম্পফেলেন জি",            b: "আপনি কোনটা পরামর্শ দেন?" },
+    { d: "Ich kann mich nicht entscheiden.",   p: "ইশ্ কান মিশ নিশ্ট এন্টশাইডেন",   b: "আমি সিদ্ধান্ত নিতে পারছি না।" },
+    { d: "Beide sind gut, aber …",             p: "বাইডে জিন্ট গুট, আবার",          b: "দুটোই ভালো, কিন্তু …" },
+    { d: "Das ist genau das Richtige.",        p: "ডাস ইস্ট গেনাউ ডাস রিশটিগে",     b: "এটাই ঠিক জিনিসটা।" }
+  ],
+
+  grammar: [
+    {
+      h: "১. welcher / welche / welches — \"কোনটা?\"",
+      body: "<p>সামনে কয়েকটা জিনিস আছে, তার মধ্যে <b>কোনটা</b> — এটা জিজ্ঞেস করতে <b class='de'>welch-</b> ব্যবহার করো। ভালো খবর: এর লেজ <b>der/die/das-এর মতোই</b> চলে, তাই আলাদা করে মুখস্থ করতে হবে না।</p>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th>লিঙ্গ</th><th>der/die/das</th><th>Nominativ</th><th>Akkusativ</th></tr>" +
+      "<tr><td>m</td><td><span class='de'>d<b>er</b> Mantel</span></td><td><b class='de'>welcher</b> Mantel?</td><td><b class='de'>welchen</b> Mantel?</td></tr>" +
+      "<tr><td>f</td><td><span class='de'>di<b>e</b> Jacke</span></td><td><b class='de'>welche</b> Jacke?</td><td><b class='de'>welche</b> Jacke?</td></tr>" +
+      "<tr><td>n</td><td><span class='de'>da<b>s</b> Hemd</span></td><td><b class='de'>welches</b> Hemd?</td><td><b class='de'>welches</b> Hemd?</td></tr>" +
+      "<tr><td>pl</td><td><span class='de'>di<b>e</b> Schuhe</span></td><td><b class='de'>welche</b> Schuhe?</td><td><b class='de'>welche</b> Schuhe?</td></tr>" +
+      "</table></div>" +
+      "<div class='tip'><b>সহজ কৌশল:</b> article-এর <b>শেষ অক্ষরটাই</b> লেজ হয়। d<b>er</b> → welch<b>er</b> · di<b>e</b> → welch<b>e</b> · da<b>s</b> → welch<b>es</b>। এটা <b class='de'>dieser</b> ও <b class='de'>jeder</b>-এও একইভাবে খাটে।</div>" +
+      "<p class='ex'><span class='de'><b>Welchen</b> Mantel nimmst du?</span><br><span class='bn'>তুমি কোন কোটটা নিচ্ছ? (Akkusativ, তাই welchen)</span></p>"
+    },
+    {
+      h: "২. Was für ein …? — \"কী ধরনের?\"",
+      body: "<p>জিনিসটার <b>ধরন</b> বা <b>বৈশিষ্ট্য</b> জানতে চাইলে <b class='de'>was für ein…</b>। এখানে <b class='de'>für</b> দেখে ভয় পেয়ো না — এটা preposition হিসেবে কাজ করছে না, তাই <b>Akkusativ টানে না</b>।</p>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th>লিঙ্গ</th><th>Nominativ</th><th>Akkusativ</th></tr>" +
+      "<tr><td>m</td><td><span class='de'>Was für <b>ein</b> Mantel ist das?</span></td><td><span class='de'>Was für <b>einen</b> Mantel suchst du?</span></td></tr>" +
+      "<tr><td>f</td><td><span class='de'>Was für <b>eine</b> Jacke ist das?</span></td><td><span class='de'>Was für <b>eine</b> Jacke suchst du?</span></td></tr>" +
+      "<tr><td>n</td><td><span class='de'>Was für <b>ein</b> Hemd ist das?</span></td><td><span class='de'>Was für <b>ein</b> Hemd suchst du?</span></td></tr>" +
+      "<tr><td>pl</td><td colspan='2'><span class='de'>Was für <b>—</b> Schuhe suchst du?</span> (বহুবচনে কিছু বসে না)</td></tr>" +
+      "</table></div>" +
+      "<div class='note'>খেয়াল করো — <b class='de'>ein</b> অংশটা বাক্যে বিশেষ্যের কারক অনুযায়ী বদলায়, ঠিক সাধারণ <b class='de'>ein</b>-এর মতোই।</div>"
+    },
+    {
+      h: "৩. পার্থক্যটা কী? (সবচেয়ে জরুরি অংশ)",
+      body: "<p>বাংলায় দুটোকেই প্রায় \"কোনটা\" বলা যায়, তাই গুলিয়ে যায়। কিন্তু ভাবটা আলাদা:</p>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th></th><th class='de'>welch-</th><th class='de'>was für ein-</th></tr>" +
+      "<tr><td>মানে</td><td><b>কোনটা?</b> (নির্দিষ্ট কয়েকটার মধ্যে)</td><td><b>কী ধরনের?</b> (বৈশিষ্ট্য জানতে)</td></tr>" +
+      "<tr><td>কখন</td><td>জিনিসগুলো <b>সামনে আছে</b> বা জানা</td><td>জিনিসটা <b>এখনো ঠিক হয়নি</b></td></tr>" +
+      "<tr><td>উদাহরণ</td><td><span class='de speakable'>Welches Handy nimmst du — das schwarze oder das weiße?</span></td><td><span class='de speakable'>Was für ein Handy suchst du?</span></td></tr>" +
+      "<tr><td>বাংলা</td><td>কোন ফোনটা নেবে — কালোটা না সাদাটা?</td><td>তুমি কী ধরনের ফোন খুঁজছ?</td></tr>" +
+      "<tr><td>উত্তর</td><td><span class='de'>Das schwarze.</span> (নির্দিষ্ট একটা)</td><td><span class='de'>Ein günstiges mit guter Kamera.</span> (বৈশিষ্ট্য)</td></tr>" +
+      "</table></div>" +
+      "<div class='tip'><b>মনে রাখার সহজ উপায়:</b> দোকানে জিনিসগুলো <b>টেবিলে সাজানো</b> থাকলে → <b class='de'>welch-</b>। এখনো <b>কিছুই দেখোনি</b>, শুধু কেমন চাও বলছ → <b class='de'>was für ein</b>।</div>"
+    },
+    {
+      h: "৪. উত্তর দেওয়া — dieser / dieses, আর বিশেষণ দিয়ে",
+      body: "<p><b class='de'>Welch-?</b> প্রশ্নের উত্তরে সাধারণত <b class='de'>dies-</b> (এইটা) ব্যবহার হয় — এরও লেজ একই নিয়মে চলে।</p>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th>প্রশ্ন</th><th>উত্তর</th></tr>" +
+      "<tr><td><span class='de'>Welcher Mantel?</span></td><td><span class='de speakable'>Dieser hier.</span> — এইটা।</td></tr>" +
+      "<tr><td><span class='de'>Welche Jacke?</span></td><td><span class='de speakable'>Diese da.</span> — ওইটা।</td></tr>" +
+      "<tr><td><span class='de'>Welches Hemd?</span></td><td><span class='de speakable'>Dieses blaue.</span> — এই নীলটা।</td></tr>" +
+      "<tr><td><span class='de'>Welche Schuhe?</span></td><td><span class='de speakable'>Diese hier.</span> — এগুলো।</td></tr>" +
+      "</table></div>" +
+      "<div class='note'>বিশেষণ দিয়েও উত্তর দেওয়া যায়, তখন বিশেষণে লেজ লাগে (<a class='inline' href='#u15'>A2 ইউনিট ৩</a> দেখো): <span class='de'>Ich nehme <b>das blaue</b>.</span> (আমি নীলটা নিচ্ছি।)</div>"
+    }
+  ],
+
+  dialog: {
+    title_bn: "সংলাপ — দোকানে ফোন বেছে নেওয়া",
+    lines: [
+      { s: "Verkäufer", d: "Guten Tag! Kann ich Ihnen helfen?", b: "শুভ দিন! আমি সাহায্য করতে পারি?" },
+      { s: "Karim", d: "Ja, bitte. Ich suche ein neues Handy.", b: "হ্যাঁ, দয়া করে। আমি একটা নতুন ফোন খুঁজছি।" },
+      { s: "Verkäufer", d: "Was für ein Handy suchen Sie denn?", b: "আপনি কী ধরনের ফোন খুঁজছেন?" },
+      { s: "Karim", d: "Ein günstiges, aber mit guter Kamera.", b: "একটা সস্তা, কিন্তু ভালো ক্যামেরাসহ।" },
+      { s: "Verkäufer", d: "Dann habe ich hier drei Modelle für Sie.", b: "তাহলে আমার কাছে আপনার জন্য তিনটা মডেল আছে।" },
+      { s: "Karim", d: "Welches empfehlen Sie?", b: "আপনি কোনটা পরামর্শ দেন?" },
+      { s: "Verkäufer", d: "Dieses hier. Die Kamera ist sehr gut.", b: "এইটা। ক্যামেরাটা খুব ভালো।" },
+      { s: "Karim", d: "Und was ist der Unterschied zwischen diesem und dem da?", b: "আর এটার আর ওটার মধ্যে পার্থক্য কী?" },
+      { s: "Verkäufer", d: "Der Akku. Dieses hält zwei Tage, das andere nur einen.", b: "ব্যাটারি। এইটা দুই দিন চলে, অন্যটা মাত্র এক দিন।" },
+      { s: "Karim", d: "Welche Farben gibt es?", b: "কী কী রং আছে?" },
+      { s: "Verkäufer", d: "Schwarz, blau und weiß. Welche möchten Sie?", b: "কালো, নীল আর সাদা। আপনি কোনটা চান?" },
+      { s: "Karim", d: "Ich nehme lieber das blaue. Was kostet es?", b: "আমি বরং নীলটা নিচ্ছি। এটার দাম কত?" },
+      { s: "Verkäufer", d: "299 Euro. Ein sehr guter Preis für diese Qualität.", b: "২৯৯ ইউরো। এই মানের জন্য খুব ভালো দাম।" },
+      { s: "Karim", d: "Gut, ich entscheide mich für dieses. Vielen Dank!", b: "ঠিক আছে, আমি এটাই নিচ্ছি। অনেক ধন্যবাদ!" }
+    ]
+  },
+
+  drills: [
+    { q: "___ Mantel nimmst du? (welch-, der Mantel, Akkusativ)", a: "Welchen — Welchen Mantel nimmst du?" },
+    { q: "___ Jacke gefällt dir? (welch-, die Jacke)", a: "Welche — Welche Jacke gefällt dir?" },
+    { q: "___ Hemd ist das? (welch-, das Hemd)", a: "Welches — Welches Hemd ist das?" },
+    { q: "Was für ___ Handy suchst du? (das Handy)", a: "ein — Was für ein Handy suchst du?" },
+    { q: "Was für ___ Wohnung suchen Sie? (die Wohnung)", a: "eine — Was für eine Wohnung suchen Sie?" },
+    { q: "Was für ___ Mantel suchst du? (der Mantel, Akkusativ)", a: "einen — Was für einen Mantel suchst du?" },
+    { q: "welch- না was für ein: দোকানে তিনটা ফোন সামনে আছে, তুমি জিজ্ঞেস করবে…", a: "Welches nimmst du? — জিনিসগুলো সামনে আছে, তাই welch-।" },
+    { q: "welch- না was für ein: এখনো কিছু দেখোনি, শুধু ধরন জানতে চাও…", a: "Was für ein Handy suchst du? — ধরন জানতে চাইছ, তাই was für ein।" },
+    { q: "উত্তর দাও: Welcher Mantel? →", a: "Dieser hier. (der Mantel → dieser)" },
+    { q: "ভুল ঠিক করো: Welche Hemd möchten Sie?", a: "Welches Hemd — das Hemd, তাই welches।" }
+  ],
+
+  speak_bn: [
+    "ঘরের ৫টা জিনিস নিয়ে <b class='de'>Welch-?</b> প্রশ্ন বানাও — লিঙ্গ অনুযায়ী লেজ বদলাতে ভুলো না।",
+    "৫টা <b class='de'>Was für ein…?</b> প্রশ্ন বানাও: কী ধরনের বাসা, চাকরি, ফোন, বই, খাবার চাও।",
+    "দোকানে কিছু বেছে নেওয়ার পুরো কথোপকথন অভিনয় করো — প্রশ্ন, পার্থক্য জানতে চাওয়া, সিদ্ধান্ত।",
+    "🎉 <b>A2 শেষ!</b> এবার <a class='inline' href='pruefung.html'>A2 মডেল পরীক্ষা</a> দাও — তুমি এখন দৈনন্দিন জীবনের প্রায় সব পরিস্থিতি সামলাতে পারো।"
   ]
 }
 ];
