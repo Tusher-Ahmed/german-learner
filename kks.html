@@ -113,11 +113,9 @@
   <aside class="sidebar">
     <h4>ভিডিও ক্লাস — সূচি</h4>
     <a href="#howto">কীভাবে দেখবে</a>
-    <a href="#g-warmup">Warming Up (৭)</a>
-    <a href="#g-basic">A1 Basic (১০)</a>
-    <a href="#g-a1gram">A1 Grammar (৭)</a>
-    <a href="#g-a1">Netzwerk A1 (১২)</a>
-    <a href="#g-a2">Netzwerk A2 (৭)</a>
+    <!-- গ্রুপের লিঙ্ক ও সংখ্যা kks-data.js থেকে তৈরি হয় — হাতে লেখা নেই,
+         তাই নতুন ভিডিও যোগ করলে সংখ্যা নিজে থেকেই ঠিক থাকে -->
+    <div id="sideNav"></div>
   </aside>
 
   <main>
@@ -265,6 +263,17 @@
   });
 
   host.innerHTML = out.join("");
+
+  /* ---- সাইডবারের তালিকা ডেটা থেকে তৈরি করো (সংখ্যা যাতে কখনো বাসি না হয়) ---- */
+  var side = document.getElementById("sideNav");
+  if (side) {
+    var SHORT = { warmup:"Warming Up", basic:"A1 Basic", a1gram:"A1 Grammar",
+                  a1:"Netzwerk A1", a2:"Netzwerk A2" };
+    side.innerHTML = D.groups.map(function (g) {
+      var c = D.videos.filter(function (v) { return v.group === g.id; }).length;
+      return '<a href="#g-' + g.id + '">' + (SHORT[g.id] || g.title) + " (" + bn(c) + ")</a>";
+    }).join("");
+  }
 
   /* ---- ভাঁজ খুললে তখনই প্লেয়ার বানাও (৪৩টা একসাথে নয়) ---- */
   host.addEventListener("toggle", function (e) {
