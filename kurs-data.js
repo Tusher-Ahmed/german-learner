@@ -2927,8 +2927,157 @@ window.KURS = [
   speak_bn: [
     "ঘরের ৫টা জিনিস নিয়ে <b class='de'>Welch-?</b> প্রশ্ন বানাও — লিঙ্গ অনুযায়ী লেজ বদলাতে ভুলো না।",
     "৫টা <b class='de'>Was für ein…?</b> প্রশ্ন বানাও: কী ধরনের বাসা, চাকরি, ফোন, বই, খাবার চাও।",
-    "দোকানে কিছু বেছে নেওয়ার পুরো কথোপকথন অভিনয় করো — প্রশ্ন, পার্থক্য জানতে চাওয়া, সিদ্ধান্ত।",
-    "🎉 <b>A2 শেষ!</b> এবার <a class='inline' href='pruefung.html'>A2 মডেল পরীক্ষা</a> দাও — তুমি এখন দৈনন্দিন জীবনের প্রায় সব পরিস্থিতি সামলাতে পারো।"
+    "দোকানে কিছু বেছে নেওয়ার পুরো কথোপকথন অভিনয় করো — প্রশ্ন, পার্থক্য জানতে চাওয়া, সিদ্ধান্ত।"
+  ]
+},
+
+/* ============================ A2 · UNIT 9 ============================ */
+{
+  id: "u21", level: "A2", kap: 9,
+  title: "Sportlich, sportlich!",
+  title_bn: "খেলাধুলা ও শরীরচর্চা — উদ্দেশ্য ও তুলনা বোঝানো",
+  minutes: 50,
+  goal_bn: [
+    "খেলাধুলা ও শরীরচর্চা নিয়ে কথা বলতে পারবে",
+    "<b>কেন</b> কিছু করো তা বোঝাতে পারবে — um … zu দিয়ে",
+    "zu + Infinitiv ছাঁদ ব্যবহার করতে পারবে (versuchen, anfangen, Lust haben …)",
+    "সর্বোচ্চ রূপ দিয়ে তুলনা করতে পারবে (am besten / der beste)"
+  ],
+  kks: { vid: "PNEE176fzi8", label: "Kapitel 9: Grammatik — Netzwerk neu A2", len: "29:50" },
+
+  words: [
+    { d: "der Sport",        p: "ডেয়ার শপোর্ট",      b: "খেলাধুলা" },
+    { d: "die Sportart",     p: "ডি শপোর্টআর্ট",     b: "খেলার ধরন" },
+    { d: "das Training",     p: "ডাস ট্রেনিং",       b: "অনুশীলন" },
+    { d: "der Verein",       p: "ডেয়ার ফেয়ারআইন",   b: "ক্লাব / সমিতি" },
+    { d: "die Mannschaft",   p: "ডি মানশাফ্ট",       b: "দল (টিম)" },
+    { d: "das Spiel",        p: "ডাস শপীল",          b: "খেলা / ম্যাচ" },
+    { d: "der Wettkampf",    p: "ডেয়ার ভেটকাম্পফ",   b: "প্রতিযোগিতা" },
+    { d: "das Fitnessstudio",p: "ডাস ফিটনেস-শটুডিও", b: "জিম" },
+    { d: "schwimmen",        p: "শভিমেন",            b: "সাঁতার কাটা" },
+    { d: "laufen",           p: "লাউফেন",            b: "দৌড়ানো" },
+    { d: "radfahren",        p: "রাটফারেন",          b: "সাইকেল চালানো" },
+    { d: "trainieren",       p: "ট্রেনীরেন",         b: "অনুশীলন করা" },
+    { d: "sich bewegen",     p: "জিশ বেভেগেন",       b: "নড়াচড়া করা" },
+    { d: "gewinnen",         p: "গেভিনেন",           b: "জেতা" },
+    { d: "verlieren",        p: "ফেয়ারলীরেন",       b: "হারা" },
+    { d: "fit bleiben",      p: "ফিট ব্লাইবেন",      b: "ফিট থাকা" },
+    { d: "abnehmen",         p: "আপনেমেন",           b: "ওজন কমানো" },
+    { d: "anstrengend",      p: "আনশট্রেঙেন্ট",      b: "পরিশ্রমসাধ্য" },
+    { d: "regelmäßig",       p: "রেগেলমেসিশ",        b: "নিয়মিত" },
+    { d: "gesund",           p: "গেজুন্ট",           b: "স্বাস্থ্যকর" }
+  ],
+
+  phrases: [
+    { d: "Ich treibe gern Sport.",                   p: "ইশ্ ট্রাইবে গের্ন শপোর্ট",           b: "আমি খেলাধুলা করতে পছন্দ করি।" },
+    { d: "Welche Sportart machst du?",               p: "ভেলশে শপোর্টআর্ট মাখ্‌স্ট ডু",       b: "তুমি কোন খেলাটা করো?" },
+    { d: "Ich gehe zweimal pro Woche schwimmen.",    p: "ইশ্ গেয়ে ৎসভাইমাল প্রো ভখে শভিমেন",  b: "আমি সপ্তাহে দুইবার সাঁতার কাটতে যাই।" },
+    { d: "Ich jogge, um fit zu bleiben.",            p: "ইশ্ ইয়গে, উম ফিট ৎসু ব্লাইবেন",      b: "আমি দৌড়াই, ফিট থাকার জন্য।" },
+    { d: "Ich habe keine Zeit zu trainieren.",       p: "ইশ্ হাবে কাইনে ৎসাইট ৎসু ট্রেনীরেন",  b: "আমার অনুশীলন করার সময় নেই।" },
+    { d: "Ich versuche, mich mehr zu bewegen.",      p: "ইশ্ ফেয়ারজুখে, মিশ মেয়ার ৎসু বেভেগেন", b: "আমি আরও নড়াচড়া করার চেষ্টা করছি।" },
+    { d: "Schwimmen ist gesünder als Joggen.",       p: "শভিমেন ইস্ট গেজ্যুনডার আল্স ইয়গেন",   b: "সাঁতার দৌড়ানোর চেয়ে বেশি স্বাস্থ্যকর।" },
+    { d: "Fußball gefällt mir am besten.",           p: "ফুসবাল গেফেল্ট মীয়ার আম বেস্টেন",    b: "ফুটবল আমার সবচেয়ে বেশি পছন্দ।" },
+    { d: "Das ist die beste Übung für den Rücken.",  p: "ডাস ইস্ট ডি বেস্টে উ্যবুং ফ্যুয়ার ডেন র্যুকেন", b: "পিঠের জন্য এটাই সবচেয়ে ভালো ব্যায়াম।" },
+    { d: "Hast du Lust, mitzukommen?",               p: "হাস্ট ডু লুস্ট, মিট্ৎসুকমেন",        b: "তোমার সাথে আসার ইচ্ছে আছে?" },
+    { d: "Es ist wichtig, regelmäßig Sport zu treiben.", p: "এস ইস্ট ভিশটিশ, রেগেলমেসিশ শপোর্ট ৎসু ট্রাইবেন", b: "নিয়মিত খেলাধুলা করা গুরুত্বপূর্ণ।" }
+  ],
+
+  grammar: [
+    {
+      h: "১. um … zu — \"…করার জন্য\" (উদ্দেশ্য)",
+      body: "<p><b>কেন</b> কিছু করছ — উদ্দেশ্য বোঝাতে এই ছাঁদ। বাংলার \"…করার জন্য\"-এর সাথে হুবহু মেলে।</p>" +
+      "<div class='tip' style='font-size:15.5px'><b>um + … + zu + Infinitiv (একদম শেষে)</b></div>" +
+      "<p class='ex'><span class='de'>Ich jogge, <b>um</b> fit <b>zu bleiben</b>.</span><br><span class='bn'>আমি দৌড়াই, ফিট <b>থাকার জন্য</b>।</span></p>" +
+      "<p class='ex'><span class='de'>Ich lerne Deutsch, <b>um</b> in Deutschland <b>zu arbeiten</b>.</span><br><span class='bn'>আমি জার্মান শিখছি, জার্মানিতে <b>কাজ করার জন্য</b>।</span></p>" +
+      "<div class='warn'><b>একটা শর্ত আছে:</b> দুই অংশের <b>কর্তা একই</b> হতে হবে। আলাদা কর্তা হলে <b class='de'>damit</b> ব্যবহার করো:<br>" +
+      "<span class='de'>Ich spreche langsam, <b>damit</b> du mich verstehst.</span> (আমি ধীরে বলি, যাতে তুমি বুঝতে পারো।)</div>" +
+      "<div class='note'>বিচ্ছিন্নযোগ্য verb হলে <b>zu</b> মাঝখানে ঢোকে: <span class='de'>mit<b>zu</b>kommen</span>, <span class='de'>ein<b>zu</b>kaufen</span>, <span class='de'>auf<b>zu</b>stehen</span>।</div>"
+    },
+    {
+      h: "২. zu + Infinitiv — কোন কোন শব্দের পরে বসে",
+      body: "<p>কিছু verb ও ছাঁদের পরে দ্বিতীয় verb <b class='de'>zu</b> সহ শেষে বসে। এগুলো জোড়া ধরে মুখস্থ করো।</p>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th>ছাঁদ</th><th>উদাহরণ</th><th>বাংলা</th></tr>" +
+      "<tr><td><b class='de'>versuchen</b></td><td><span class='de speakable'>Ich versuche, früh aufzustehen.</span></td><td>আমি সকালে উঠতে চেষ্টা করি।</td></tr>" +
+      "<tr><td><b class='de'>anfangen / beginnen</b></td><td><span class='de speakable'>Ich fange an, Sport zu treiben.</span></td><td>আমি খেলাধুলা শুরু করছি।</td></tr>" +
+      "<tr><td><b class='de'>vergessen</b></td><td><span class='de speakable'>Ich vergesse oft, Wasser zu trinken.</span></td><td>প্রায়ই পানি খেতে ভুলে যাই।</td></tr>" +
+      "<tr><td><b class='de'>Lust haben</b></td><td><span class='de speakable'>Hast du Lust, mitzukommen?</span></td><td>সাথে আসার ইচ্ছে আছে?</td></tr>" +
+      "<tr><td><b class='de'>Zeit haben</b></td><td><span class='de speakable'>Ich habe keine Zeit zu trainieren.</span></td><td>অনুশীলনের সময় নেই।</td></tr>" +
+      "<tr><td><b class='de'>Es ist wichtig/gut …</b></td><td><span class='de speakable'>Es ist wichtig, sich zu bewegen.</span></td><td>নড়াচড়া করা গুরুত্বপূর্ণ।</td></tr>" +
+      "</table></div>" +
+      "<div class='warn'><b>Modal verb-এ কিন্তু zu বসে না!</b><br><span class='de'>Ich muss trainieren.</span> ✅ · <s>Ich muss zu trainieren.</s> ❌<br>এটাই সবচেয়ে সাধারণ ভুল — modal (können, müssen, wollen…) থাকলে শুধু মূল রূপ, কোনো zu নয়।</div>"
+    },
+    {
+      h: "৩. Superlativ — \"সবচেয়ে …\"",
+      body: "<p>তুলনার তিন ধাপ তুমি <a class='inline' href='#u15'>A2 ইউনিট ৩</a>-এ দেখেছ। এখানে <b>সর্বোচ্চ রূপের দুই ব্যবহার</b> আলাদা করে বুঝে নাও।</p>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th>ব্যবহার</th><th>ছাঁদ</th><th>উদাহরণ</th></tr>" +
+      "<tr><td>verb-এর পরে (একা)</td><td><b class='de'>am …sten</b></td><td><span class='de speakable'>Fußball gefällt mir am besten.</span></td></tr>" +
+      "<tr><td>বিশেষ্যের আগে</td><td><b class='de'>der/die/das …ste</b></td><td><span class='de speakable'>Das ist die beste Übung.</span></td></tr>" +
+      "</table></div>" +
+      "<div class='tblwrap'><table>" +
+      "<tr><th>মূল</th><th>তুলনা</th><th>সর্বোচ্চ</th></tr>" +
+      "<tr><td><span class='de'>schnell</span></td><td><span class='de'>schneller</span></td><td><span class='de speakable'>am schnellsten</span></td></tr>" +
+      "<tr><td><span class='de'>gesund</span></td><td><span class='de'>gesünder</span></td><td><span class='de speakable'>am gesündesten</span></td></tr>" +
+      "<tr><td><b class='de'>gut</b></td><td><b class='de'>besser</b></td><td><b class='de speakable'>am besten</b></td></tr>" +
+      "<tr><td><b class='de'>viel</b></td><td><b class='de'>mehr</b></td><td><b class='de speakable'>am meisten</b></td></tr>" +
+      "<tr><td><b class='de'>gern</b></td><td><b class='de'>lieber</b></td><td><b class='de speakable'>am liebsten</b></td></tr>" +
+      "</table></div>" +
+      "<div class='note'>তুলনায় <b class='de'>als</b> (চেয়ে), সমান হলে <b class='de'>so … wie</b> (মতো):<br><span class='de'>Schwimmen ist gesünder <b>als</b> Joggen.</span> · <span class='de'>Radfahren ist <b>so</b> gut <b>wie</b> Schwimmen.</span></div>"
+    },
+    {
+      h: "৪. কত ঘন ঘন — খেলাধুলার কথা বলার ছাঁদ",
+      body: "<div class='tblwrap'><table>" +
+      "<tr><th>জার্মান</th><th>উচ্চারণ</th><th>বাংলা</th></tr>" +
+      "<tr><td><span class='de speakable'>einmal pro Woche</span></td><td>আইনমাল প্রো ভখে</td><td>সপ্তাহে একবার</td></tr>" +
+      "<tr><td><span class='de speakable'>zweimal im Monat</span></td><td>ৎসভাইমাল ইম মোনাট</td><td>মাসে দুইবার</td></tr>" +
+      "<tr><td><span class='de speakable'>jeden Tag</span></td><td>ইয়েডেন টাক</td><td>প্রতিদিন</td></tr>" +
+      "<tr><td><span class='de speakable'>Sport treiben / machen</span></td><td>শপোর্ট ট্রাইবেন</td><td>খেলাধুলা করা</td></tr>" +
+      "<tr><td><span class='de speakable'>ins Fitnessstudio gehen</span></td><td>ইন্স ফিটনেস-শটুডিও গেয়েন</td><td>জিমে যাওয়া</td></tr>" +
+      "<tr><td><span class='de speakable'>schwimmen gehen</span></td><td>শভিমেন গেয়েন</td><td>সাঁতার কাটতে যাওয়া</td></tr>" +
+      "</table></div>" +
+      "<div class='tip'>খেয়াল করো — <span class='de'>schwimmen <b>gehen</b></span> ছাঁদে দ্বিতীয় verb-এ <b>zu বসে না</b>: <span class='de'>Ich gehe schwimmen.</span> (আমি সাঁতার কাটতে যাই।)</div>"
+    }
+  ],
+
+  dialog: {
+    title_bn: "সংলাপ — খেলাধুলা নিয়ে কথা",
+    lines: [
+      { s: "Lena",  d: "Karim, treibst du eigentlich Sport?", b: "করিম, তুমি আসলে খেলাধুলা করো?" },
+      { s: "Karim", d: "Ja, ich gehe zweimal pro Woche joggen.", b: "হ্যাঁ, আমি সপ্তাহে দুইবার দৌড়াতে যাই।" },
+      { s: "Lena",  d: "Warum joggst du? Macht das Spaß?", b: "তুমি কেন দৌড়াও? এটা মজার লাগে?" },
+      { s: "Karim", d: "Nicht immer. Ich jogge, um fit zu bleiben.", b: "সবসময় না। আমি ফিট থাকার জন্য দৌড়াই।" },
+      { s: "Lena",  d: "Verstehe. Ich versuche auch, mich mehr zu bewegen.", b: "বুঝলাম। আমিও আরও নড়াচড়া করার চেষ্টা করছি।" },
+      { s: "Karim", d: "Welche Sportart machst du denn?", b: "তুমি কোন খেলাটা করো?" },
+      { s: "Lena",  d: "Ich schwimme. Schwimmen ist gesünder als Joggen, finde ich.", b: "আমি সাঁতার কাটি। আমার মনে হয় সাঁতার দৌড়ানোর চেয়ে বেশি স্বাস্থ্যকর।" },
+      { s: "Karim", d: "Stimmt, es ist auch besser für den Rücken.", b: "ঠিক, এটা পিঠের জন্যও ভালো।" },
+      { s: "Lena",  d: "Genau. Für mich ist es die beste Übung.", b: "ঠিক তাই। আমার জন্য এটাই সবচেয়ে ভালো ব্যায়াম।" },
+      { s: "Karim", d: "Hast du Lust, am Samstag mitzukommen?", b: "শনিবার সাথে আসার ইচ্ছে আছে?" },
+      { s: "Lena",  d: "Gern! Aber ich habe am Vormittag keine Zeit zu kommen.", b: "খুশি হয়ে! কিন্তু সকালে আসার সময় নেই আমার।" },
+      { s: "Karim", d: "Kein Problem. Dann gehen wir nachmittags schwimmen.", b: "সমস্যা নেই। তাহলে আমরা বিকেলে সাঁতার কাটতে যাব।" },
+      { s: "Lena",  d: "Super! Es ist wichtig, regelmäßig Sport zu treiben.", b: "দারুণ! নিয়মিত খেলাধুলা করা গুরুত্বপূর্ণ।" }
+    ]
+  },
+
+  drills: [
+    { q: "um … zu: Ich jogge, ___ fit ___ bleiben.", a: "um … zu — Ich jogge, um fit zu bleiben." },
+    { q: "um … zu: Ich lerne Deutsch, ___ hier ___ arbeiten.", a: "um … zu — Ich lerne Deutsch, um hier zu arbeiten." },
+    { q: "বিচ্ছিন্নযোগ্য verb: Hast du Lust, ___? (mitkommen)", a: "mitzukommen — zu মাঝখানে বসে।" },
+    { q: "Ich versuche, früh ___. (aufstehen)", a: "aufzustehen" },
+    { q: "ভুল ঠিক করো: Ich muss zu trainieren.", a: "Ich muss trainieren. — modal-এর পরে zu বসে না।" },
+    { q: "ভুল ঠিক করো: Ich gehe zu schwimmen.", a: "Ich gehe schwimmen. — gehen + Infinitiv-এ zu নেই।" },
+    { q: "um…zu না damit: Ich spreche langsam, ___ du mich verstehst.", a: "damit — কর্তা আলাদা (ich / du), তাই damit।" },
+    { q: "Superlativ: gut → besser → ___", a: "am besten" },
+    { q: "Superlativ: Fußball gefällt mir ___. (gut, সর্বোচ্চ)", a: "am besten" },
+    { q: "বিশেষ্যের আগে: Das ist ___ Übung. (gut, সর্বোচ্চ, die Übung)", a: "die beste — Das ist die beste Übung." },
+    { q: "\"সপ্তাহে দুইবার\" — জার্মানে?", a: "zweimal pro Woche" }
+  ],
+
+  speak_bn: [
+    "৫টা বাক্য <b class='de'>um … zu</b> দিয়ে বলো — কেন জার্মান শিখছ, কেন খেলাধুলা করো, কেন টাকা জমাও।",
+    "নিজের খেলাধুলার অভ্যাস বর্ণনা করো: কী করো, কত ঘন ঘন, কেন করো।",
+    "৫ জোড়া জিনিস তুলনা করো, তারপর প্রতিটার সর্বোচ্চ রূপও বলো (<span class='de'>besser als … am besten</span>)।",
+    "🎉 <b>A2-এর এ পর্যন্ত সব ইউনিট শেষ!</b> এবার <a class='inline' href='pruefung.html'>A2 মডেল পরীক্ষা</a> দাও।"
   ]
 }
 ];

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>der · die · das — শব্দতালিকা ও লিঙ্গের নিয়ম | Deutsch für Bangla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---------- লিঙ্গের রং (মনে রাখার কৌশল) ---------- */
+  :root{ --der:#2563eb; --die:#db2777; --das:#059669; }
+  .g-der{color:var(--der)} .g-die{color:var(--die)} .g-das{color:var(--das)}
+
+  /* ---------- নিয়ন্ত্রণ ---------- */
+  .wctl{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);
+    padding:11px 0 12px;margin-bottom:14px}
+  .wctl .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .wctl .row+.row{margin-top:8px}
+  .wlabel{font-size:12.5px;font-weight:700;color:var(--muted)}
+  .gseg{display:inline-flex;background:var(--card2);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .gseg button{background:transparent;border:0;padding:9px 15px;font-family:inherit;font-size:13.5px;
+    font-weight:800;color:var(--muted);cursor:pointer;min-height:40px;transition:.14s}
+  .gseg button:hover{background:rgba(0,0,0,.04)}
+  .gseg button.active{color:#fff}
+  .gseg button[data-g="all"].active{background:var(--brand)}
+  .gseg button[data-g="der"].active{background:var(--der)}
+  .gseg button[data-g="die"].active{background:var(--die)}
+  .gseg button[data-g="das"].active{background:var(--das)}
+  .wsel,.wsearch{font-family:inherit;font-size:13.5px;padding:9px 12px;border-radius:10px;
+    border:1px solid var(--line);background:var(--card);color:var(--ink);min-height:40px}
+  .wsel{max-width:290px}
+  .wsearch{flex:1 1 190px;min-width:150px}
+  .wstat{font-size:13px;color:var(--muted);font-weight:700}
+  .wstat b{color:var(--brand)}
+
+  /* ---------- বিশেষ্যের কার্ড ---------- */
+  .ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:9px}
+  .ncard{border:1px solid var(--line);border-left:4px solid var(--line);border-radius:11px;
+    background:var(--card);padding:11px 13px;transition:.14s}
+  .ncard:hover{box-shadow:var(--shadow)}
+  .ncard.der{border-left-color:var(--der)}
+  .ncard.die{border-left-color:var(--die)}
+  .ncard.das{border-left-color:var(--das)}
+  .nw{font-weight:800;font-size:16.5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.35}
+  .nart{font-weight:800}
+  .npl{font-size:12px;color:var(--muted);margin-top:4px}
+  .nb{font-size:14px;margin-top:4px;line-height:1.55}
+
+  /* ---------- বিভাগের শিরোনাম ---------- */
+  .chead{display:flex;align-items:center;gap:10px;margin:24px 0 10px;font-size:16px;font-weight:800}
+  .chead .cic{font-size:20px}
+  .chead .ccount{font-size:12px;font-weight:700;color:var(--brand);background:rgba(79,70,229,.12);
+    border-radius:99px;padding:3px 10px;white-space:nowrap}
+  .chead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* ---------- নিয়মের কার্ড ---------- */
+  .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin:14px 0}
+  .rcard{border:1px solid var(--line);border-top:4px solid var(--line);border-radius:13px;
+    background:var(--card);padding:15px 16px}
+  .rcard.der{border-top-color:var(--der)}
+  .rcard.die{border-top-color:var(--die)}
+  .rcard.das{border-top-color:var(--das)}
+  .rttl{font-size:19px;font-weight:800;margin-bottom:10px}
+  .rrow{padding:8px 0;border-top:1px dashed var(--line)}
+  .rrow:first-of-type{border-top:0}
+  .rk{font-weight:800;font-size:14px}
+  .rex{font-size:13.5px;color:var(--brand);margin-top:2px;line-height:1.5}
+  .rb{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.5}
+
+  /* ---------- ক্রিয়া / বিশেষণ / অন্যান্য ---------- */
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:8px}
+  .vcard{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 12px}
+  .vw{font-weight:700;font-size:15px;color:var(--brand);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .vb{font-size:13.5px;margin-top:3px;line-height:1.5}
+  .vpp{font-size:11.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+  .irr{font-size:10px;font-weight:800;background:rgba(245,158,11,.18);color:#b45309;
+    border-radius:99px;padding:1px 7px}
+  .opp{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .empty{padding:34px 18px;text-align:center;color:var(--muted);border:1px dashed var(--line);
+    border-radius:14px;font-size:15px}
+  @media(max-width:560px){ .ngrid,.vgrid{grid-template-columns:1fr} .wsel{max-width:100%} }
+</style>
+</head>
+<body data-no-auto-progress>
+<header class="topbar">
+  <div class="brand"><span class="flag"><span class="b"></span><span class="r"></span><span class="g"></span></span> Deutsch für Bangla</div>
+  <nav>
+    <a href="index.html">হোম</a>
+    <a href="kurs.html">কোর্স</a>
+    <a href="kks.html">ভিডিও ক্লাস</a>
+    <a href="dw.html">DW ভিডিও</a>
+    <span class="ndrop is-here">
+      <button class="ndrop-btn active" type="button" aria-expanded="false" aria-haspopup="true">অভ্যাস <i>▾</i></button>
+      <span class="ndrop-menu">
+        <a href="gespraech.html">💬 কথা বলা</a>
+        <a href="woerter.html" class="active">🔤 der·die·das</a>
+        <a href="trainer.html">🃏 শব্দ</a>
+        <a href="uebungen.html">✍️ অনুশীলন</a>
+        <a href="mehr.html">🌍 আরও রিসোর্স</a>
+      </span>
+    </span>
+    <a href="pruefung.html">পরীক্ষা</a>
+  </nav>
+</header>
+
+<div class="wrap single">
+  <main>
+    <section class="hero">
+      <div>
+        <span class="pill">🔤 ৯০০+ শব্দ</span>
+        <span class="pill">🎨 der · die · das রং দিয়ে আলাদা</span>
+        <span class="pill">📂 ১৬টি বিষয়ে ভাগ করা</span>
+      </div>
+      <h1><span class="g-der">der</span> · <span class="g-die">die</span> · <span class="g-das">das</span> — <span class="hl">শব্দতালিকা ও লিঙ্গের নিয়ম</span></h1>
+      <p>জার্মান শেখার সবচেয়ে বড় বাধা — <b>কোন শব্দের আগে কোন article বসবে</b>। এই পাতায় প্রথমে <b>লিঙ্গ চেনার নিয়ম</b>, তারপর <b>৫১২টি বিশেষ্য</b> বিষয় ধরে সাজানো — প্রতিটার article, বহুবচন ও বাংলা অর্থসহ। সাথে সবচেয়ে দরকারি <b>ক্রিয়া, বিশেষণ ও ছোট শব্দ</b>।</p>
+    </section>
+
+    <!-- নিয়ম -->
+    <section class="lesson" id="rules">
+      <h2>📏 লিঙ্গ চেনার নিয়ম — শব্দের শেষ দেখে বোঝো</h2>
+      <p class="lead">জার্মান বিশেষ্যের লিঙ্গ বেশিরভাগ সময় যুক্তি দিয়ে বোঝা যায় না। <b>কিন্তু শব্দের শেষাংশ অনেক সময় বলে দেয়।</b> নিচের নিয়মগুলো মুখস্থ করলে হাজার হাজার শব্দের লিঙ্গ আন্দাজ করতে পারবে।</p>
+      <div class="rgrid" id="rulesBox"></div>
+      <div class="warn"><b>তবু সবচেয়ে নিরাপদ অভ্যাস:</b> নতুন শব্দ <b>কখনো একা মুখস্থ করো না</b> — সবসময় article সহ, এক শব্দের মতো: <span class="g-der">der</span> Tisch · <span class="g-die">die</span> Lampe · <span class="g-das">das</span> Buch। নিয়ম সাহায্য করে, কিন্তু অভ্যাসই শেষ ভরসা।</div>
+      <div class="tip"><b>রঙের কৌশল:</b> এই পাতায় <b class="g-der">der</b> নীল, <b class="g-die">die</b> গোলাপি, <b class="g-das">das</b> সবুজ। নতুন শব্দ লেখার সময় তুমিও এই তিন রঙে লিখো — চোখ দিয়ে মনে রাখা অনেক সহজ হয়।</div>
+    </section>
+
+    <!-- বিশেষ্য -->
+    <section class="lesson" id="nouns">
+      <h2>📚 বিশেষ্য — লিঙ্গ ও বিষয় ধরে</h2>
+      <p class="lead">নিচে লিঙ্গ (der/die/das) বা বিষয় বেছে নাও, অথবা সরাসরি খোঁজো।</p>
+
+      <div class="wctl">
+        <div class="row">
+          <span class="wlabel">লিঙ্গ:</span>
+          <div class="gseg" id="gSeg">
+            <button data-g="all" class="active">সব</button>
+            <button data-g="der">der</button>
+            <button data-g="die">die</button>
+            <button data-g="das">das</button>
+          </div>
+          <span class="wstat" id="nStat"></span>
+        </div>
+        <div class="row">
+          <span class="wlabel">বিষয়:</span>
+          <select id="catSel" class="wsel"><option value="all">সব বিষয়</option></select>
+          <input id="nSearch" class="wsearch" type="search" placeholder="🔍 শব্দ খোঁজো (জার্মান বা বাংলা)…" autocomplete="off">
+        </div>
+      </div>
+
+      <div id="nounBox"></div>
+    </section>
+
+    <!-- ক্রিয়া -->
+    <section class="lesson" id="verbs">
+      <h2>⚡ সবচেয়ে দরকারি ক্রিয়া (Verben)</h2>
+      <p class="lead">প্রতিটার সাথে <b>Perfekt রূপ</b> দেওয়া আছে — <code>ist</code> দিয়ে শুরু হলে <b>sein</b> নেয়, নইলে <b>haben</b>। <span class="irr">অনিয়মিত</span> চিহ্ন যেগুলোতে আছে, সেগুলো আলাদা করে মুখস্থ করতে হবে।</p>
+      <div id="verbBox"></div>
+    </section>
+
+    <!-- বিশেষণ -->
+    <section class="lesson" id="adj">
+      <h2>🎨 সবচেয়ে দরকারি বিশেষণ (Adjektive)</h2>
+      <p class="lead">বিপরীত শব্দ <b>জোড়ায় শেখো</b> — মস্তিষ্ক একসাথে ভালো ধরে রাখে।</p>
+      <div id="adjBox"></div>
+    </section>
+
+    <!-- অন্যান্য -->
+    <section class="lesson" id="func">
+      <h2>🧩 ছোট কিন্তু জরুরি শব্দ</h2>
+      <p class="lead">প্রশ্নবোধক শব্দ, সর্বনাম, preposition, সংযোজক, সময় ও সংখ্যা — এগুলো ছাড়া বাক্যই হয় না।</p>
+      <div id="funcBox"></div>
+    </section>
+
+    <section class="lesson">
+      <h2>🧭 এই তালিকা কীভাবে ব্যবহার করবে</h2>
+      <div class="tblwrap">
+      <table>
+        <tr><th>কখন</th><th>কী করবে</th></tr>
+        <tr><td><b>নতুন শব্দ শিখতে</b></td><td>একটা বিষয় বেছে নাও, দিনে <b>১০–১৫টা</b> শব্দ — আর্টিকেল সহ জোরে বলো।</td></tr>
+        <tr><td><b>লিঙ্গ গুলিয়ে গেলে</b></td><td>উপরের <a class="inline" href="#rules">নিয়মের অংশে</a> ফিরে যাও — শব্দের শেষ দেখে মিলিয়ে নাও।</td></tr>
+        <tr><td><b>একটা শব্দ খুঁজতে</b></td><td>সার্চ বক্সে জার্মান বা <b>বাংলা</b> লিখে খোঁজো।</td></tr>
+        <tr><td><b>der/die/das অভ্যাস করতে</b></td><td>শুধু <b>die</b> বেছে নাও, পুরো তালিকা জোরে পড়ো — কান ও চোখে ছাঁদ বসে যাবে।</td></tr>
+        <tr><td><b>মুখস্থ যাচাই করতে</b></td><td><a class="inline" href="trainer.html">শব্দ ট্রেইনারে</a> যাও — ওখানে flashcard ও spaced repetition আছে।</td></tr>
+      </table>
+      </div>
+      <div class="note">এই তালিকা <b>রেফারেন্স</b> — একবারে সব মুখস্থ করার জিনিস নয়। প্রতিদিন একটু করে নাও, আর <a class="inline" href="kurs.html">কোর্সের</a> ইউনিটে যে শব্দ পাবে সেগুলো এখানে এসে ঝালিয়ে নাও।</div>
+    </section>
+  </main>
+</div>
+
+<footer>der · die · das · Deutsch für Bangla · শব্দ সবসময় article সহ শেখো · Viel Erfolg!</footer>
+
+<script src="woerter-data.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  "use strict";
+  var W = window.WOERTER;
+  if(!W){ document.getElementById('nounBox').innerHTML='<div class="empty">ডেটা পাওয়া যায়নি।</div>'; return; }
+
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+  function say(t){return '<button class="say" type="button" data-say="'+esc(t)+'">🔊</button>'}
+
+  /* ---------- নিয়ম ---------- */
+  document.getElementById('rulesBox').innerHTML = W.rules.map(function(r){
+    return '<div class="rcard '+r.g+'">'+
+      '<div class="rttl g-'+r.g+'">'+r.title_bn+'</div>'+
+      r.items.map(function(i){
+        return '<div class="rrow"><div class="rk">'+i.k+'</div>'+
+               '<div class="rex">'+esc(i.ex)+'</div>'+
+               '<div class="rb">'+i.b+'</div></div>';
+      }).join('')+
+    '</div>';
+  }).join('');
+
+  /* ---------- বিশেষ্য ---------- */
+  var ALLN=[];
+  W.nouns.forEach(function(c){
+    c.words.forEach(function(w){
+      ALLN.push({d:w.d,g:w.g,pl:w.pl,b:w.b,cat:c.cat,cat_bn:c.cat_bn,icon:c.icon});
+    });
+  });
+
+  var st={g:'all',cat:'all',q:''};
+  var catSel=document.getElementById('catSel');
+  var nStat=document.getElementById('nStat');
+  var nounBox=document.getElementById('nounBox');
+
+  /* বিষয়ের ড্রপডাউন — নির্বাচিত লিঙ্গ অনুযায়ী সংখ্যা */
+  function fillCats(){
+    var cnt={},order=[],bn={},ic={};
+    ALLN.forEach(function(w){
+      if(st.g!=='all' && w.g!==st.g) return;
+      if(!cnt[w.cat]){cnt[w.cat]=0;order.push(w.cat);bn[w.cat]=w.cat_bn;ic[w.cat]=w.icon;}
+      cnt[w.cat]++;
+    });
+    var total=order.reduce(function(a,c){return a+cnt[c]},0);
+    var o='<option value="all">সব বিষয় ('+total+')</option>';
+    order.forEach(function(c){
+      o+='<option value="'+encodeURIComponent(c)+'">'+ic[c]+' '+esc(bn[c])+' ('+cnt[c]+')</option>';
+    });
+    catSel.innerHTML=o;
+    if(st.cat!=='all' && cnt[st.cat]) catSel.value=encodeURIComponent(st.cat);
+    else st.cat='all';
+  }
+
+  function renderNouns(){
+    var q=st.q.trim().toLowerCase();
+    var list=ALLN.filter(function(w){
+      if(st.g!=='all' && w.g!==st.g) return false;
+      if(st.cat!=='all' && w.cat!==st.cat) return false;
+      if(q && (w.d+' '+w.b+' '+(w.pl||'')).toLowerCase().indexOf(q)<0) return false;
+      return true;
+    });
+    if(!list.length){
+      nounBox.innerHTML='<div class="empty">এই ফিল্টারে কোনো শব্দ নেই।<br>অন্য লিঙ্গ বা বিষয় বেছে নাও।</div>';
+      nStat.innerHTML=''; return;
+    }
+    var byG={der:0,die:0,das:0};
+    list.forEach(function(w){byG[w.g]++});
+    nStat.innerHTML='<b>'+list.length+'</b> শব্দ · '+
+      '<span class="g-der">der '+byG.der+'</span> · '+
+      '<span class="g-die">die '+byG.die+'</span> · '+
+      '<span class="g-das">das '+byG.das+'</span>';
+
+    /* বিষয় ধরে ভাগ করে দেখাও */
+    var groups=[],map={};
+    list.forEach(function(w){
+      if(!map[w.cat]){map[w.cat]={cat:w.cat,bn:w.cat_bn,icon:w.icon,ws:[]};groups.push(map[w.cat]);}
+      map[w.cat].ws.push(w);
+    });
+
+    nounBox.innerHTML = groups.map(function(g){
+      return '<div class="chead"><span class="cic">'+g.icon+'</span>'+esc(g.bn)+
+        '<span class="ccount">'+g.ws.length+'টি</span></div>'+
+        '<div class="ngrid">'+g.ws.map(function(w){
+          return '<div class="ncard '+w.g+'">'+
+            '<div class="nw"><span class="nart g-'+w.g+'">'+w.g+'</span> '+esc(w.d)+
+              say(w.g+' '+w.d)+'</div>'+
+            (w.pl && w.pl!=='—' ? '<div class="npl">বহুবচন: die '+esc(w.pl)+'</div>' : '')+
+            '<div class="nb">'+w.b+'</div>'+
+          '</div>';
+        }).join('')+'</div>';
+    }).join('');
+  }
+
+  document.getElementById('gSeg').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    this.querySelectorAll('button').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    st.g=b.dataset.g; fillCats(); renderNouns();
+  });
+  catSel.addEventListener('change',function(){
+    st.cat = this.value==='all' ? 'all' : decodeURIComponent(this.value);
+    renderNouns();
+  });
+  var qT;
+  document.getElementById('nSearch').addEventListener('input',function(){
+    var v=this.value; clearTimeout(qT);
+    qT=setTimeout(function(){ st.q=v; renderNouns(); },170);
+  });
+
+  /* ---------- ক্রিয়া ---------- */
+  document.getElementById('verbBox').innerHTML = W.verbs.map(function(g){
+    return '<div class="chead">'+esc(g.grp_bn)+'<span class="ccount">'+g.words.length+'টি</span></div>'+
+      '<div class="vgrid">'+g.words.map(function(w){
+        return '<div class="vcard"><div class="vw">'+esc(w.d)+say(w.d)+
+          (w.irr?'<span class="irr">অনিয়মিত</span>':'')+'</div>'+
+          '<div class="vb">'+w.b+'</div>'+
+          (w.pp?'<div class="vpp">Perfekt: '+esc(w.pp)+'</div>':'')+'</div>';
+      }).join('')+'</div>';
+  }).join('');
+
+  /* ---------- বিশেষণ ---------- */
+  document.getElementById('adjBox').innerHTML = W.adj.map(function(g){
+    return '<div class="chead">'+esc(g.grp_bn)+'<span class="ccount">'+g.words.length+'টি</span></div>'+
+      '<div class="vgrid">'+g.words.map(function(w){
+        return '<div class="vcard"><div class="vw">'+esc(w.d)+say(w.d)+'</div>'+
+          '<div class="vb">'+w.b+'</div>'+
+          (w.opp?'<div class="opp">↔ '+esc(w.opp)+'</div>':'')+'</div>';
+      }).join('')+'</div>';
+  }).join('');
+
+  /* ---------- অন্যান্য ---------- */
+  document.getElementById('funcBox').innerHTML = W.func.map(function(g){
+    return '<div class="chead">'+esc(g.grp_bn)+'<span class="ccount">'+g.words.length+'টি</span></div>'+
+      '<div class="vgrid">'+g.words.map(function(w){
+        return '<div class="vcard"><div class="vw">'+esc(w.d)+say(w.d)+'</div>'+
+          '<div class="vb">'+w.b+'</div></div>';
+      }).join('')+'</div>';
+  }).join('');
+
+  fillCats();
+  renderNouns();
+})();
+</script>
+</body>
+</html>
